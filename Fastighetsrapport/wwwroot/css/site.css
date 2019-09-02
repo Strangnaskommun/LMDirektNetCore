@@ -1,0 +1,72 @@
+﻿
+@media print {
+    .fastighetsrapport .group {
+        display: block;
+    }
+
+    .fastighetsrapport h1 + div,
+    .fastighetsrapport h2 + div,
+    .fastighetsrapport h3 + div,
+    .fastighetsrapport h4 + div,
+    .fastighetsrapport h5 + div {
+        border: none !important;
+        border-top: none !important;
+        display: block !important;
+    }
+}
+
+.fastighetsrapport h1, .fastighetsrapport h2, .fastighetsrapport h3, .fastighetsrapport h4, .fastighetsrapport h5 {
+    cursor: pointer;
+    background: #e8e8e8;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px 4px;
+    border-color: #bdbdbd;
+    padding: 6px;
+}
+
+    .fastighetsrapport h1:hover, .fastighetsrapport h2:hover, .fastighetsrapport h3:hover, .fastighetsrapport h4:hover, .fastighetsrapport h5:hover {
+        opacity: 0.7;
+    }
+
+.btn-light {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+    .btn-light:hover {
+        color: #818181;
+        background-color: #fff;
+        border-style: solid;
+        border-color: #fff;
+        font-size: 13px;
+    }
+
+.fastighetsrapport .group {
+    display: none;
+}
+
+.fastighetsrapport div {
+    padding: 8px;
+}
+
+table {
+    font-size: 13px;
+}
+
+.modal-backdrop {
+    opacity: 0.3;
+}
+
+.modal-title {
+    font-size: 25px;
+}
+
+.modal-body p {
+    font-size: 15px;
+}
+
+.list-group-item {
+    font-size: 15px;
+}

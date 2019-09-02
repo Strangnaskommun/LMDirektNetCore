@@ -1,0 +1,1768 @@
+﻿@using LM.InskrivningDirekt;
+@using LM.MarkregleringDirekt;
+@using LM.RattighetDirekt;
+@using LM.TaxeringDirekt;
+@using LM.GADirekt;
+@using Fastighetsrapport.Util;
+@using Fastighetsrapport.Models.Belagenhetsadress;
+@using Fastighetsrapport.Models.Fastigheter;
+
+
+@model List<Fastighetsrapport.Models.PropertyInfo>
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+  $('body').hide();
+</script>
+
+<h3 style="text-align:right">FASTIGHETSRAPPORT  @DateTime.Now.ToString("yyyy-MM-dd")</h3>
+
+<div class="modal" id="infoModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 style="text-align:center" class="modal-title">Fastighetsrapport &nbsp<i class="fa fa-info-circle"></i></h4>
+      </div>
+      <div class="modal-body">
+        <p>Denna applikation hämtar data direkt från Lantmäteriverket som har till uppgift att hålla informationen uppdaterad. Viss information kommer från andra myndigheter men publiceras dock genom dessa tjänster. Strängnäs kommun levererar bland annat byggnader och adresser till myndigheten.<br />För att kunna öppna dokument från Lantmäteriets arkiv, Arken, behöver du installera programmet "DjVu". Du hittar programmet i Software Center på din dator eller <a href="https://www.lantmateriet.se/sv/Om-Lantmateriet/Kontakta-oss/om-webbplatsen/tekniska-fragor/Installera-DjVu-bildvisningsprogrammet/"> här</a>. Programmet fungerar endast i webbläsaren Internet Explorer.<br /><br />Nedan finns detaljerade specifikationer om direkttjänsterna för vidare läsning.</p>
+        <br />
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_belagenhetsadress_direkt_4.1.0_2.5.pdf">Belägenhetsadress Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_fastighet_direkt_v2.1.0_2.1.pdf">Fastighet Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/contentassets/2b10b863e2794cdfa44fdf6b84a1fc2f/pb_ga_direkt_v1.6.0.pdf">Gemensamhetsanläggning Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/contentassets/e6e6a4332f8c4de292ff5313b3d1653b/pb_inskrivning_dir_v2.1.1_3.2.pdf">Inskrivning Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/contentassets/0e03e599921843529d5b33e4250881af/pb_markreglering_direkt_v1.4.1_1.6.pdf">Markreglering Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/tb_rattighetdirekt_v1.4.2.pdf">Rättighet Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_taxering_direkt_1.7.0_1.11.pdf">Taxering Direkt</a></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+@if (Model.Count > 0)
+{
+  foreach (Fastighetsrapport.Models.PropertyInfo fastighetsdata in Model)
+  {
+    string beteckning = "";
+    string aktdirektproxybase = "/service/document/index.djvu?archive=04&id=";
+    string fornsok = "www.fmis.raa.se/cocoon/fornsok/search.html?raa_number=asp%C3%B6%207:1&use_extent=false&use_poly=false&rdo=eq&tab=3&page=1&objektid=10";
+    string fastlank = "/fastighetsrapport/lmdirect?objektids=";
+
+    if (fastighetsdata.Registerenhet != null)
+    {
+      foreach (var registerenhet in fastighetsdata.Registerenhet)
+      {
+        string block = registerenhet.Item.Registerbeteckning.block == "*" ? "" : registerenhet.Item.Registerbeteckning.block + ":";
+        beteckning = String.Format("{0} {1} {2} {3}",
+                            registerenhet.Item.Registerbeteckning.registeromrade,
+                            registerenhet.Item.Registerbeteckning.traktnamn,
+                            block,
+                            registerenhet.Item.Registerbeteckning.enhet);
+      }
+      <div class="fastighetsrapport remove container">
+        <button id="remove" class="btn btn-light" style="float: right">Ta bort fastighet från lista</button>
+
+        <h1>@beteckning</h1>
+
+        <div>
+
+          @if (fastighetsdata.ExportItems.Contains("0"))
+          {
+            InskrivningsinformationType inskrivningsinformation = new InskrivningsinformationType();
+            if (fastighetsdata.Inskrivningsinformation != null)
+            {
+              inskrivningsinformation = fastighetsdata.Inskrivningsinformation.FirstOrDefault().Inskrivningsinformation;
+            }
+            <h2>Lagfart</h2>
+            <div>
+              @if (inskrivningsinformation != null && inskrivningsinformation.Agande != null)
+              {
+                foreach (InskrivetAgandeType lagfart in inskrivningsinformation.Agande)
+                {
+                  if (lagfart.Agare.efternamn != null)
+                  {
+                    if (lagfart.Agare.efternamn.Contains("SKYDDAD PERSONUPPGIFT"))
+                    {
+                      <p>@lagfart.Agare.efternamn</p>
+                    }
+                  }
+                  if (lagfart.Agare.Item != null)
+                  {
+                    <table>
+                      <tbody>
+                        @if (lagfart.Agare.Item.GetType() == typeof(PersonType))
+                        {
+                          PersonType person = lagfart.Agare.Item as PersonType;
+                          string adress = "";
+                          if (person.Adress != null)
+                          {
+                            adress = String.Format("{0} {1}, {2} {3}", person.Adress.utdelningsadress1, person.Adress.utdelningsadress2, person.Adress.postnummer, person.Adress.postort);
+                          }
+                          <tr>
+                            <th>Ägare</th>
+                            <td>@person.fornamn @person.efternamn</td>
+                          </tr>
+                          <tr>
+                            <th>Id-nummer</th>
+                            <td>@lagfart.Agare.IDnummer</td>
+                          </tr>
+                          <tr>
+                            <th>Adress</th>
+                            <td>@adress</td>
+                            @if (person.Utlandsadress != null)
+                            {
+                              <td>@person.Utlandsadress.utdelningsadress1 @person.Utlandsadress.utdelningsadress2 @person.Utlandsadress.utdelningsadress3 @person.Utlandsadress.utdelningsadress4 @person.Utlandsadress.land</td>
+                            }
+                          </tr>
+                        }
+                        @if (lagfart.Agare.Item.GetType() == typeof(OrganisationType))
+                        {
+                          OrganisationType organisation = lagfart.Agare.Item as OrganisationType;
+                          string adress = "";
+                          if (organisation.Adress != null)
+                          {
+                            adress = String.Format("{0} {1} {2} {3}", organisation.Adress.utdelningsadress1, organisation.Adress.utdelningsadress2, organisation.Adress.postnummer, organisation.Adress.postort);
+                          }
+                          <tr>
+                            <th>Ägare</th>
+                            <td>@organisation.organisationsnamn @organisation.organisationsnummer</td>
+                          </tr>
+                          <tr>
+                            <th>Adress</th>
+                            <td>@adress</td>
+                          </tr>
+                        }
+                        @if (lagfart.Agare.Item.GetType() == typeof(UtlandskAgareType))
+                        {
+                          UtlandskAgareType utlanskAgare = lagfart.Agare.Item as UtlandskAgareType;
+
+                          <tr>
+                            <th>Ägare</th>
+                            <td>@lagfart.Agare.fornamn @lagfart.Agare.efternamn</td>
+                          </tr>
+                          <tr>
+                            <th>Adress</th>
+                            <td>@utlanskAgare.utdelningsadress @utlanskAgare.postort @utlanskAgare.postkod @utlanskAgare.land</td>
+                          </tr>
+                        }
+                        <tr>
+                          <th>Andel</th>
+                          <td>
+                            @if (lagfart.BeviljadAndel != null)
+                            {
+                              <span>@lagfart.BeviljadAndel.taljare / @lagfart.BeviljadAndel.namnare</span>
+                            }
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Inskrivningsdag</th>
+                          <td>@lagfart.inskrivningsdag</td>
+                        </tr>
+                        <tr>
+                          <th>Dagboksnummer</th>
+                          <td>
+                            @if (lagfart.dagboksnummer != null)
+                            {
+                              String.Join("", lagfart.dagboksnummer);
+                            }
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Beslut</th>
+                          <td>@lagfart.beslut</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  }
+                }
+              }
+            </div>
+          }
+
+          @if (fastighetsdata.Registerenhet != null)
+          {
+            foreach (var registerenhet in fastighetsdata.Registerenhet)
+            {
+              if (fastighetsdata.ExportItems.Contains("1"))
+              {
+                <h2>Registreringsinformation</h2>
+                <div class="group">
+                  <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                    <tbody>
+                      <tr>
+                        <th>Beteckning</th>
+                        <td class="col-md-8">@beteckning</td>
+                      </tr>
+                      <tr>
+                        <th>Senaste ändringen i fastighetsregistret</th>
+                        <td class="col-md-8">@registerenhet.Item.Item.senasteAndring</td>
+                      </tr>
+                      <tr>
+                        <th>Status</th>
+                        <td class="col-md-8">@registerenhet.Item.objektstatus</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              }
+              if (fastighetsdata.ExportItems.Contains("2"))
+              {
+                <h2>Pågående ärenden</h2>
+                <div class="group">
+                  @if (registerenhet.Item.PagaendeArende.Forrattningsstatus != null)
+                  {
+                    foreach (var status in registerenhet.Item.PagaendeArende.Forrattningsstatus)
+                    {
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <tbody>
+                          <tr>
+                            <th>Dagboksnummer</th>
+                            <td class="col-md-8">@status.dagboksnummer</td>
+                          </tr>
+                          <tr>
+                            <th>Flaggnivå</th>
+                            <td class="col-md-8">@status.flaggniva</td>
+                          </tr>
+                          <tr>
+                            <th>Flaggdatum 1</th>
+                            <td class="col-md-8">@status.flaggdatum1</td>
+                          </tr>
+                          <tr>
+                            <th>Flaggdatum 2</th>
+                            <td class="col-md-8">@status.flaggdatum2</td>
+                          </tr>
+                          <tr>
+                            <th>Flaggdatum 3</th>
+                            <td class="col-md-8">@status.flaggdatum3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    }
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("3"))
+              {
+                <h2>Andel i samfälligheter</h2>
+                <div class="group">
+                  @if (registerenhet.Item.AndelISamfallighet != null)
+                  {
+                    foreach (var andel in registerenhet.Item.AndelISamfallighet)
+                    {
+                      AnnanDelagareType annanDelagare = null;
+                      Fastighetsrapport.Models.Fastigheter.RegisterenhetsreferensPropertyType registerenhetsreferens = null;
+                      if (andel.Item != null)
+                      {
+                        if (andel.Item.GetType() == typeof(AnnanDelagareType))
+                        {
+                          annanDelagare = (AnnanDelagareType)andel.Item;
+                        }
+                        if (andel.Item.GetType() == typeof(Fastighetsrapport.Models.Fastigheter.RegisterenhetsreferensPropertyType))
+                        {
+                          registerenhetsreferens = (Fastighetsrapport.Models.Fastigheter.RegisterenhetsreferensPropertyType)andel.Item;
+                        }
+                      }
+                      var samfallighet = andel.Samfallighet;
+
+                      string urlReferensfastighet = null;
+
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <tbody>
+                          @if (samfallighet != null)
+                          {
+                            urlReferensfastighet = fastlank + samfallighet.Registerenhetsreferens.objektidentitet;
+                            <tr>
+                              <th>Referensfastighet (beteckning)</th>
+                              <td class="col-md-8"><a href="@urlReferensfastighet" target="_blank">@samfallighet.Registerenhetsreferens.beteckning</a></td>
+                            </tr>
+                            <tr>
+                              <th>Referensfastighet (typ)</th>
+                              <td class="col-md-8">@samfallighet.Registerenhetsreferens.typ</td>
+                            </tr>
+
+                          }
+                          @if (registerenhetsreferens != null && registerenhetsreferens.Registerenhetsreferens.beteckning != null)
+                          {
+                            urlReferensfastighet = fastlank + registerenhetsreferens.Registerenhetsreferens.objektidentitet;
+                            <tr>
+                              <th>Delägare</th>
+                              <td class="col-md-8"><a href="@urlReferensfastighet" target="_blank">@registerenhetsreferens.Registerenhetsreferens.beteckning</a></td>
+                            </tr>
+                          }
+                          @if (annanDelagare != null && annanDelagare.skifteslagDelagare != null)
+                          {
+                            <tr>
+                              <th>Annan delägare</th>
+                              <td class="col-md-8">@annanDelagare.skifteslagDelagare</td>
+                            </tr>
+                          }
+                          <tr>
+                            <th>Andel</th>
+                            <td class="col-md-8">@andel.andel</td>
+                          </tr>
+                          <tr>
+                            <th>Andelssort</th>
+                            <td class="col-md-8">@andel.andelstalssort</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    }
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("4"))
+              {
+                <h2>Ursprungsfastighet</h2>
+                <div class="group">
+                  @if (registerenhet.Item.Registerenhetshistorik != null)
+                  {
+                    if (registerenhet.Item.Registerenhetshistorik.Ursprung != null)
+                    {
+                      foreach (var registerHistorik in registerenhet.Item.Registerenhetshistorik.Ursprung)
+                      {
+                        string urlUrsprungsfastighet = fastlank + registerHistorik.Registerenhetsreferens.objektidentitet;
+                        <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                          <thead>
+                            <tr>
+                              <td class="col-md-8">
+                                <a href="@urlUrsprungsfastighet" target="_blank">@registerHistorik.Registerenhetsreferens.beteckning</a>
+                              </td>
+                            </tr>
+                          </thead>
+                        </table>
+                      }
+                    }
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("5"))
+              {
+                <h2>Anmärkningar</h2>
+                <div class="group">
+                  <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                    <thead>
+                      @if (registerenhet.Item.Registerenhetsanmarkning != null)
+                      {
+                        foreach (var anmarkning in registerenhet.Item.Registerenhetsanmarkning)
+                        {
+                          <tr>
+                            <th>Gruppkod</th>
+                            <td class="col-md-8">@anmarkning.informationsgruppkod</td>
+                          </tr>
+                          <tr>
+                            <th>Löpnummer</th>
+                            <td class="col-md-8">@anmarkning.lopnummer</td>
+                          </tr>
+                          <tr>
+                            <th>Texanmärkning</th>
+                            <td class="col-md-8">@anmarkning.registerenhetsanmarkning</td>
+                          </tr>
+                        }
+                      }
+                    </thead>
+                  </table>
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("6"))
+              {
+                <h2>Läge/karta</h2>
+                <div class="group">
+                  @if (registerenhet.Item.Enhetsomrade != null)
+                  {
+                    var omraden = registerenhet.Item.Enhetsomrade.OrderBy(a => a.omradesnummer);
+                    foreach (var enhetsomrade in omraden)
+                    {
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <caption>Koordinater i Sweref 99 TM</caption>
+                        <thead>
+                          <tr>
+                            <th>Område</th>
+                            <td class="col-md-8">@enhetsomrade.omradesnummer</td>
+                          </tr>
+                          <tr>
+                            <th>N</th>
+                            <td class="col-md-8">@enhetsomrade.Centralpunkt.Point.pos.Coordinates[0]</td>
+                          </tr>
+                          <tr>
+                            <th>E</th>
+                            <td class="col-md-8">@enhetsomrade.Centralpunkt.Point.pos.Coordinates[1]</td>
+                          </tr>
+                          <tr>
+                            <th>Registerkarta</th>
+                            <td class="col-md-8">@enhetsomrade.registerkarta</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("7"))
+              {
+                <h2>Areal</h2>
+                <div class="group">
+                  @if (registerenhet.Item.Item != null)
+                  {
+                    <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                      <thead>
+                        <tr>
+                          <th>Areal</th>
+                          <td class="col-md-8">@registerenhet.Item.Item.totalRegisterarea</td>
+                        </tr>
+                        <tr>
+                          <th>Därav landareal</th>
+                          <td class="col-md-8">@registerenhet.Item.Item.totalLandarea</td>
+                        </tr>
+                        <tr>
+                          <th>Därav vattenareal</th>
+                          <td class="col-md-8">@registerenhet.Item.Item.totalVattenarea</td>
+                        </tr>
+                      </thead>
+                    </table>
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("8"))
+              {
+                <h2>Tidigarebeteckning (efter beteckningsreformen)</h2>
+                <div class="group">
+                  @if (registerenhet.Item.AldreBeteckning != null)
+                  {
+                    foreach (var aldreBeteckning in registerenhet.Item.AldreBeteckning)
+                    {
+                      string url = "";
+                      if (aldreBeteckning.aktbeteckning != null)
+                      {
+                        url = aktdirektproxybase + aldreBeteckning.aktbeteckning;
+                      }
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          <tr>
+                            <th>Tidigare beteckning</th>
+                            <td class="col-md-8">@aldreBeteckning.niva1 @aldreBeteckning.niva2 @aldreBeteckning.niva3 @aldreBeteckning.niva4</td>
+                          </tr>
+                          <tr>
+                            <th>Aktbeteckning</th>
+                            <td class="col-md-8"><a target="_blank" href="@url">@aldreBeteckning.aktbeteckning</a></td>
+                          </tr>
+                          <tr>
+                            <th>Omregistreringsdatum</th>
+                            <td class="col-md-8">@aldreBeteckning.omregistreringsdatum</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("9"))
+              {
+                <h2>Tidigarebeteckning (före beteckningsreformen)</h2>
+                <div class="group">
+                  @if (registerenhet.Item.TidigareRegisterbeteckning != null)
+                  {
+                    foreach (var tidigareBeteckning in registerenhet.Item.TidigareRegisterbeteckning)
+                    {
+                      string url = aktdirektproxybase + tidigareBeteckning.aktbeteckning;
+
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          <tr>
+                            <th>Tidigare beteckning</th>
+                            <td class="col-md-8">@tidigareBeteckning.registeromrade @tidigareBeteckning.traktnamn @tidigareBeteckning.block : @tidigareBeteckning.enhet</td>
+                          </tr>
+                          <tr>
+                            <th>Aktbeteckning</th>
+                            <td class="col-md-8"><a target="_blank" href="@url">@tidigareBeteckning.aktbeteckning</a></td>
+                          </tr>
+                          <tr>
+                            <th>Omregistreringsdatum</th>
+                            <td class="col-md-8">@tidigareBeteckning.omregistreringsdatum</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  }
+                </div>
+              }
+
+              if (fastighetsdata.ExportItems.Contains("10"))
+              {
+                if (registerenhet.Item.Fastighetsatgard != null)
+                {
+                  <h2>Fastighetsrättsliga åtgärder</h2>
+                  <div class="group">
+                    @foreach (var atgard in registerenhet.Item.Fastighetsatgard)
+                    {
+                      var aktbeteckning = atgard.Fastighetsarende != null ? atgard.Fastighetsarende.aktbeteckning : "";
+
+                      string url = aktdirektproxybase + @aktbeteckning;
+
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          <tr>
+                            <th>Åtgärdsförkortning</th>
+                            <td class="col-md-8">@String.Join(", ", atgard.atgardstyp)</td>
+                          </tr>
+                          <tr>
+                            <th>Åtgärdsnummer</th>
+                            <td class="col-md-8">@atgard.atgardsnummer</td>
+                          </tr>
+                          <tr>
+                            <th>Datum</th>
+                            <td class="col-md-8">@atgard.atgardstidpunkt</td>
+                          </tr>
+                          <tr>
+                            <th>Anteckning</th>
+                            <td class="col-md-8">@atgard.anteckning</td>
+                          </tr>
+                          <tr>
+                            <th>Aktbeteckning</th>
+                            <td class="col-md-8"><a target="_blank" href="@url">@aktbeteckning</a></td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  </div>
+                }
+              }
+            }
+          }
+
+          @if (fastighetsdata.ExportItems.Contains("11"))
+          {
+            <h2>Adresser</h2>
+            <div class="group">
+              @if (fastighetsdata.Adresser != null)
+              {
+                foreach (var adress in fastighetsdata.Adresser)
+                {
+                  AdressomradeType adressomrade = null;
+                  GardsadressomradeType gardsAdressomrade = null;
+
+                  if (adress.Belagenhetsadress.Item.GetType() == typeof(AdressomradeType))
+                  {
+                    adressomrade = (AdressomradeType)adress.Belagenhetsadress.Item;
+                  }
+
+                  if (adress.Belagenhetsadress.Item.GetType() == typeof(GardsadressomradeType))
+                  {
+                    gardsAdressomrade = (GardsadressomradeType)adress.Belagenhetsadress.Item;
+                  }
+
+                  string gata = "";
+                  string nummer = "";
+                  string bokstav = "";
+                  int postnummer = 0;
+                  string postort = "";
+                  string kommundel = "";
+                  string kommunkod = "";
+                  string distriktskod = "";
+                  string distriktsnamn = "";
+
+                  if (adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items != null &&
+                      adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items.Count() > 0 &&
+                      adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items[0] != null)
+                  {
+                    nummer = (string)adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items[0];
+                  }
+
+                  if (adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items != null &&
+                      adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items.Count() > 1 &&
+                      adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items[1] != null)
+                  {
+                    bokstav = (string)adress.Belagenhetsadress.Adressplatsattribut.Adressplatsbeteckning.Items[1];
+                  }
+
+                  if (adressomrade != null && adressomrade.Kommundel != null)
+                  {
+                    gata = adressomrade.faststalltNamn;
+                    kommundel = adressomrade.Kommundel.faststalltNamn;
+                    if (adressomrade.Kommundel.Kommun != null)
+                    {
+                      kommunkod = adressomrade.Kommundel.Kommun.kommunkod;
+                    }
+                  }
+                  else if (gardsAdressomrade != null && gardsAdressomrade.Adressomrade != null)
+                  {
+                    gata = gardsAdressomrade.Adressomrade.faststalltNamn + " " + gardsAdressomrade.faststalltNamn;
+                    kommundel = gardsAdressomrade.Adressomrade.Kommundel.faststalltNamn;
+                    if (gardsAdressomrade.Adressomrade.Kommundel.Kommun != null)
+                    {
+                      kommunkod = gardsAdressomrade.Adressomrade.Kommundel.Kommun.kommunkod;
+                    }
+                  }
+
+                  if (adress.Belagenhetsadress.Adressplatsattribut != null)
+                  {
+                    postort = adress.Belagenhetsadress.Adressplatsattribut.postort;
+                    postnummer = adress.Belagenhetsadress.Adressplatsattribut.postnummer;
+                  }
+
+                  if (adress.Belagenhetsadress.Distrikttillhorighet != null)
+                  {
+                    distriktsnamn = adress.Belagenhetsadress.Distrikttillhorighet.distriktsnamn;
+                    distriktskod = adress.Belagenhetsadress.Distrikttillhorighet.distriktskod;
+                  }
+
+                  <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                    <thead>
+                      <tr>
+                        <th>Gata</th>
+                        <td class="col-md-8">@gata @nummer@bokstav</td>
+                      </tr>
+                      <tr>
+                        <th>Postnummer</th>
+                        <td class="col-md-8">@postnummer</td>
+                      </tr>
+                      <tr>
+                        <th>Postort</th>
+                        <td class="col-md-8">@postort</td>
+                      </tr>
+                      <tr>
+                        <th>Kommundel</th>
+                        <td class="col-md-8">@kommundel</td>
+                      </tr>
+                      <tr>
+                        <th>Kommunkod</th>
+                        <td class="col-md-8">@kommunkod</td>
+                      </tr>
+                      <tr>
+                        <th>Distriktskod</th>
+                        <td class="col-md-8">@distriktskod</td>
+                      </tr>
+                      <tr>
+                        <th>Distriktsnamn</th>
+                        <td class="col-md-8">@distriktsnamn</td>
+                      </tr>
+                    </thead>
+                  </table>
+                }
+              }
+            </div>
+          }
+
+          @if (fastighetsdata.ExportItems.Contains("12"))
+          {
+            <h2>Taxeringsuppgifter</h2>
+            <div class="group">
+              @if (fastighetsdata.Taxeringsenheter != null)
+              {
+                foreach (TaxeringsenhetMemberType member in fastighetsdata.Taxeringsenheter)
+                {
+                  TaxeringsenhetType taxeringsenhet = member.Taxeringsenhet;
+                  var attr = taxeringsenhet.Taxeringsenhetsattribut;
+                  <h3>Taxeringsenhet</h3>
+                  <div class="group">
+                    <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                      <thead>
+                        <tr>
+                          <th>Taxeringsenhet</th>
+                          <td class="col-md-8">@attr.typkod</td>
+                        </tr>
+                        <tr>
+                          <th>Taxeringsvärde (TSEK)</th>
+                          <td class="col-md-8">@attr.taxeringsvarde</td>
+                        </tr>
+                        <tr>
+                          <th>Riksnyckel</th>
+                          <td class="col-md-8">@taxeringsenhet.id</td>
+                        </tr>
+                        @if (attr.Taxeringsar != null)
+                        {
+                          <tr>
+                            <th>Uppgiftsår</th>
+                            <td class="col-md-8">@attr.Taxeringsar.from - @attr.Taxeringsar.to</td>
+                          </tr>
+                        }
+                      </thead>
+                    </table>
+
+                    @if (taxeringsenhet.Taxeringsdel != null)
+                    {
+                      foreach (var taxeringsdel in taxeringsenhet.Taxeringsdel)
+                      {
+                        <h4>Taxeringsdelar</h4>
+                        <div class="group">
+                          @if (taxeringsdel.Taxeringsdelsattribut != null)
+                          {
+                            <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                              <thead>
+                                <tr>
+                                  <th>Areal (kvm)</th>
+                                  <td class="col-md-8">@taxeringsdel.Taxeringsdelsattribut.areal</td>
+                                </tr>
+                              </thead>
+                            </table>
+                          }
+                          @if (taxeringsdel.TaxeradAgare != null)
+                          {
+                            <h5>Taxerade ägare</h5>
+                            <div class="group">
+                              @foreach (var ägare in taxeringsdel.TaxeradAgare)
+                              {
+                                <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                                  <thead>
+                                    @if (ägare.adressrad != null)
+                                    {
+                                      <tr>
+                                        <th>Taxerad ägare</th>
+                                        <td class="col-md-8">@String.Join(" ", ägare.adressrad)</td>
+                                      </tr>
+                                    }
+                                    <tr>
+                                      <th>Personnummer/Orgnummer</th>
+                                      <td class="col-md-8">@ägare.personid</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Andel</th>
+                                      <td class="col-md-8">@ägare.andel</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Dödsbonummer</th>
+                                      <td class="col-md-8">@ägare.dodsbonummer</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Juridisk form</th>
+                                      <td class="col-md-8">@ägare.kodJuridiskForm</td>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              }
+                            </div>
+                          }
+                        </div>
+                      }
+                    }
+                    <h3>Värderingsenheter</h3>
+                    <div class="group">
+                      @if (taxeringsenhet.Items != null)
+                      {
+                        foreach (VarderingsenhetType ve in taxeringsenhet.Items)
+                        {
+                          <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                            <thead>
+                              <tr>
+                                <th>Typ</th>
+                                <td class="col-md-8">@VarderingsenhetTranslator.Translate(ve.GetType().Name)</td>
+                              </tr>
+                              <tr>
+                                <th>Värde</th>
+                                <td class="col-md-8">@ve.varde</td>
+                              </tr>
+                              @if (ve.justeringskod != null)
+                              {
+                                <tr>
+                                  <th>Justeringskod</th>
+                                  <td class="col-md-8">@String.Join(" ", ve.justeringskod)</td>
+                                </tr>
+                              }
+                            </thead>
+                          </table>
+                        }
+                      }
+                    </div>
+                  </div>
+                }
+              }
+            </div>
+          }
+
+          @if (fastighetsdata.ExportItems.Contains("13"))
+          {
+            <h2>Bestämmelser</h2>
+            <div class="group">
+              @if (fastighetsdata.Markregleringsinformation != null)
+              {
+                foreach (MarkregleringMemberType markreglering in fastighetsdata.Markregleringsinformation)
+                {
+
+                  string url = aktdirektproxybase + markreglering.Item.Item.aktbeteckning;
+
+                  string urlfornsok = fornsok + markreglering.Item.Item.aktbeteckning;
+                  urlfornsok = urlfornsok.Replace(":", "");
+
+                  <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                    <thead>
+                      <tr>
+                        <th>Typ</th>
+                        <td class="col-md-8">
+                          @{
+                            string type = "";
+                            switch (markreglering.Item.Item.GetType().Name)
+                            {
+                              case "OvrigBestammelseattributType":
+                                type = "Övrig bestämmelse";
+                                break;
+                              case "GruvattributType":
+                                type = "Gruva";
+                                break;
+                              case "FornlamningsattributType":
+                                type = "";
+                                <a href="http://@urlfornsok" target="_blank">Fornlämning, se RAÄ's fornsök</a>
+                                break;
+                              case "NaturvardsbestammelseattributType":
+                                type = "Naturvårdsbestämmelse";
+                                break;
+                              case "PlanattributType":
+                                type = "Plan";
+                                break;
+                            }
+                          }
+                          <span>@type</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Namn</th>
+                        <td class="col-md-8">@markreglering.Item.Item.namn</td>
+                      </tr>
+                      <tr>
+                        <th>Aktbeteckning</th>
+                        <td class="col-md-8">
+                          <a href="@url" target="_blank">
+                            @markreglering.Item.Item.aktbeteckning
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Anmärkning</th>
+                        <td class="col-md-8">@markreglering.Item.Item.anmarkning</td>
+                      </tr>
+                      <tr>
+                        <th>Datum</th>
+                        <td class="col-md-8">@markreglering.Item.Item.registreringsdatum</td>
+                      </tr>
+                    </thead>
+                  </table>
+                }
+              }
+            </div>
+          }
+
+          @if (fastighetsdata.ExportItems.Contains("14"))
+          {
+            <h2>Rättigheter</h2>
+            <div class="group">
+              @if (fastighetsdata.Rattighetsinformation != null)
+              {
+                var rattigheter = fastighetsdata.Rattighetsinformation;
+                foreach (RattighetMemberType r in rattigheter)
+                {
+                  RattighetType rattighet = r.Item;
+
+                  // TODO - Denna använder fel aktbeteckning, därav Replace galenskapen nedan...
+
+                  string url = aktdirektproxybase + rattighet.rattighetsbeteckning;
+                  url = url.Replace(".1", "").Replace(".2", "").Replace(".3", "").Replace(".4", "").Replace(".5", "").Replace(".6", "").Replace(".7", "").Replace(".8", "").Replace(".9", "").Replace(".10", "").Replace(".11", "");
+
+                  <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                    <thead>
+                      @if (rattighet.Item != null)
+                      {
+                        if (rattighet.Item is LM.RattighetDirekt.LedningsrattsattributType)
+                        {
+                          <tr>
+                            <th>Typ</th>
+                            <td class="col-md-8">Ledningsrätt</td>
+                          </tr>
+                        }
+                        if (rattighet.Item is LM.RattighetDirekt.AvtalsservitutsattributType)
+                        {
+                          <tr>
+                            <th>Typ</th>
+                            <td class="col-md-8">Avtalsservitut</td>
+                          </tr>
+                        }
+                        if (rattighet.Item is LM.RattighetDirekt.OfficialservitutsattributType)
+                        {
+                          <tr>
+                            <th>Typ</th>
+                            <td class="col-md-8">Officialservitut</td>
+                          </tr>
+                        }
+                        if (rattighet.Item is LM.RattighetDirekt.OfficialnyttjanderattsattributType)
+                        {
+                          <tr>
+                            <th>Typ</th>
+                            <td class="col-md-8">Officialnyttjanderätt</td>
+                          </tr>
+                        }
+                      }
+                      <tr>
+                        <th>Beteckning</th>
+                        <td class="col-md-8">
+                          <a href="@url" target="_blank">
+                            @rattighet.rattighetsbeteckning
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Länsbokstav</th>
+                        <td class="col-md-8">@rattighet.lansbokstav</td>
+                      </tr>
+                      @if (rattighet.Item != null)
+                      {
+                        <tr>
+                          <th>Rättighetsbeskrivning</th>
+                          <td class="col-md-8">@rattighet.Item.rattighetsbeskrivning</td>
+                        </tr>
+                        <tr>
+                          <th>Rättighetsanmärkning</th>
+                          <td class="col-md-8">@rattighet.Item.rattighetsanmarkning</td>
+                        </tr>
+                        <tr>
+                          <th>Senaste ändring</th>
+                          <td class="col-md-8">@rattighet.Item.senasteAndring</td>
+                        </tr>
+                      }
+                      @if (rattighet.RattsforhallandeKlartextForman != null)
+                      {
+                        foreach (var förmån in rattighet.RattsforhallandeKlartextForman)
+                        {
+                          <tr>
+                            <th>Förmån</th>
+                            <td class="col-md-8">@förmån.klartext</td>
+                          </tr>
+                        }
+                      }
+                      @if (rattighet.RattsforhallandeKlartextLast != null)
+                      {
+                        foreach (var last in rattighet.RattsforhallandeKlartextLast)
+                        {
+                          <tr>
+                            <th>Last</th>
+                            <td class="col-md-8">@last.klartext</td>
+                          </tr>
+                        }
+                      }
+                      @if (rattighet.PagaendeArende != null)
+                      {
+                        <tr>
+                          <th>Pågående ärende/under ajour</th>
+                          <td class="col-md-8">@(rattighet.PagaendeArende.statusflagga ? "Ja" : "Nej")</td>
+                        </tr>
+                        if (rattighet.PagaendeArende.Forrattningsstatus != null)
+                        {
+                          foreach (var status in rattighet.PagaendeArende.Forrattningsstatus)
+                          {
+                            <tr>
+                              <th>Dagboksnummer</th>
+                              <td class="col-md-8">@status.dagboksnummer</td>
+                            </tr>
+                            <tr>
+                              <th>Flaggnivå</th>
+                              <td class="col-md-8">@status.flaggniva</td>
+                            </tr>
+                            <tr>
+                              <th>Flaggdatum</th>
+                              <td class="col-md-8">@status.flaggdatum</td>
+                            </tr>
+                          }
+                        }
+                      }
+                    </thead>
+                  </table>
+                }
+              }
+            </div>
+          }
+
+          @if (fastighetsdata.ExportItems.Contains("15"))
+          {
+            InskrivningsinformationType inskrivningsinformation = new InskrivningsinformationType();
+            if (fastighetsdata.Inskrivningsinformation != null)
+            {
+              inskrivningsinformation = fastighetsdata.Inskrivningsinformation.FirstOrDefault().Inskrivningsinformation;
+            }
+            <h2>Ägandeförhållanden</h2>
+            <div class="group">
+              <h3>Lagfaren ägare</h3>
+              <div class="group">
+                @if (inskrivningsinformation.Agande != null)
+                {
+                  foreach (InskrivetAgandeType lagfart in inskrivningsinformation.Agande)
+                  {
+                    @*if (lagfart.Agare.efternamn != null)
+                    {
+                      if (lagfart.Agare.efternamn.Contains("SKYDDAD PERSONUPPGIFT"))
+                      {
+                        <p>@lagfart.Agare.efternamn</p>
+                      }
+                    }*@
+                    if (lagfart.Agare.Item != null)
+                    {
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          @if (lagfart.Agare.Item.GetType() == typeof(PersonType))
+                          {
+                            PersonType person = lagfart.Agare.Item as PersonType;
+                            string adress = "";
+                            if (person.Adress != null)
+                            {
+                              adress = String.Format("{0} {1} {2}", person.Adress.utdelningsadress1, person.Adress.utdelningsadress2, person.Adress.postort, person.Adress.postnummer);
+                            }
+                            <tr>
+                              <th>Ägare</th>
+                              <td class="col-md-8">@person.fornamn @person.efternamn</td>
+                            </tr>
+                            <tr>
+                              <th>Id-nummer</th>
+                              <td class="col-md-8">@lagfart.Agare.IDnummer</td>
+                            </tr>
+                            <tr>
+                              <th>Adress</th>
+                              <td class="col-md-8">@adress</td>
+                              @if (person.Utlandsadress != null)
+                              {
+                                <td class="col-md-8">@person.Utlandsadress.utdelningsadress1 @person.Utlandsadress.utdelningsadress2 @person.Utlandsadress.utdelningsadress3 @person.Utlandsadress.utdelningsadress4 @person.Utlandsadress.land</td>
+                              }
+                            </tr>
+                          }
+                          @if (lagfart.Agare.Item.GetType() == typeof(OrganisationType))
+                          {
+                            OrganisationType organisation = lagfart.Agare.Item as OrganisationType;
+                            string adress = "";
+                            if (organisation.Adress != null)
+                            {
+                              adress = String.Format("{0} {1} {2}", organisation.Adress.utdelningsadress1, organisation.Adress.postort, organisation.Adress.postnummer);
+                            }
+                            <tr>
+                              <th>Ägare</th>
+                              <td class="col-md-8">@organisation.organisationsnamn @organisation.organisationsnummer</td>
+                            </tr>
+                            <tr>
+                              <th>Adress</th>
+                              <td class="col-md-8">@adress</td>
+                            </tr>
+                          }
+                          @if (lagfart.Agare.Item.GetType() == typeof(UtlandskAgareType))
+                          {
+                            UtlandskAgareType utlanskAgare = lagfart.Agare.Item as UtlandskAgareType;
+                            <tr>
+                              <th>Ägare</th>
+                              <td class="col-md-8">@lagfart.Agare.fornamn @lagfart.Agare.efternamn</td>
+                            </tr>
+                            <tr>
+                              <th>Adress</th>
+                              <td class="col-md-8">@utlanskAgare.utdelningsadress @utlanskAgare.postort @utlanskAgare.postkod @utlanskAgare.land</td>
+                            </tr>
+                          }
+                          <tr>
+                            <th>Andel</th>
+                            <td class="col-md-8">
+                              @if (lagfart.BeviljadAndel != null)
+                              {
+                                <span>@lagfart.BeviljadAndel.taljare / @lagfart.BeviljadAndel.namnare</span>
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Inskrivningsdag</th>
+                            <td class="col-md-8">@lagfart.inskrivningsdag</td>
+                          </tr>
+                          <tr>
+                            <th>Dagboksnummer</th>
+                            <td class="col-md-8">
+                              @if (lagfart.dagboksnummer != null)
+                              {
+                                String.Join("", lagfart.dagboksnummer);
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Beslut</th>
+                            <td class="col-md-8">@lagfart.beslut</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  }
+                }
+              </div>
+
+              <h3>Tidigare ägare</h3>
+              <div class="group">
+                @if (inskrivningsinformation != null && inskrivningsinformation.TidigareAgande != null)
+                {
+                  foreach (InskrivetAgandeType lagfart in inskrivningsinformation.TidigareAgande)
+                  {
+                    if (lagfart.Agare.Item != null)
+                    {
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          @if (lagfart.Agare.Item.GetType() == typeof(PersonType))
+                          {
+                            PersonType person = lagfart.Agare.Item as PersonType;
+                            string adress = "";
+                            if (person.Adress != null)
+                            {
+                              adress = String.Format("{0} {1} {2}", person.Adress.utdelningsadress1, person.Adress.utdelningsadress2, person.Adress.postort, person.Adress.postnummer);
+                            }
+                            <tr>
+                              <th>Ägare</th>
+                              <td class="col-md-8">@person.fornamn @person.efternamn</td>
+                            </tr>
+                            <tr>
+                              <th>Adress</th>
+                              <td class="col-md-8">@adress</td>
+                              @if (person.Utlandsadress != null)
+                              {
+                                <td class="col-md-8">@person.Utlandsadress.utdelningsadress1 @person.Utlandsadress.utdelningsadress2 @person.Utlandsadress.utdelningsadress3 @person.Utlandsadress.utdelningsadress4 @person.Utlandsadress.land</td>
+                              }
+                            </tr>
+                          }
+                          @if (lagfart.Agare.Item.GetType() == typeof(OrganisationType))
+                          {
+                            OrganisationType organisation = lagfart.Agare.Item as OrganisationType;
+                            string adress = "";
+                            if (organisation.Adress != null)
+                            {
+                              adress = String.Format("{0} {1} {2}", organisation.Adress.utdelningsadress1, organisation.Adress.postort, organisation.Adress.postnummer);
+                            }
+                            <tr>
+                              <th>Ägare</th>
+                              <td class="col-md-8">@organisation.organisationsnamn @organisation.organisationsnummer</td>
+                            </tr>
+                            <tr>
+                              <th>Adress</th>
+                              <td class="col-md-8">@adress</td>
+                            </tr>
+                          }
+                          @if (lagfart.Agare.Item.GetType() == typeof(UtlandskAgareType))
+                          {
+                            UtlandskAgareType utlanskAgare = lagfart.Agare.Item as UtlandskAgareType;
+                            <tr>
+                              <th>Ägare</th>
+                              <td class="col-md-8">@lagfart.Agare.fornamn @lagfart.Agare.efternamn</td>
+                            </tr>
+                            <tr>
+                              <th>Adress</th>
+                              <td class="col-md-8">@utlanskAgare.utdelningsadress @utlanskAgare.postort @utlanskAgare.postkod @utlanskAgare.land</td>
+                            </tr>
+                          }
+                          <tr>
+                            <th>Andel</th>
+                            <td class="col-md-8">@lagfart.BeviljadAndel.taljare / @lagfart.BeviljadAndel.namnare</td>
+                          </tr>
+                          <tr>
+                            <th>Inskrivningsdag</th>
+                            <td class="col-md-8">@lagfart.inskrivningsdag</td>
+                          </tr>
+                          <tr>
+                            <th>Dagboksnummer</th>
+                            <td class="col-md-8">
+                              @if (lagfart.dagboksnummer != null)
+                              {
+                                String.Join("", lagfart.dagboksnummer);
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Beslut</th>
+                            <td class="col-md-8">@lagfart.beslut</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  }
+                }
+              </div>
+
+              <h3>Fastighetägandeförändringar</h3>
+              <div class="group">
+                @if (inskrivningsinformation.Fastighetsagandeforandring != null)
+                {
+                  foreach (var forandring in inskrivningsinformation.Fastighetsagandeforandring)
+                  {
+                    <h4>Fastighetsägarförändring</h4>
+                    <div class="group">
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          <tr>
+                            <th>Köpeskilling valuta</th>
+                            <td class="col-md-8">
+                              @if (forandring.Kopeskilling != null && forandring.Kopeskilling.KopeskillingFastEgendom != null)
+                              {
+                                <span>@forandring.Kopeskilling.KopeskillingFastEgendom.valuta</span>
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Summa</th>
+                            <td class="col-md-8">
+                              @if (forandring.Kopeskilling != null && forandring.Kopeskilling.KopeskillingFastEgendom != null)
+                              {
+                                <span>@forandring.Kopeskilling.KopeskillingFastEgendom.summa</span>
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Typ</th>
+                            <td class="col-md-8">
+                              @if (forandring.Kopeskilling != null)
+                              {
+                                <span>@forandring.Kopeskilling.kopeskillingstyp.ToString()</span>
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Version giltig från</th>
+                            <td class="col-md-8">@forandring.versionGiltigFran</td>
+                          </tr>
+                        </thead>
+                      </table>
+                      @foreach (FangType fang in forandring.Fang)
+                      {
+                        <h5>Fång</h5>
+                        <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                          <tr>
+                            <th>Dagboksnummer</th>
+                            <td class="col-md-8">
+                              @if (fang.dagboksnummer != null)
+                              {
+                                String.Join("", fang.dagboksnummer);
+                              }
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Beslut</th>
+                            <td class="col-md-8">@fang.beslut.ToString()</td>
+                          </tr>
+                          <tr>
+                            <th>Inskrivningsdag</th>
+                            <td class="col-md-8">@fang.inskrivningsdag</td>
+                          </tr>
+                          <tr>
+                            <th>Förvärvd andel</th>
+                            <td class="col-md-8">
+                              @if (fang.AndelFang != null)
+                              {
+                                <span>@fang.AndelFang.taljare / @fang.AndelFang.namnare</span>
+                              }
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Fångesart-/kod</th>
+                            <td class="col-md-8">@fang.fangesart</td>
+                          </tr>
+                        </table>
+                      }
+                    </div>
+                  }
+                }
+              </div>
+
+              <h3>Tomträttsupplåtelser</h3>
+              <div class="group">
+                @if (inskrivningsinformation.Tomtrattsupplatelse != null)
+                {
+                  TomtrattsupplatelseType ratt = inskrivningsinformation.Tomtrattsupplatelse;
+                  <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                    <thead>
+                      <tr>
+                        <th>Version giltig från</th>
+                        <td class="col-md-8">@ratt.versionGiltigFran</td>
+                      </tr>
+                      <tr>
+                        <th>Inskrivningsdag</th>
+                        <td class="col-md-8">@ratt.inskrivningsdag</td>
+                      </tr>
+                      <tr>
+                        <th>Dagboksnummer</th>
+                        <td class="col-md-8">
+                          @if (ratt.dagboksnummer != null)
+                          {
+                            String.Join("", ratt.dagboksnummer);
+                          }
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Dagboksnummer</th>
+                        <td class="col-md-8">@ratt.aktnummer</td>
+                      </tr>
+                      <tr>
+                        <th>Beslut</th>
+                        <td class="col-md-8">@ratt.beslut</td>
+                      </tr>
+                      <tr>
+                        <th>Uppskovsdatum</th>
+                        <td class="col-md-8">@ratt.uppskovsdatum</td>
+                      </tr>
+                      <tr>
+                        <th>Överklagande</th>
+                        <td class="col-md-8">@ratt.overklagande</td>
+                      </tr>
+                      <tr>
+                        <th>Ändamål</th>
+                        <td class="col-md-8">@ratt.andamal</td>
+                      </tr>
+                      <tr>
+                        <th>Inskränkning</th>
+                        <td class="col-md-8">@ratt.inskrankning</td>
+                      </tr>
+                      <tr>
+                        <th>Ursprungligt startdatum</th>
+                        <td class="col-md-8">@ratt.ursprungligtStartdatum</td>
+                      </tr>
+                      <tr>
+                        <th>Äldre tomträtt</th>
+                        <td class="col-md-8">@ratt.aldreTomtratt</td>
+                      </tr>
+                      <tr>
+                        <th>Uppsägningsperiod år</th>
+                        <td class="col-md-8">@ratt.uppsagningsperiodar</td>
+                      </tr>
+                      <tr>
+                        <th>Uppsägningsdatum</th>
+                        <td class="col-md-8">@ratt.uppsagningsdatum</td>
+                      </tr>
+                      <tr>
+                        <th>Upplåtesedatum</th>
+                        <td class="col-md-8">@ratt.upplatelsedatum</td>
+                      </tr>
+                      @if (ratt.Avgald != null)
+                      {
+                        <tr>
+                          <th>Avgäld, startdatum</th>
+                          <td class="col-md-8">@ratt.Avgald.startdatum</td>
+                        </tr>
+                        if (ratt.Avgald.Avgift != null)
+                        {
+                          <tr>
+                            <th>Avgäld, avgift</th>
+                            <td class="col-md-8">@ratt.Avgald.Avgift.summa @ratt.Avgald.Avgift.valuta</td>
+                          </tr>
+                        }
+                        <tr>
+                          <th>Avgält, periodlängd (år)</th>
+                          <td class="col-md-8">@ratt.Avgald.periodlangdar</td>
+                        </tr>
+                      }
+                      @if (ratt.FramtidaAvgald != null)
+                      {
+                        <tr>
+                          <th>Avgäld, startdatum</th>
+                          <td class="col-md-8">@ratt.FramtidaAvgald.startdatum</td>
+                        </tr>
+                        if (ratt.FramtidaAvgald.Avgift != null)
+                        {
+                          <tr>
+                            <th>Avgäld, avgift</th>
+                            <td class="col-md-8">@ratt.FramtidaAvgald.Avgift.summa @ratt.FramtidaAvgald.Avgift.valuta</td>
+                          </tr>
+                        }
+                        <tr>
+                          <th>Avgält, periodlängd (år)</th>
+                          <td class="col-md-8">@ratt.FramtidaAvgald.periodlangdar</td>
+                        </tr>
+                      }
+                      @foreach (TomtrattsupplatelseanmarkningType tra in ratt.Tomtrattsupplatelseanmarkning)
+                      {
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, inskrivningsdag</th>
+                          <td class="col-md-8">@tra.inskrivningsdag</td>
+                        </tr>
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, dagboksnummer</th>
+                          <td class="col-md-8">
+                            @if (tra.dagboksnummer != null)
+                            {
+                              String.Join("", tra.dagboksnummer);
+                            }
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, aktnummer</th>
+                          <td class="col-md-8">@tra.aktnummer</td>
+                        </tr>
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, beslut</th>
+                          <td class="col-md-8">@tra.beslut</td>
+                        </tr>
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, uppskovsdatum</th>
+                          <td class="col-md-8">@tra.uppskovsdatum</td>
+                        </tr>
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, överklagande</th>
+                          <td class="col-md-8">@tra.overklagande</td>
+                        </tr>
+                        <tr>
+                          <th>Tomträttsupplatelseanmärkning, anmärkning</th>
+                          <td class="col-md-8">@tra.anmarkning</td>
+                        </tr>
+                      }
+                      @if (ratt.NyttBeslut != null)
+                      {
+                        <tr>
+                          <th>Nytt beslut, inskrivningsdag</th>
+                          <td class="col-md-8">@ratt.NyttBeslut.beslutetsInskrivningsdag</td>
+                        </tr>
+                        <tr>
+                          <th>Nytt beslut, dagboksnummer</th>
+                          <td class="col-md-8">
+                            @if (ratt.NyttBeslut.beslutetsDagboksnummer != null)
+                            {
+                              String.Join("", ratt.NyttBeslut.beslutetsDagboksnummer);
+                            }
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Nytt beslut, aktnummer</th>
+                          <td class="col-md-8">@ratt.aktnummer</td>
+                        </tr>
+                      }
+                    </thead>
+                  </table>
+                }
+              </div>
+
+              <h3>Pågående ärende</h3>
+              <div class="group">
+                @if (inskrivningsinformation.PagaendeArende != null)
+                {
+                  foreach (var arende in fastighetsdata.Inskrivningsinformation.FirstOrDefault().Inskrivningsinformation.PagaendeArende)
+                  {
+                    <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                      <thead>
+                        <tr>
+                          <th>Version giltig från</th>
+                          <td class="col-md-8">@arende.versionGiltigFran</td>
+                        </tr>
+                        <tr>
+                          <th>Aktualitetsdatum</th>
+                          <td class="col-md-8">@arende.aktualitetsdatum</td>
+                        </tr>
+                        @foreach (PagaendeArendetypType typ in arende.pagaendeArendetyp)
+                        {
+                          <tr>
+                            <th>Pågående ärendetyp</th>
+                            <td class="col-md-8">@typ</td>
+                          </tr>
+                        }
+                      </thead>
+                    </table>
+                  }
+                }
+              </div>
+            </div>
+          }
+
+          @if (fastighetsdata.ExportItems.Contains("16"))
+          {
+            <h2>Gemensamhetsanläggningar</h2>
+            <div class="group">
+              @if (fastighetsdata.GAinformation != null)
+              {
+                foreach (GemensamhetsanlaggningMemberType member in fastighetsdata.GAinformation)
+                {
+                  GemensamhetsanlaggningType anlaggning = member.Gemensamhetsanlaggning;
+
+                  var gabet = anlaggning.Registerbeteckning;
+                  var attribut = anlaggning.Gemensamhetsanlaggningsattribut;
+
+                  string avregurl = "";
+                  if (attribut.avregistreringsaktbeteckning != null)
+                  {
+                    avregurl = aktdirektproxybase + attribut.avregistreringsaktbeteckning;
+                  }
+                  <h3>@gabet.registeromrade @gabet.traktnamn @gabet.block: @gabet.enhet</h3>
+                  <div class="group">
+                    <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                      <thead>
+                        <tr>
+                          <th>Ändamål</th>
+                          <td class="col-md-8">@String.Join(" ", attribut.gemensamhetsanlaggningsandamal)</td>
+                        </tr>
+                        <tr>
+                          <th>Senaste ändring</th>
+                          <td class="col-md-8">@attribut.senasteAndring</td>
+                        </tr>
+                        <tr>
+                          <th>Status</th>
+                          <td class="col-md-8">@anlaggning.objektstatus</td>
+                        </tr>
+                      </thead>
+                    </table>
+
+                    <h3>Andelstal</h3>
+                    <div class="group">
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          <tr>
+                            <th>Andelstalsbeskrivning</th>
+                            <td class="col-md-8">@String.Join(" ", attribut.andelstalsbeskrivning)</td>
+                          </tr>
+                          <tr>
+                            <th>Registrerade andelstal</th>
+                            <td class="col-md-8">@String.Join(" ", attribut.summaRegistreradeAndelstal)</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                    @*
+                      <h4>Avregistrering</h4>
+                      <div class="group">
+                          <table class="table table-sm table-striped table-bordered"  id="fastighetsrapport">
+                              <tr>
+                                  <td class="col-md-8">Åtgärd:</td>
+                                  <td class="col-md-8">@String.Join(" ", attribut.avregistreringsatgardstyp)</td>
+                              </tr>
+                              <tr>
+                                  <td class="col-md-8">Datum:</td>
+                                  <td class="col-md-8">@attribut.avregistreringsdatum</td>
+                              </tr>
+                              <tr>
+                                  <td class="col-md-8">Aktbeteckning:</td>
+                                  <td class="col-md-8"><a target="_blank" href="@avregurl">@attribut.avregistreringsaktbeteckning</a></td>
+                              </tr>
+                          </table>
+
+                      </div>
+                    *@
+                    @if (anlaggning.ForeningForForvaltning != null)
+                    {
+                      foreach (var forening in anlaggning.ForeningForForvaltning)
+                      {
+                        <h3>Förening för förvaltning</h3>
+                        <div class="group">
+                          <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                            <thead>
+                              <tr>
+                                <th>Namn</th>
+                                <td class="col-md-8">@forening.foreningsnamn</td>
+                              </tr>
+                              <tr>
+                                <th>Typ</th>
+                                <td class="col-md-8">@String.Join(" ", forening.foreningstyp)</td>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      }
+                    }
+                    <h3>Fastighetsåtgärder</h3>
+                    <div class="group">
+                      @if (anlaggning.Fastighetsatgard != null)
+                      {
+                        foreach (var atgard in anlaggning.Fastighetsatgard)
+                        {
+                          string atgardurl = "";
+                          if (atgard.Fastighetsarende.aktbeteckning != null)
+                          {
+                            atgardurl = aktdirektproxybase + atgard.Fastighetsarende.aktbeteckning;
+                          }
+                          <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                            <thead>
+                              <tr>
+                                <th>Anteckning</th>
+                                <td class="col-md-8">@atgard.anteckning</td>
+                              </tr>
+                              <tr>
+                                <th>Åtgärdsnummer</th>
+                                <td class="col-md-8">@atgard.atgardsnummer</td>
+                              </tr>
+                              <tr>
+                                <th>Åtgärdstidpunkt</th>
+                                <td class="col-md-8">@atgard.atgardstidpunkt</td>
+                              </tr>
+                              <tr>
+                                <th>Åtgärdstyp</th>
+                                <td class="col-md-8">@String.Join(" ", atgard.atgardstyp)</td>
+                              </tr>
+                              <tr>
+                                <th>Aktbeteckning</th>
+                                <td class="col-md-8"><a target="_blank" href="@atgardurl">@atgard.Fastighetsarende.aktbeteckning</a></td>
+                              </tr>
+                            </thead>
+                          </table>
+                        }
+                      }
+                    </div>
+                    <h3>Delägare</h3>
+                    <div class="group">
+                      @if (anlaggning.AndelIGemensamhetsanlaggning != null)
+                      {
+                        foreach (var andel in anlaggning.AndelIGemensamhetsanlaggning)
+                        {
+                          if (andel.DelagandeRegisterenhet != null)
+                          {
+                            foreach (var delagare in andel.DelagandeRegisterenhet)
+                            {
+                              string urlGaDelagare = fastlank + delagare.objektidentitet;
+
+                              <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                                <thead>
+                                  <tr>
+                                    <th>Beteckning</th>
+                                    <td class="col-md-8">
+                                      <a href="@urlGaDelagare" target="_blank">@delagare.beteckning</a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th>Andelstal</th>
+                                    <td class="col-md-8">@andel.andelstal</td>
+                                  </tr>
+                                </thead>
+                              </table>
+                            }
+                          }
+                          if (andel.OutreddaDelagare != null)
+                          {
+                            <h3>Outredda delägare</h3>
+                            <div class="group">
+                              @foreach (var outreddelagare in andel.OutreddaDelagare)
+                              {
+                                <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                                  <thead>
+                                    <tr>
+                                      <th>Anmärkning</th>
+                                      <td class="col-md-8">@outreddelagare.outreddAnmarkning</td>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              }
+                            </div>
+                          }
+                          if (andel.OvrigDelagare != null)
+                          {
+                            <h3>Outredda delägare</h3>
+                            <div class="group">
+                              @foreach (var ovrigdelagare in andel.OvrigDelagare)
+                              {
+                                <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                                  <thead>
+                                    <tr>
+                                      <th>Namn</th>
+                                      <td class="col-md-8">@ovrigdelagare.ovrigDelagare</td>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              }
+                            </div>
+                          }
+                        }
+                      }
+                    </div>
+                    @*
+                      <h3>Anläggning/byggnad på ofri grund</h3>
+                      <div class="group">
+                          @if (anlaggning.AndelIGemensamhetsanlaggning != null)
+                          {
+                              foreach (var andel in anlaggning.AndelIGemensamhetsanlaggning)
+                              {
+
+                                  if (andel.AnlaggningPaOfriGrund != null)
+                                  {
+                                      <h4>Anläggning</h4>
+                                      <div class="group">
+                                          @foreach (var anlaggningofri in andel.AnlaggningPaOfriGrund)
+                                          {
+                                              <table class="table table-sm table-striped table-bordered"  id="fastighetsrapport">
+                                                  <tr>
+                                                      <td class="col-md-8">Antal:</td>
+                                                      <td class="col-md-8">@anlaggningofri.antalAnlaggningar</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td class="col-md-8">Kategori:</td>
+                                                      <td class="col-md-8">@anlaggningofri.kategoritext</td>
+                                                  </tr>
+                                              </table>
+
+                                          }
+                                      </div>
+                                  }
+                                  if (andel.ByggnadPaOfriGrund != null)
+                                  {
+                                      <h4>Byggnad på ofri grund</h4>
+                                      <div class="group">
+                                          @foreach (var byggnadofri in andel.ByggnadPaOfriGrund)
+                                          {
+                                              <table class="table table-sm table-striped table-bordered"  id="fastighetsrapport">
+                                                  <tr>
+                                                      <td class="col-md-8">Byggnad</td>
+                                                      <td class="col-md-8">@byggnadofri.antalByggnader</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td class="col-md-8">Kategori</td>
+                                                      <td class="col-md-8">@byggnadofri.kategoritext</td>
+                                                  </tr>
+                                              </table>
+                                          }
+
+
+                                      </div>
+                                  }
+                              }
+                          }
+                      </div>
+                    *@
+                    @if (anlaggning.Gemensamhetsanlaggningsanmarkning != null)
+                    {
+                      foreach (var anm in anlaggning.Gemensamhetsanlaggningsanmarkning)
+                      {
+                        <h3>Gemensamhetsanläggningsanmärkning</h3>
+                        <div class="group">
+                          <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                            <thead>
+                              <tr>
+                                <th>Anmärkning</th>
+                                <td class="col-md-8">@anm.gemensamhetsanlaggningsanmarkning</td>
+                              </tr>
+                              <tr>
+                                <th>Informationsgrupp</th>
+                                <td class="col-md-8">@anm.informationsgruppkod</td>
+                              </tr>
+                              <tr>
+                                <th>Löpnummer</th>
+                                <td class="col-md-8">@anm.lopnummer</td>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      }
+                    }
+                  </div>
+                }
+              }
+            </div>
+          }
+
+        </div>
+
+      </div>
+    }
+    else
+    {
+      <div class="fastighetsrapport">Rapporten kunde inte skapas, data för vald fastighet hittades inte.</div>
+    }
+  }
+}
+<script>
+  $('h1, h2, h3, h4, h5').click(function (event) {
+    event.preventDefault();
+    $(this).next().toggle();
+    $('html,body').animate({ scrollTop: $(this).offset().top - 150 }, 700);
+  });
+
+  $('body').fadeIn();
+
+  $('#remove').click(function () {
+    $(this).closest('div').remove()
+  });
+</script>
