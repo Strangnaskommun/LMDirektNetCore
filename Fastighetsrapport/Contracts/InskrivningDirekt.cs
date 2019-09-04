@@ -4,7 +4,6 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using Fastighetsrapport.Network;
-using Fastighetsrapport.Util;
 using LM.InskrivningDirekt;
 
 namespace Fastighetsrapport.Contracts
