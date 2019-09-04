@@ -279,7 +279,6 @@ namespace LM.InskrivningDirekt
     }
   }
 
-
   /// <remarks/>
   [System.Xml.Serialization.XmlIncludeAttribute(typeof(LinearRingType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
@@ -777,7 +776,9 @@ namespace LM.InskrivningDirekt
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Lagfart", typeof(LagfartType))]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Tomtrattsinnehav", typeof(TomtrattsinnehavType))]
+    [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable=false)]
         public InskrivetAgandeType[] Agande
         {
             get
@@ -792,7 +793,9 @@ namespace LM.InskrivningDirekt
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Order=10)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Lagfart", typeof(LagfartType))]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Tomtrattsinnehav", typeof(TomtrattsinnehavType))]
+    [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable=false)]
         public InskrivetAgandeType[] TidigareAgande
         {
             get
