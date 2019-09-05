@@ -9,239 +9,239 @@
 
 namespace LM.InskrivningDirekt
 {
-    
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", ConfigurationName="LM.InskrivningDirekt.InskrivningPortType")]
-    public interface InskrivningPortType
-    {
-        
-        // CODEGEN: Generating message contract since the operation GetInskrivning is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractRingType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UtbytesobjektType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractFeatureMemberType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractGMLType))]
-        LM.InskrivningDirekt.InskrivningResponse GetInskrivning(LM.InskrivningDirekt.GetInskrivningRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<LM.InskrivningDirekt.InskrivningResponse> GetInskrivningAsync(LM.InskrivningDirekt.GetInskrivningRequest request);
-    }
-    
+
+
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.ServiceModel.ServiceContractAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", ConfigurationName = "LM.InskrivningDirekt.InskrivningPortType")]
+  public interface InskrivningPortType
+  {
+
+    // CODEGEN: Generating message contract since the operation GetInskrivning is neither RPC nor document wrapped.
+    [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+    [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractRingType))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UtbytesobjektType))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractFeatureMemberType))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractGMLType))]
+    LM.InskrivningDirekt.InskrivningResponse GetInskrivning(LM.InskrivningDirekt.GetInskrivningRequest request);
+
+    [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+    System.Threading.Tasks.Task<LM.InskrivningDirekt.InskrivningResponse> GetInskrivningAsync(LM.InskrivningDirekt.GetInskrivningRequest request);
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class GetInskrivningRequestType
+  {
+
+    private object[] itemsField;
+
+    private InskrivningDatasetType includeDataField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class GetInskrivningRequestType
+    [System.Xml.Serialization.XmlElementAttribute("InskrivningRegisterenhetFilter", typeof(InskrivningRegisterenhetFilterType), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("objektidentitet", typeof(string), Order = 0)]
+    public object[] Items
     {
-        
-        private object[] itemsField;
-        
-        private InskrivningDatasetType includeDataField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("InskrivningRegisterenhetFilter", typeof(InskrivningRegisterenhetFilterType), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("objektidentitet", typeof(string), Order=0)]
-        public object[] Items
-        {
-            get
-            {
-                return this.itemsField;
-            }
-            set
-            {
-                this.itemsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public InskrivningDatasetType IncludeData
-        {
-            get
-            {
-                return this.includeDataField;
-            }
-            set
-            {
-                this.includeDataField = value;
-            }
-        }
+      get
+      {
+        return this.itemsField;
+      }
+      set
+      {
+        this.itemsField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivningRegisterenhetFilterType
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public InskrivningDatasetType IncludeData
     {
-        
-        private string[] itemsField;
-        
-        private ItemsChoiceType[] itemsElementNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("fastighetsnyckel", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("objektidentitet", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public string[] Items
-        {
-            get
-            {
-                return this.itemsField;
-            }
-            set
-            {
-                this.itemsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order=1)]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType[] ItemsElementName
-        {
-            get
-            {
-                return this.itemsElementNameField;
-            }
-            set
-            {
-                this.itemsElementNameField = value;
-            }
-        }
+      get
+      {
+        return this.includeDataField;
+      }
+      set
+      {
+        this.includeDataField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivningRegisterenhetFilterType
+  {
+
+    private string[] itemsField;
+
+    private ItemsChoiceType[] itemsElementNameField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema=false)]
-    public enum ItemsChoiceType
+    [System.Xml.Serialization.XmlElementAttribute("fastighetsnyckel", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("objektidentitet", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
+    public string[] Items
     {
-        
-        /// <remarks/>
-        fastighetsnyckel,
-        
-        /// <remarks/>
-        objektidentitet,
+      get
+      {
+        return this.itemsField;
+      }
+      set
+      {
+        this.itemsField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class SurfacePropertyType
+    [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public ItemsChoiceType[] ItemsElementName
     {
-        
-        private PolygonType itemField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Polygon", Order=0)]
-        public PolygonType Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
+      get
+      {
+        return this.itemsElementNameField;
+      }
+      set
+      {
+        this.itemsElementNameField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema = false)]
+  public enum ItemsChoiceType
+  {
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class PolygonType : AbstractSurfaceType
+    fastighetsnyckel,
+
+    /// <remarks/>
+    objektidentitet,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class SurfacePropertyType
+  {
+
+    private PolygonType itemField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Polygon", Order = 0)]
+    public PolygonType Item
     {
-        
-        private AbstractRingPropertyType exteriorField;
-        
-        private AbstractRingPropertyType[] interiorField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public AbstractRingPropertyType exterior
-        {
-            get
-            {
-                return this.exteriorField;
-            }
-            set
-            {
-                this.exteriorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("interior", Order=1)]
-        public AbstractRingPropertyType[] interior
-        {
-            get
-            {
-                return this.interiorField;
-            }
-            set
-            {
-                this.interiorField = value;
-            }
-        }
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class PolygonType : AbstractSurfaceType
+  {
+
+    private AbstractRingPropertyType exteriorField;
+
+    private AbstractRingPropertyType[] interiorField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class AbstractRingPropertyType
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public AbstractRingPropertyType exterior
     {
-        
-        private LinearRingType itemField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("LinearRing", Order=0)]
-        public LinearRingType Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
+      get
+      {
+        return this.exteriorField;
+      }
+      set
+      {
+        this.exteriorField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class LinearRingType : AbstractRingType
+    [System.Xml.Serialization.XmlElementAttribute("interior", Order = 1)]
+    public AbstractRingPropertyType[] interior
     {
-        
-        private DirectPositionListType posListField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public DirectPositionListType posList
-        {
-            get
-            {
-                return this.posListField;
-            }
-            set
-            {
-                this.posListField = value;
-            }
-        }
+      get
+      {
+        return this.interiorField;
+      }
+      set
+      {
+        this.interiorField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class AbstractRingPropertyType
+  {
+
+    private LinearRingType itemField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
+    [System.Xml.Serialization.XmlElementAttribute("LinearRing", Order = 0)]
+    public LinearRingType Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class LinearRingType : AbstractRingType
+  {
+
+    private DirectPositionListType posListField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public DirectPositionListType posList
+    {
+      get
+      {
+        return this.posListField;
+      }
+      set
+      {
+        this.posListField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
   public partial class DirectPositionListType : object, System.ComponentModel.INotifyPropertyChanged
   {
     private double[] coordinates;
@@ -281,305 +281,305 @@ namespace LM.InskrivningDirekt
 
   /// <remarks/>
   [System.Xml.Serialization.XmlIncludeAttribute(typeof(LinearRingType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractRingType
-    {
-    }
-    
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractRingType
+  {
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractSurfaceType : AbstractGeometricPrimitiveType
+  {
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractSurfaceType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCurveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PointType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractGeometricPrimitiveType : AbstractGeometryType
+  {
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricAggregateType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiSurfaceType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiCurveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiPointType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricPrimitiveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractSurfaceType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCurveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PointType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractGeometryType : AbstractGMLType
+  {
+
+    private string srsNameField;
+
+    private string srsDimensionField;
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractSurfaceType : AbstractGeometricPrimitiveType
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType = "anyURI")]
+    public string srsName
     {
+      get
+      {
+        return this.srsNameField;
+      }
+      set
+      {
+        this.srsNameField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractSurfaceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCurveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PointType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractGeometricPrimitiveType : AbstractGeometryType
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType = "positiveInteger")]
+    public string srsDimension
     {
+      get
+      {
+        return this.srsDimensionField;
+      }
+      set
+      {
+        this.srsDimensionField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometryType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricAggregateType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiSurfaceType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiCurveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiPointType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricPrimitiveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractSurfaceType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCurveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PointType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractFeatureType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningsinformationType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningResponseType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractGMLType
+  {
+
+    private string descriptionField;
+
+    private CodeType[] nameField;
+
+    private string idField;
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricAggregateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiSurfaceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiCurveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiPointType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricPrimitiveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractSurfaceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCurveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PointType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractGeometryType : AbstractGMLType
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string description
     {
-        
-        private string srsNameField;
-        
-        private string srsDimensionField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
-        public string srsName
-        {
-            get
-            {
-                return this.srsNameField;
-            }
-            set
-            {
-                this.srsNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="positiveInteger")]
-        public string srsDimension
-        {
-            get
-            {
-                return this.srsDimensionField;
-            }
-            set
-            {
-                this.srsDimensionField = value;
-            }
-        }
+      get
+      {
+        return this.descriptionField;
+      }
+      set
+      {
+        this.descriptionField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometryType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricAggregateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiSurfaceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiCurveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiPointType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractGeometricPrimitiveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractSurfaceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PolygonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCurveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PointType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractFeatureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningsinformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningResponseType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractGMLType
+    [System.Xml.Serialization.XmlElementAttribute("name", Order = 1)]
+    public CodeType[] name
     {
-        
-        private string descriptionField;
-        
-        private CodeType[] nameField;
-        
-        private string idField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string description
-        {
-            get
-            {
-                return this.descriptionField;
-            }
-            set
-            {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("name", Order=1)]
-        public CodeType[] name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, DataType="ID")]
-        public string id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
-            }
-        }
+      get
+      {
+        return this.nameField;
+      }
+      set
+      {
+        this.nameField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class CodeType
+    [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "ID")]
+    public string id
     {
-        
-        private string codeSpaceField;
-        
-        private string valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
-        public string codeSpace
-        {
-            get
-            {
-                return this.codeSpaceField;
-            }
-            set
-            {
-                this.codeSpaceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
-            }
-        }
+      get
+      {
+        return this.idField;
+      }
+      set
+      {
+        this.idField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class CodeType
+  {
+
+    private string codeSpaceField;
+
+    private string valueField;
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningsinformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningResponseType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractFeatureType : AbstractGMLType
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType = "anyURI")]
+    public string codeSpace
     {
-        
-        private BoundingShapeType boundedByField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-        public BoundingShapeType boundedBy
-        {
-            get
-            {
-                return this.boundedByField;
-            }
-            set
-            {
-                this.boundedByField = value;
-            }
-        }
+      get
+      {
+        return this.codeSpaceField;
+      }
+      set
+      {
+        this.codeSpaceField = value;
+      }
     }
-    
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class BoundingShapeType
+    [System.Xml.Serialization.XmlTextAttribute()]
+    public string Value
     {
-        
-        private EnvelopeType envelopeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public EnvelopeType Envelope
-        {
-            get
-            {
-                return this.envelopeField;
-            }
-            set
-            {
-                this.envelopeField = value;
-            }
-        }
+      get
+      {
+        return this.valueField;
+      }
+      set
+      {
+        this.valueField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningsinformationType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningResponseType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractFeatureType : AbstractGMLType
+  {
+
+    private BoundingShapeType boundedByField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class EnvelopeType
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 0)]
+    public BoundingShapeType boundedBy
     {
-        
-        private DirectPositionType lowerCornerField;
-        
-        private DirectPositionType upperCornerField;
-        
-        private string srsNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public DirectPositionType lowerCorner
-        {
-            get
-            {
-                return this.lowerCornerField;
-            }
-            set
-            {
-                this.lowerCornerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public DirectPositionType upperCorner
-        {
-            get
-            {
-                return this.upperCornerField;
-            }
-            set
-            {
-                this.upperCornerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
-        public string srsName
-        {
-            get
-            {
-                return this.srsNameField;
-            }
-            set
-            {
-                this.srsNameField = value;
-            }
-        }
+      get
+      {
+        return this.boundedByField;
+      }
+      set
+      {
+        this.boundedByField = value;
+      }
     }
-    
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class BoundingShapeType
+  {
+
+    private EnvelopeType envelopeField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public EnvelopeType Envelope
+    {
+      get
+      {
+        return this.envelopeField;
+      }
+      set
+      {
+        this.envelopeField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class EnvelopeType
+  {
+
+    private DirectPositionType lowerCornerField;
+
+    private DirectPositionType upperCornerField;
+
+    private string srsNameField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public DirectPositionType lowerCorner
+    {
+      get
+      {
+        return this.lowerCornerField;
+      }
+      set
+      {
+        this.lowerCornerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public DirectPositionType upperCorner
+    {
+      get
+      {
+        return this.upperCornerField;
+      }
+      set
+      {
+        this.upperCornerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType = "anyURI")]
+    public string srsName
+    {
+      get
+      {
+        return this.srsNameField;
+      }
+      set
+      {
+        this.srsNameField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
   public partial class DirectPositionType : object, System.ComponentModel.INotifyPropertyChanged
   {
     private double[] coordinates;
@@ -619,5156 +619,5156 @@ namespace LM.InskrivningDirekt
 
   /// <remarks/>
   [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivningsinformationType : AbstractFeatureType
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivningsinformationType : AbstractFeatureType
+  {
+
+    private RegisterenhetsreferensType registerenhetsreferensField;
+
+    private IRFastighetType iRFastighetField;
+
+    private OmradeType omradeField;
+
+    private PagaendeArendeType[] pagaendeArendeField;
+
+    private GruppinformationType[] gruppinformationField;
+
+    private TomtrattsupplatelseType tomtrattsupplatelseField;
+
+    private BelastarType[] belastarField;
+
+    private UtstrackningSoktIType[] utstrackningSoktIField;
+
+    private AnteckningType[] anteckningField;
+
+    private InskrivetAgandeType[] agandeField;
+
+    private InskrivetAgandeType[] tidigareAgandeField;
+
+    private FastighetsagandeforandringType[] fastighetsagandeforandringField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public RegisterenhetsreferensType Registerenhetsreferens
     {
-        
-        private RegisterenhetsreferensType registerenhetsreferensField;
-        
-        private IRFastighetType iRFastighetField;
-        
-        private OmradeType omradeField;
-        
-        private PagaendeArendeType[] pagaendeArendeField;
-        
-        private GruppinformationType[] gruppinformationField;
-        
-        private TomtrattsupplatelseType tomtrattsupplatelseField;
-        
-        private BelastarType[] belastarField;
-        
-        private UtstrackningSoktIType[] utstrackningSoktIField;
-        
-        private AnteckningType[] anteckningField;
-        
-        private InskrivetAgandeType[] agandeField;
-        
-        private InskrivetAgandeType[] tidigareAgandeField;
-        
-        private FastighetsagandeforandringType[] fastighetsagandeforandringField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public RegisterenhetsreferensType Registerenhetsreferens
-        {
-            get
-            {
-                return this.registerenhetsreferensField;
-            }
-            set
-            {
-                this.registerenhetsreferensField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public IRFastighetType IRFastighet
-        {
-            get
-            {
-                return this.iRFastighetField;
-            }
-            set
-            {
-                this.iRFastighetField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public OmradeType Omrade
-        {
-            get
-            {
-                return this.omradeField;
-            }
-            set
-            {
-                this.omradeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("PagaendeArende", Order=3)]
-        public PagaendeArendeType[] PagaendeArende
-        {
-            get
-            {
-                return this.pagaendeArendeField;
-            }
-            set
-            {
-                this.pagaendeArendeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Gruppinformation", Order=4)]
-        public GruppinformationType[] Gruppinformation
-        {
-            get
-            {
-                return this.gruppinformationField;
-            }
-            set
-            {
-                this.gruppinformationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public TomtrattsupplatelseType Tomtrattsupplatelse
-        {
-            get
-            {
-                return this.tomtrattsupplatelseField;
-            }
-            set
-            {
-                this.tomtrattsupplatelseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Belastar", Order=6)]
-        public BelastarType[] Belastar
-        {
-            get
-            {
-                return this.belastarField;
-            }
-            set
-            {
-                this.belastarField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("UtstrackningSoktI", Order=7)]
-        public UtstrackningSoktIType[] UtstrackningSoktI
-        {
-            get
-            {
-                return this.utstrackningSoktIField;
-            }
-            set
-            {
-                this.utstrackningSoktIField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Anteckning", Order=8)]
-        public AnteckningType[] Anteckning
-        {
-            get
-            {
-                return this.anteckningField;
-            }
-            set
-            {
-                this.anteckningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
+      get
+      {
+        return this.registerenhetsreferensField;
+      }
+      set
+      {
+        this.registerenhetsreferensField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public IRFastighetType IRFastighet
+    {
+      get
+      {
+        return this.iRFastighetField;
+      }
+      set
+      {
+        this.iRFastighetField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public OmradeType Omrade
+    {
+      get
+      {
+        return this.omradeField;
+      }
+      set
+      {
+        this.omradeField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("PagaendeArende", Order = 3)]
+    public PagaendeArendeType[] PagaendeArende
+    {
+      get
+      {
+        return this.pagaendeArendeField;
+      }
+      set
+      {
+        this.pagaendeArendeField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Gruppinformation", Order = 4)]
+    public GruppinformationType[] Gruppinformation
+    {
+      get
+      {
+        return this.gruppinformationField;
+      }
+      set
+      {
+        this.gruppinformationField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public TomtrattsupplatelseType Tomtrattsupplatelse
+    {
+      get
+      {
+        return this.tomtrattsupplatelseField;
+      }
+      set
+      {
+        this.tomtrattsupplatelseField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Belastar", Order = 6)]
+    public BelastarType[] Belastar
+    {
+      get
+      {
+        return this.belastarField;
+      }
+      set
+      {
+        this.belastarField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("UtstrackningSoktI", Order = 7)]
+    public UtstrackningSoktIType[] UtstrackningSoktI
+    {
+      get
+      {
+        return this.utstrackningSoktIField;
+      }
+      set
+      {
+        this.utstrackningSoktIField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Anteckning", Order = 8)]
+    public AnteckningType[] Anteckning
+    {
+      get
+      {
+        return this.anteckningField;
+      }
+      set
+      {
+        this.anteckningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 9)]
     [System.Xml.Serialization.XmlArrayItemAttribute("Lagfart", typeof(LagfartType))]
     [System.Xml.Serialization.XmlArrayItemAttribute("Tomtrattsinnehav", typeof(TomtrattsinnehavType))]
-    [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable=false)]
-        public InskrivetAgandeType[] Agande
-        {
-            get
-            {
-                return this.agandeField;
-            }
-            set
-            {
-                this.agandeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=10)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable = false)]
+    public InskrivetAgandeType[] Agande
+    {
+      get
+      {
+        return this.agandeField;
+      }
+      set
+      {
+        this.agandeField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 10)]
     [System.Xml.Serialization.XmlArrayItemAttribute("Lagfart", typeof(LagfartType))]
     [System.Xml.Serialization.XmlArrayItemAttribute("Tomtrattsinnehav", typeof(TomtrattsinnehavType))]
-    [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable=false)]
-        public InskrivetAgandeType[] TidigareAgande
-        {
-            get
-            {
-                return this.tidigareAgandeField;
-            }
-            set
-            {
-                this.tidigareAgandeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Fastighetsagandeforandring", Order=11)]
-        public FastighetsagandeforandringType[] Fastighetsagandeforandring
-        {
-            get
-            {
-                return this.fastighetsagandeforandringField;
-            }
-            set
-            {
-                this.fastighetsagandeforandringField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class RegisterenhetsreferensType
-    {
-        
-        private string objektidentitetField;
-        
-        private string fastighetsnyckelField;
-        
-        private string beteckningField;
-        
-        private RegisterenhetstypType typField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string objektidentitet
-        {
-            get
-            {
-                return this.objektidentitetField;
-            }
-            set
-            {
-                this.objektidentitetField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string fastighetsnyckel
-        {
-            get
-            {
-                return this.fastighetsnyckelField;
-            }
-            set
-            {
-                this.fastighetsnyckelField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string beteckning
-        {
-            get
-            {
-                return this.beteckningField;
-            }
-            set
-            {
-                this.beteckningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public RegisterenhetstypType typ
-        {
-            get
-            {
-                return this.typField;
-            }
-            set
-            {
-                this.typField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum RegisterenhetstypType
-    {
-        
-        /// <remarks/>
-        Fastighet,
-        
-        /// <remarks/>
-        Samfällighet,
-        
-        /// <remarks/>
-        Gemensamhetsanläggning,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class IRFastighetType : UtbytesobjektType
-    {
-        
-        private string aldreForhallandeField;
-        
-        private bool allvarligtFelIRField;
-        
-        private bool oklaraInskrivningsforhallandenField;
-        
-        private System.DateTime senasteAndringInskrivningsdelenField;
-        
-        private bool senasteAndringInskrivningsdelenFieldSpecified;
-        
-        private System.DateTime aktualitetsdatumField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string aldreForhallande
-        {
-            get
-            {
-                return this.aldreForhallandeField;
-            }
-            set
-            {
-                this.aldreForhallandeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public bool allvarligtFelIR
-        {
-            get
-            {
-                return this.allvarligtFelIRField;
-            }
-            set
-            {
-                this.allvarligtFelIRField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public bool oklaraInskrivningsforhallanden
-        {
-            get
-            {
-                return this.oklaraInskrivningsforhallandenField;
-            }
-            set
-            {
-                this.oklaraInskrivningsforhallandenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public System.DateTime senasteAndringInskrivningsdelen
-        {
-            get
-            {
-                return this.senasteAndringInskrivningsdelenField;
-            }
-            set
-            {
-                this.senasteAndringInskrivningsdelenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool senasteAndringInskrivningsdelenSpecified
-        {
-            get
-            {
-                return this.senasteAndringInskrivningsdelenFieldSpecified;
-            }
-            set
-            {
-                this.senasteAndringInskrivningsdelenFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
-        public System.DateTime aktualitetsdatum
-        {
-            get
-            {
-                return this.aktualitetsdatumField;
-            }
-            set
-            {
-                this.aktualitetsdatumField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OverlatelseType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(KopeskillingType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FastighetsagandeforandringType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtstrackningSoktIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BelastarType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtlandskAgareType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivenPersonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FangType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivetAgandeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InnehavsanteckningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningshandelseType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivenBelastningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GruppinformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PagaendeArendeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OmradeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IRFastighetType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public abstract partial class UtbytesobjektType
-    {
-        
-        private string objektidentitetField;
-        
-        private int objektversionField;
-        
-        private System.DateTime versionGiltigFranField;
-        
-        private bool versionGiltigFranFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string objektidentitet
-        {
-            get
-            {
-                return this.objektidentitetField;
-            }
-            set
-            {
-                this.objektidentitetField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int objektversion
-        {
-            get
-            {
-                return this.objektversionField;
-            }
-            set
-            {
-                this.objektversionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public System.DateTime versionGiltigFran
-        {
-            get
-            {
-                return this.versionGiltigFranField;
-            }
-            set
-            {
-                this.versionGiltigFranField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool versionGiltigFranSpecified
-        {
-            get
-            {
-                return this.versionGiltigFranFieldSpecified;
-            }
-            set
-            {
-                this.versionGiltigFranFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class OverlatelseType : UtbytesobjektType
-    {
-        
-        private BrakType andelOverlatelseField;
-        
-        private string inskrivetAgandeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public BrakType AndelOverlatelse
-        {
-            get
-            {
-                return this.andelOverlatelseField;
-            }
-            set
-            {
-                this.andelOverlatelseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string inskrivetAgande
-        {
-            get
-            {
-                return this.inskrivetAgandeField;
-            }
-            set
-            {
-                this.inskrivetAgandeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class BrakType
-    {
-        
-        private string taljareField;
-        
-        private string namnareField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
-        public string taljare
-        {
-            get
-            {
-                return this.taljareField;
-            }
-            set
-            {
-                this.taljareField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
-        public string namnare
-        {
-            get
-            {
-                return this.namnareField;
-            }
-            set
-            {
-                this.namnareField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class KopeskillingType : UtbytesobjektType
-    {
-        
-        private BeloppType preliminarKopeskillingFastEgendomField;
-        
-        private BeloppType omraknadPreliminarKopeskillingField;
-        
-        private BeloppType kopeskillingFastEgendomField;
-        
-        private BeloppType omraknadKopeskillingField;
-        
-        private BeloppType mellangiftField;
-        
-        private BeloppType kopeskillingLosEgendomField;
-        
-        private KopeskillingstypType kopeskillingstypField;
-        
-        private bool kopeskillingstypFieldSpecified;
-        
-        private RegisterenhetsreferensType[] omfattarField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public BeloppType PreliminarKopeskillingFastEgendom
-        {
-            get
-            {
-                return this.preliminarKopeskillingFastEgendomField;
-            }
-            set
-            {
-                this.preliminarKopeskillingFastEgendomField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public BeloppType OmraknadPreliminarKopeskilling
-        {
-            get
-            {
-                return this.omraknadPreliminarKopeskillingField;
-            }
-            set
-            {
-                this.omraknadPreliminarKopeskillingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public BeloppType KopeskillingFastEgendom
-        {
-            get
-            {
-                return this.kopeskillingFastEgendomField;
-            }
-            set
-            {
-                this.kopeskillingFastEgendomField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public BeloppType OmraknadKopeskilling
-        {
-            get
-            {
-                return this.omraknadKopeskillingField;
-            }
-            set
-            {
-                this.omraknadKopeskillingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public BeloppType Mellangift
-        {
-            get
-            {
-                return this.mellangiftField;
-            }
-            set
-            {
-                this.mellangiftField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public BeloppType KopeskillingLosEgendom
-        {
-            get
-            {
-                return this.kopeskillingLosEgendomField;
-            }
-            set
-            {
-                this.kopeskillingLosEgendomField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public KopeskillingstypType kopeskillingstyp
-        {
-            get
-            {
-                return this.kopeskillingstypField;
-            }
-            set
-            {
-                this.kopeskillingstypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool kopeskillingstypSpecified
-        {
-            get
-            {
-                return this.kopeskillingstypFieldSpecified;
-            }
-            set
-            {
-                this.kopeskillingstypFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable=false)]
-        public RegisterenhetsreferensType[] Omfattar
-        {
-            get
-            {
-                return this.omfattarField;
-            }
-            set
-            {
-                this.omfattarField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class BeloppType
-    {
-        
-        private string valutaField;
-        
-        private long summaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string valuta
-        {
-            get
-            {
-                return this.valutaField;
-            }
-            set
-            {
-                this.valutaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public long summa
-        {
-            get
-            {
-                return this.summaField;
-            }
-            set
-            {
-                this.summaField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum KopeskillingstypType
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ingen köpeskilling redovisas")]
-        Ingenköpeskillingredovisas,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Avser hela fastigheten")]
-        Avserhelafastigheten,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Avser även annan fastighet")]
-        Avserävenannanfastighet,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class FastighetsagandeforandringType : UtbytesobjektType
-    {
-        
-        private KopeskillingType kopeskillingField;
-        
-        private FangType[] fangField;
-        
-        private OverlatelseType[] overlatelseField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public KopeskillingType Kopeskilling
-        {
-            get
-            {
-                return this.kopeskillingField;
-            }
-            set
-            {
-                this.kopeskillingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Fang", Order=1)]
-        public FangType[] Fang
-        {
-            get
-            {
-                return this.fangField;
-            }
-            set
-            {
-                this.fangField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Overlatelse", Order=2)]
-        public OverlatelseType[] Overlatelse
-        {
-            get
-            {
-                return this.overlatelseField;
-            }
-            set
-            {
-                this.overlatelseField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class FangType : InskrivningType
-    {
-        
-        private BrakType andelFangField;
-        
-        private object itemField;
-        
-        private FangesartType fangesartField;
-        
-        private bool fangesartFieldSpecified;
-        
-        private FangeskodType fangeskodField;
-        
-        private bool fangeskodFieldSpecified;
-        
-        private ForvarvstypType forvarvstypField;
-        
-        private bool forvarvstypFieldSpecified;
-        
-        private string omradesbeskrivningField;
-        
-        private InskrivningType[] itemsField;
-        
-        private string inskrivetAgandeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public BrakType AndelFang
-        {
-            get
-            {
-                return this.andelFangField;
-            }
-            set
-            {
-                this.andelFangField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("fangesar", typeof(int), Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute("fangesdag", typeof(System.DateTime), DataType="date", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute("fangesmanad", typeof(string), Order=1)]
-        public object Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public FangesartType fangesart
-        {
-            get
-            {
-                return this.fangesartField;
-            }
-            set
-            {
-                this.fangesartField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fangesartSpecified
-        {
-            get
-            {
-                return this.fangesartFieldSpecified;
-            }
-            set
-            {
-                this.fangesartFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public FangeskodType fangeskod
-        {
-            get
-            {
-                return this.fangeskodField;
-            }
-            set
-            {
-                this.fangeskodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fangeskodSpecified
-        {
-            get
-            {
-                return this.fangeskodFieldSpecified;
-            }
-            set
-            {
-                this.fangeskodFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public ForvarvstypType forvarvstyp
-        {
-            get
-            {
-                return this.forvarvstypField;
-            }
-            set
-            {
-                this.forvarvstypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool forvarvstypSpecified
-        {
-            get
-            {
-                return this.forvarvstypFieldSpecified;
-            }
-            set
-            {
-                this.forvarvstypFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string omradesbeskrivning
-        {
-            get
-            {
-                return this.omradesbeskrivningField;
-            }
-            set
-            {
-                this.omradesbeskrivningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Lagfartsanmarkning", typeof(LagfartsanmarkningType), Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute("Tomtrattsinnehavsanmarkning", typeof(TomtrattsinnehavsanmarkningType), Order=6)]
-        public InskrivningType[] Items
-        {
-            get
-            {
-                return this.itemsField;
-            }
-            set
-            {
-                this.itemsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string inskrivetAgande
-        {
-            get
-            {
-                return this.inskrivetAgandeField;
-            }
-            set
-            {
-                this.inskrivetAgandeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum FangesartType
-    {
-        
-        /// <remarks/>
-        Arv,
-        
-        /// <remarks/>
-        Avhandling,
-        
-        /// <remarks/>
-        Avtal,
-        
-        /// <remarks/>
-        Bodelning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Bodelning pga. dödsfall")]
-        Bodelningpgadödsfall,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Bodelning pga. samboförhållandets upphörande")]
-        Bodelningpgasamboförhållandetsupphörande,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Bodelning pga. äktenskapsskillnad")]
-        Bodelningpgaäktenskapsskillnad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Bodelning under bestående äktenskap")]
-        Bodelningunderbeståendeäktenskap,
-        
-        /// <remarks/>
-        Bouppteckning,
-        
-        /// <remarks/>
-        Byte,
-        
-        /// <remarks/>
-        Delning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Domstols utslag eller dom")]
-        Domstolsutslagellerdom,
-        
-        /// <remarks/>
-        Ensittarinlösen,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning")]
-        Exekutivförsäljning,
-        
-        /// <remarks/>
-        Expropriation,
-        
-        /// <remarks/>
-        Fideikommiss,
-        
-        /// <remarks/>
-        Fusion,
-        
-        /// <remarks/>
-        Förköp,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förvärv av kyrklig jord prästlöneboställe")]
-        Förvärvavkyrkligjordprästlöneboställe,
-        
-        /// <remarks/>
-        Gåva,
-        
-        /// <remarks/>
-        Inlösen,
-        
-        /// <remarks/>
-        Järnvägslagfart,
-        
-        /// <remarks/>
-        Konkursförsäljning,
-        
-        /// <remarks/>
-        Köp,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Laga skifte")]
-        Lagaskifte,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Lagfart på grundval av protokoll från lagfartssammanträde")]
-        Lagfartpågrundvalavprotokollfrånlagfartssammanträde,
-        
-        /// <remarks/>
-        Skifte,
-        
-        /// <remarks/>
-        Storskifte,
-        
-        /// <remarks/>
-        Testamente,
-        
-        /// <remarks/>
-        Tillskott,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Upplåtelse av tomträtt")]
-        Upplåtelseavtomträtt,
-        
-        /// <remarks/>
-        Utdelning,
-        
-        /// <remarks/>
-        Äganderättsförteckning,
-        
-        /// <remarks/>
-        Äktenskapsförord,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Övriga fångeshandlingar")]
-        Övrigafångeshandlingar,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum FangeskodType
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Köp normalfall")]
-        Köpnormalfall,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Köp specialfall, Gåva som köp (vanligt)")]
-        KöpspecialfallGåvasomköpvanligt,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Släktköp, annan fastighet")]
-        Släktköpannanfastighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Släktköp, jordbruksfastighet, normalfall")]
-        Släktköpjordbruksfastighetnormalfall,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Släktköp, jordbruksfastighet, specialfall. Gåva som köp (släkt)")]
-        SläktköpjordbruksfastighetspecialfallGåvasomköpsläkt,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förköp, normalfall")]
-        Förköpnormalfall,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förköp, specialfall")]
-        Förköpspecialfall,
-        
-        /// <remarks/>
-        Byte,
-        
-        /// <remarks/>
-        Gåva,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Arv, bouppteckning, bodelning, äktenskapsförord mm")]
-        Arvbouppteckningbodelningäktenskapsförordmm,
-        
-        /// <remarks/>
-        Testamente,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Exekutive auktion")]
-        Exekutiveauktion,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Expropriation och annan inlösen enligt lag")]
-        Expropriationochannaninlösenenligtlag,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Övrigt fång")]
-        Övrigtfång,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum ForvarvstypType
-    {
-        
-        /// <remarks/>
-        Område,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Undantag av område")]
-        Undantagavområde,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Undantag av utrymme")]
-        Undantagavutrymme,
-        
-        /// <remarks/>
-        Utrymme,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class LagfartsanmarkningType : InskrivningType
-    {
-        
-        private InskrivetAgandeanmarkningstypType lagfartsanmarkningField;
-        
-        private bool lagfartsanmarkningFieldSpecified;
-        
-        private string ovrigAnmarkningField;
-        
-        private string gemensamBostadSamboField;
-        
-        private string tvistAvgjordTillFormanForField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public InskrivetAgandeanmarkningstypType lagfartsanmarkning
-        {
-            get
-            {
-                return this.lagfartsanmarkningField;
-            }
-            set
-            {
-                this.lagfartsanmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool lagfartsanmarkningSpecified
-        {
-            get
-            {
-                return this.lagfartsanmarkningFieldSpecified;
-            }
-            set
-            {
-                this.lagfartsanmarkningFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ovrigAnmarkning
-        {
-            get
-            {
-                return this.ovrigAnmarkningField;
-            }
-            set
-            {
-                this.ovrigAnmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string gemensamBostadSambo
-        {
-            get
-            {
-                return this.gemensamBostadSamboField;
-            }
-            set
-            {
-                this.gemensamBostadSamboField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string tvistAvgjordTillFormanFor
-        {
-            get
-            {
-                return this.tvistAvgjordTillFormanForField;
-            }
-            set
-            {
-                this.tvistAvgjordTillFormanForField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum InskrivetAgandeanmarkningstypType
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Andel osäker")]
-        Andelosäker,
-        
-        /// <remarks/>
-        Anmärkning,
-        
-        /// <remarks/>
-        Avyttringsskyldighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Enskild egendom")]
-        Enskildegendom,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Fråga om rättelse")]
-        Frågaomrättelse,
-        
-        /// <remarks/>
-        Förbehåll,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning")]
-        Förbehållominteckning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning, pantsättning")]
-        Förbehållominteckningpantsättning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning, pantsättning, upplåta rättighet")]
-        Förbehållominteckningpantsättningupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning, upplåta rättighet")]
-        Förbehållominteckningupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om pantsättning")]
-        Förbehållompantsättning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om pantsättning, upplåta rättighet")]
-        Förbehållompantsättningupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om upplåta rättighet")]
-        Förbehållomupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse")]
-        Förbehållomöverlåtelse,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning")]
-        Förbehållomöverlåtelseinteckning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning, pantsättning")]
-        Förbehållomöverlåtelseinteckningpantsättning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning, pantsättning, upplåta rättighet")]
-        Förbehållomöverlåtelseinteckningpantsättningupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning, upplåta rättighet")]
-        Förbehållomöverlåtelseinteckningupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, pantsättning")]
-        Förbehållomöverlåtelsepantsättning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, pantsättning, upplåta rättighet")]
-        Förbehållomöverlåtelsepantsättningupplåtarättighet,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, upplåta rättighet")]
-        Förbehållomöverlåtelseupplåtarättighet,
-        
-        /// <remarks/>
-        Hembud,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("ID-nummer kompletterat")]
-        IDnummerkompletterat,
-        
-        /// <remarks/>
-        Järnvägslagfart,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Kommunens lagfartsförhållanden ej utredda")]
-        Kommunenslagfartsförhållandenejutredda,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Lagfarten avser stamfastigheten")]
-        Lagfartenavserstamfastigheten,
-        
-        /// <remarks/>
-        Namn,
-        
-        /// <remarks/>
-        Rättat,
-        
-        /// <remarks/>
-        Sammanläggningsavtal,
-        
-        /// <remarks/>
-        Tvist,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Tvist avgjord")]
-        Tvistavgjord,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ytterligare fång förekommer")]
-        Ytterligarefångförekommer,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FangType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivetAgandeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InnehavsanteckningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningsanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningshandelseType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivenBelastningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseanmarkningType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public abstract partial class InskrivningType : UtbytesobjektType
-    {
-        
-        private System.DateTime inskrivningsdagField;
-        
-        private bool inskrivningsdagFieldSpecified;
-        
-        private string[] dagboksnummerField;
-        
-        private string aktnummerField;
-        
-        private BeslutstypType beslutField;
-        
-        private NyttBeslutType nyttBeslutField;
-        
-        private System.DateTime uppskovsdatumField;
-        
-        private bool uppskovsdatumFieldSpecified;
-        
-        private string overklagandeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
-        public System.DateTime inskrivningsdag
-        {
-            get
-            {
-                return this.inskrivningsdagField;
-            }
-            set
-            {
-                this.inskrivningsdagField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool inskrivningsdagSpecified
-        {
-            get
-            {
-                return this.inskrivningsdagFieldSpecified;
-            }
-            set
-            {
-                this.inskrivningsdagFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("dagboksnummer", Order=1)]
-        public string[] dagboksnummer
-        {
-            get
-            {
-                return this.dagboksnummerField;
-            }
-            set
-            {
-                this.dagboksnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string aktnummer
-        {
-            get
-            {
-                return this.aktnummerField;
-            }
-            set
-            {
-                this.aktnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public BeslutstypType beslut
-        {
-            get
-            {
-                return this.beslutField;
-            }
-            set
-            {
-                this.beslutField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public NyttBeslutType NyttBeslut
-        {
-            get
-            {
-                return this.nyttBeslutField;
-            }
-            set
-            {
-                this.nyttBeslutField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=5)]
-        public System.DateTime uppskovsdatum
-        {
-            get
-            {
-                return this.uppskovsdatumField;
-            }
-            set
-            {
-                this.uppskovsdatumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool uppskovsdatumSpecified
-        {
-            get
-            {
-                return this.uppskovsdatumFieldSpecified;
-            }
-            set
-            {
-                this.uppskovsdatumFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string overklagande
-        {
-            get
-            {
-                return this.overklagandeField;
-            }
-            set
-            {
-                this.overklagandeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum BeslutstypType
-    {
-        
-        /// <remarks/>
-        Avslag,
-        
-        /// <remarks/>
-        Avvisad,
-        
-        /// <remarks/>
-        Beviljad,
-        
-        /// <remarks/>
-        Okänd,
-        
-        /// <remarks/>
-        Uppskov,
-        
-        /// <remarks/>
-        Vilande,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class NyttBeslutType
-    {
-        
-        private System.DateTime beslutetsInskrivningsdagField;
-        
-        private bool beslutetsInskrivningsdagFieldSpecified;
-        
-        private string beslutetsDagboksnummerField;
-        
-        private string beslutetsAktnummerField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
-        public System.DateTime beslutetsInskrivningsdag
-        {
-            get
-            {
-                return this.beslutetsInskrivningsdagField;
-            }
-            set
-            {
-                this.beslutetsInskrivningsdagField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool beslutetsInskrivningsdagSpecified
-        {
-            get
-            {
-                return this.beslutetsInskrivningsdagFieldSpecified;
-            }
-            set
-            {
-                this.beslutetsInskrivningsdagFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string beslutetsDagboksnummer
-        {
-            get
-            {
-                return this.beslutetsDagboksnummerField;
-            }
-            set
-            {
-                this.beslutetsDagboksnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string beslutetsAktnummer
-        {
-            get
-            {
-                return this.beslutetsAktnummerField;
-            }
-            set
-            {
-                this.beslutetsAktnummerField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class TomtrattsinnehavsanmarkningType : InskrivningType
-    {
-        
-        private InskrivetAgandeanmarkningstypType tomtrattsinnehavsanmarkningField;
-        
-        private bool tomtrattsinnehavsanmarkningFieldSpecified;
-        
-        private string ovrigAnmarkningField;
-        
-        private string gemensamBostadSamboField;
-        
-        private string tvistAvgjordTillFormanForField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public InskrivetAgandeanmarkningstypType tomtrattsinnehavsanmarkning
-        {
-            get
-            {
-                return this.tomtrattsinnehavsanmarkningField;
-            }
-            set
-            {
-                this.tomtrattsinnehavsanmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool tomtrattsinnehavsanmarkningSpecified
-        {
-            get
-            {
-                return this.tomtrattsinnehavsanmarkningFieldSpecified;
-            }
-            set
-            {
-                this.tomtrattsinnehavsanmarkningFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ovrigAnmarkning
-        {
-            get
-            {
-                return this.ovrigAnmarkningField;
-            }
-            set
-            {
-                this.ovrigAnmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string gemensamBostadSambo
-        {
-            get
-            {
-                return this.gemensamBostadSamboField;
-            }
-            set
-            {
-                this.gemensamBostadSamboField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string tvistAvgjordTillFormanFor
-        {
-            get
-            {
-                return this.tvistAvgjordTillFormanForField;
-            }
-            set
-            {
-                this.tvistAvgjordTillFormanForField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public abstract partial class InskrivetAgandeType : InskrivningType
-    {
-        
-        private BrakType beviljadAndelField;
-        
-        private InskrivenPersonType agareField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public BrakType BeviljadAndel
-        {
-            get
-            {
-                return this.beviljadAndelField;
-            }
-            set
-            {
-                this.beviljadAndelField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public InskrivenPersonType Agare
-        {
-            get
-            {
-                return this.agareField;
-            }
-            set
-            {
-                this.agareField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivenPersonType : UtbytesobjektType
-    {
-        
-        private string efternamnField;
-        
-        private string fornamnField;
-        
-        private string organisationsnamnField;
-        
-        private string iDnummerField;
-        
-        private object itemField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string efternamn
-        {
-            get
-            {
-                return this.efternamnField;
-            }
-            set
-            {
-                this.efternamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string fornamn
-        {
-            get
-            {
-                return this.fornamnField;
-            }
-            set
-            {
-                this.fornamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string organisationsnamn
-        {
-            get
-            {
-                return this.organisationsnamnField;
-            }
-            set
-            {
-                this.organisationsnamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string IDnummer
-        {
-            get
-            {
-                return this.iDnummerField;
-            }
-            set
-            {
-                this.iDnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Organisation", typeof(OrganisationType), Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute("Person", typeof(PersonType), Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute("UtlandskAgare", typeof(UtlandskAgareType), Order=4)]
-        public object Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class OrganisationType
-    {
-        
-        private string organisationsnummerField;
-        
-        private string organisationsnamnField;
-        
-        private string juridiskFormField;
-        
-        private AdressType adressField;
-        
-        private UtlandsadressType utlandsadressField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string organisationsnummer
-        {
-            get
-            {
-                return this.organisationsnummerField;
-            }
-            set
-            {
-                this.organisationsnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string organisationsnamn
-        {
-            get
-            {
-                return this.organisationsnamnField;
-            }
-            set
-            {
-                this.organisationsnamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string juridiskForm
-        {
-            get
-            {
-                return this.juridiskFormField;
-            }
-            set
-            {
-                this.juridiskFormField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public AdressType Adress
-        {
-            get
-            {
-                return this.adressField;
-            }
-            set
-            {
-                this.adressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public UtlandsadressType Utlandsadress
-        {
-            get
-            {
-                return this.utlandsadressField;
-            }
-            set
-            {
-                this.utlandsadressField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AdressType
-    {
-        
-        private string coAdressField;
-        
-        private string utdelningsadress1Field;
-        
-        private string utdelningsadress2Field;
-        
-        private string postnummerField;
-        
-        private string postortField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string coAdress
-        {
-            get
-            {
-                return this.coAdressField;
-            }
-            set
-            {
-                this.coAdressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string utdelningsadress1
-        {
-            get
-            {
-                return this.utdelningsadress1Field;
-            }
-            set
-            {
-                this.utdelningsadress1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string utdelningsadress2
-        {
-            get
-            {
-                return this.utdelningsadress2Field;
-            }
-            set
-            {
-                this.utdelningsadress2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string postnummer
-        {
-            get
-            {
-                return this.postnummerField;
-            }
-            set
-            {
-                this.postnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string postort
-        {
-            get
-            {
-                return this.postortField;
-            }
-            set
-            {
-                this.postortField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class UtlandsadressType
-    {
-        
-        private string utdelningsadress1Field;
-        
-        private string utdelningsadress2Field;
-        
-        private string utdelningsadress3Field;
-        
-        private string utdelningsadress4Field;
-        
-        private string landField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string utdelningsadress1
-        {
-            get
-            {
-                return this.utdelningsadress1Field;
-            }
-            set
-            {
-                this.utdelningsadress1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string utdelningsadress2
-        {
-            get
-            {
-                return this.utdelningsadress2Field;
-            }
-            set
-            {
-                this.utdelningsadress2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string utdelningsadress3
-        {
-            get
-            {
-                return this.utdelningsadress3Field;
-            }
-            set
-            {
-                this.utdelningsadress3Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string utdelningsadress4
-        {
-            get
-            {
-                return this.utdelningsadress4Field;
-            }
-            set
-            {
-                this.utdelningsadress4Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string land
-        {
-            get
-            {
-                return this.landField;
-            }
-            set
-            {
-                this.landField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class PersonType
-    {
-        
-        private string personnummerField;
-        
-        private string fornamnField;
-        
-        private string mellannamnField;
-        
-        private string efternamnField;
-        
-        private string tilltalsnamnField;
-        
-        private AdressType adressField;
-        
-        private AdressType sarskildAdressField;
-        
-        private UtlandsadressType utlandsadressField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string personnummer
-        {
-            get
-            {
-                return this.personnummerField;
-            }
-            set
-            {
-                this.personnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string fornamn
-        {
-            get
-            {
-                return this.fornamnField;
-            }
-            set
-            {
-                this.fornamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string mellannamn
-        {
-            get
-            {
-                return this.mellannamnField;
-            }
-            set
-            {
-                this.mellannamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string efternamn
-        {
-            get
-            {
-                return this.efternamnField;
-            }
-            set
-            {
-                this.efternamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string tilltalsnamn
-        {
-            get
-            {
-                return this.tilltalsnamnField;
-            }
-            set
-            {
-                this.tilltalsnamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public AdressType Adress
-        {
-            get
-            {
-                return this.adressField;
-            }
-            set
-            {
-                this.adressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public AdressType SarskildAdress
-        {
-            get
-            {
-                return this.sarskildAdressField;
-            }
-            set
-            {
-                this.sarskildAdressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public UtlandsadressType Utlandsadress
-        {
-            get
-            {
-                return this.utlandsadressField;
-            }
-            set
-            {
-                this.utlandsadressField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class UtlandskAgareType : UtbytesobjektType
-    {
-        
-        private string annatIDField;
-        
-        private string utdelningsadressField;
-        
-        private string postkodField;
-        
-        private string postortField;
-        
-        private string landField;
-        
-        private string landskodField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string annatID
-        {
-            get
-            {
-                return this.annatIDField;
-            }
-            set
-            {
-                this.annatIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string utdelningsadress
-        {
-            get
-            {
-                return this.utdelningsadressField;
-            }
-            set
-            {
-                this.utdelningsadressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string postkod
-        {
-            get
-            {
-                return this.postkodField;
-            }
-            set
-            {
-                this.postkodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string postort
-        {
-            get
-            {
-                return this.postortField;
-            }
-            set
-            {
-                this.postortField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string land
-        {
-            get
-            {
-                return this.landField;
-            }
-            set
-            {
-                this.landField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string landskod
-        {
-            get
-            {
-                return this.landskodField;
-            }
-            set
-            {
-                this.landskodField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class TomtrattsinnehavType : InskrivetAgandeType
-    {
-        
-        private TomtrattsinnehavsanmarkningType[] tomtrattsinnehavsanmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Tomtrattsinnehavsanmarkning", Order=0)]
-        public TomtrattsinnehavsanmarkningType[] Tomtrattsinnehavsanmarkning
-        {
-            get
-            {
-                return this.tomtrattsinnehavsanmarkningField;
-            }
-            set
-            {
-                this.tomtrattsinnehavsanmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class LagfartType : InskrivetAgandeType
-    {
-        
-        private LagfartsanmarkningType[] lagfartsanmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Lagfartsanmarkning", Order=0)]
-        public LagfartsanmarkningType[] Lagfartsanmarkning
-        {
-            get
-            {
-                return this.lagfartsanmarkningField;
-            }
-            set
-            {
-                this.lagfartsanmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AnteckningsanmarkningType : InskrivningType
-    {
-        
-        private string anmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string anmarkning
-        {
-            get
-            {
-                return this.anmarkningField;
-            }
-            set
-            {
-                this.anmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AnteckningType : InskrivningType
-    {
-        
-        private AnteckningstypType anteckningstypField;
-        
-        private string anteckningstextField;
-        
-        private AnteckningsanmarkningType[] anteckningsanmarkningField;
-        
-        private RegisterenhetsreferensType[] belastarField;
-        
-        private AvserreferensType[] avserField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public AnteckningstypType anteckningstyp
-        {
-            get
-            {
-                return this.anteckningstypField;
-            }
-            set
-            {
-                this.anteckningstypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string anteckningstext
-        {
-            get
-            {
-                return this.anteckningstextField;
-            }
-            set
-            {
-                this.anteckningstextField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Anteckningsanmarkning", Order=2)]
-        public AnteckningsanmarkningType[] Anteckningsanmarkning
-        {
-            get
-            {
-                return this.anteckningsanmarkningField;
-            }
-            set
-            {
-                this.anteckningsanmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable=false)]
-        public RegisterenhetsreferensType[] Belastar
-        {
-            get
-            {
-                return this.belastarField;
-            }
-            set
-            {
-                this.belastarField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Avser", Order=4)]
-        public AvserreferensType[] Avser
-        {
-            get
-            {
-                return this.avserField;
-            }
-            set
-            {
-                this.avserField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum AnteckningstypType
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ansökan om sammanläggning")]
-        Ansökanomsammanläggning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Beslut om sammanläggning")]
-        Beslutomsammanläggning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Beslut om tagande i förvar")]
-        Beslutomtagandeiförvar,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Betalningssäkring verkställd")]
-        Betalningssäkringverkställd,
-        
-        /// <remarks/>
-        Ersättningsbeslut,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning")]
-        Exekutivförsäljning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning begärd")]
-        Exekutivförsäljningbegärd,
-        
-        /// <remarks/>
-        Exploateringssamverkan,
-        
-        /// <remarks/>
-        Expropriation,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Expropriationsrätten förverkad")]
-        Expropriationsrättenförverkad,
-        
-        /// <remarks/>
-        Expropriationsstämning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Fråga om inlösen enligt anläggningslagen")]
-        Frågaominlösenenligtanläggningslagen,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Fråga om inlösen enligt fastighetsbildningslagen")]
-        Frågaominlösenenligtfastighetsbildningslagen,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Fråga om inlösen enligt ledningsrättslagen")]
-        Frågaominlösenenligtledningsrättslagen,
-        
-        /// <remarks/>
-        Förbud,
-        
-        /// <remarks/>
-        Föreläggande,
-        
-        /// <remarks/>
-        Företagsinteckning,
-        
-        /// <remarks/>
-        Förköpsrätt,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förköpsrätt bestridd")]
-        Förköpsrättbestridd,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förmånsrätt för fordran")]
-        Förmånsrättförfordran,
-        
-        /// <remarks/>
-        Förnyelse,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förordnande att hela fastigheten skall säljas")]
-        Förordnandeatthelafastighetenskallsäljas,
-        
-        /// <remarks/>
-        Hembud,
-        
-        /// <remarks/>
-        Industritillbehör,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Intresseanmälan för arrendatorers rätt att förvärva arrendeställe")]
-        Intresseanmälanförarrendatorersrättattförvärvaarrendeställe,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Intresseanmälan för ombildning till bostadsrätt")]
-        Intresseanmälanförombildningtillbostadsrätt,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Intresseanmälan för ombildning till kooperativ hyresrätt")]
-        Intresseanmälanförombildningtillkooperativhyresrätt,
-        
-        /// <remarks/>
-        Konkurs,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Konkurs avslutad utan att fastigheten sålts")]
-        Konkursavslutadutanattfastighetensålts,
-        
-        /// <remarks/>
-        Kvarstad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Orubbad avtalsrättighet vid inlösen")]
-        Orubbadavtalsrättighetvidinlösen,
-        
-        /// <remarks/>
-        Ställföreträdare,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Stämning i mål om inlösen")]
-        Stämningimålominlösen,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Talan om bulvanförhållande")]
-        Talanombulvanförhållande,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Talan om inlösen")]
-        Talanominlösen,
-        
-        /// <remarks/>
-        Tvångsförvaltning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för likvidationsförfarande")]
-        Utländsktbeslutförlikvidationsförfarande,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för insolvensförfarande")]
-        Utländsktbeslutförinsolvensförfarande,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för rekonstruktionsåtgärd/likvidationsförfarande")]
-        Utländsktbeslutförrekonstruktionsåtgärdlikvidationsförfarande,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för rekonstruktionsåtgärd")]
-        Utländsktbeslutförrekonstruktionsåtgärd,
-        
-        /// <remarks/>
-        Utmätning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Yttrande om sammanläggning")]
-        Yttrandeomsammanläggning,
-        
-        /// <remarks/>
-        Åläggande,
-        
-        /// <remarks/>
-        Överlåtelseförbud,
-        
-        /// <remarks/>
-        Övrigt,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AvserreferensType
-    {
-        
-        private string itemField;
-        
-        private ItemChoiceType1 itemElementNameField;
-        
-        private RegisterenhetsreferensType[] registerenhetsreferensField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("avtalsrattighet", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("inskrivetAgande", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("inteckning", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
-        public string Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType1 ItemElementName
-        {
-            get
-            {
-                return this.itemElementNameField;
-            }
-            set
-            {
-                this.itemElementNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order=2)]
-        public RegisterenhetsreferensType[] Registerenhetsreferens
-        {
-            get
-            {
-                return this.registerenhetsreferensField;
-            }
-            set
-            {
-                this.registerenhetsreferensField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema=false)]
-    public enum ItemChoiceType1
-    {
-        
-        /// <remarks/>
-        avtalsrattighet,
-        
-        /// <remarks/>
-        inskrivetAgande,
-        
-        /// <remarks/>
-        inteckning,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AvtalsrattighetsanmarkningType : InskrivningType
-    {
-        
-        private string anmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string anmarkning
-        {
-            get
-            {
-                return this.anmarkningField;
-            }
-            set
-            {
-                this.anmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InnehavsanteckningType : InskrivningType
-    {
-        
-        private string organisationsnamnField;
-        
-        private string efternamnField;
-        
-        private string fornamnField;
-        
-        private string utdelningsadressField;
-        
-        private int postnummerField;
-        
-        private bool postnummerFieldSpecified;
-        
-        private string postkodField;
-        
-        private string postortField;
-        
-        private string landField;
-        
-        private string landskodField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string organisationsnamn
-        {
-            get
-            {
-                return this.organisationsnamnField;
-            }
-            set
-            {
-                this.organisationsnamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string efternamn
-        {
-            get
-            {
-                return this.efternamnField;
-            }
-            set
-            {
-                this.efternamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string fornamn
-        {
-            get
-            {
-                return this.fornamnField;
-            }
-            set
-            {
-                this.fornamnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string utdelningsadress
-        {
-            get
-            {
-                return this.utdelningsadressField;
-            }
-            set
-            {
-                this.utdelningsadressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public int postnummer
-        {
-            get
-            {
-                return this.postnummerField;
-            }
-            set
-            {
-                this.postnummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool postnummerSpecified
-        {
-            get
-            {
-                return this.postnummerFieldSpecified;
-            }
-            set
-            {
-                this.postnummerFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string postkod
-        {
-            get
-            {
-                return this.postkodField;
-            }
-            set
-            {
-                this.postkodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string postort
-        {
-            get
-            {
-                return this.postortField;
-            }
-            set
-            {
-                this.postortField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string land
-        {
-            get
-            {
-                return this.landField;
-            }
-            set
-            {
-                this.landField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string landskod
-        {
-            get
-            {
-                return this.landskodField;
-            }
-            set
-            {
-                this.landskodField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InteckningsanmarkningType : InskrivningType
-    {
-        
-        private InteckningsanmarkningstypType inteckningsanmarkningField;
-        
-        private bool inteckningsanmarkningFieldSpecified;
-        
-        private string ovrigAnmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public InteckningsanmarkningstypType inteckningsanmarkning
-        {
-            get
-            {
-                return this.inteckningsanmarkningField;
-            }
-            set
-            {
-                this.inteckningsanmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool inteckningsanmarkningSpecified
-        {
-            get
-            {
-                return this.inteckningsanmarkningFieldSpecified;
-            }
-            set
-            {
-                this.inteckningsanmarkningFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ovrigAnmarkning
-        {
-            get
-            {
-                return this.ovrigAnmarkningField;
-            }
-            set
-            {
-                this.ovrigAnmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum InteckningsanmarkningstypType
-    {
-        
-        /// <remarks/>
-        Anmärkning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ansökan att handlingen dödas avslagen")]
-        Ansökanatthandlingendödasavslagen,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ansökan att handlingen dödas")]
-        Ansökanatthandlingendödas,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ansökan att ursprunglig handling dödas")]
-        Ansökanattursprunglighandlingdödas,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ansökan om dödning av inteckningen utan handlingens företeende")]
-        Ansökanomdödningavinteckningenutanhandlingensföreteende,
-        
-        /// <remarks/>
-        Delexpropriation,
-        
-        /// <remarks/>
-        Delinlösen,
-        
-        /// <remarks/>
-        Ensittarinlösen,
-        
-        /// <remarks/>
-        Expropriationsstämning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Fråga om rättelse")]
-        Frågaomrättelse,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Handlingen dödad")]
-        Handlingendödad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Homogenitetsprincipen ej beaktad")]
-        Homogenitetsprincipenejbeaktad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Inteckningen får dödas utan handlingens företeende")]
-        Inteckningenfårdödasutanhandlingensföreteende,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Minskat kapitalbelopp")]
-        Minskatkapitalbelopp,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ny handling utfärdad")]
-        Nyhandlingutfärdad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ogulden köpeskilling")]
-        Oguldenköpeskilling,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Omprövat beslut")]
-        Omprövatbeslut,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Omräknat från äldre mynt")]
-        Omräknatfrånäldremynt,
-        
-        /// <remarks/>
-        Ränta,
-        
-        /// <remarks/>
-        Rättat,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Skatt beslutad")]
-        Skattbeslutad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Skatt ej beslutad")]
-        Skattejbeslutad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Skatt omprövad")]
-        Skattomprövad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Skatt ändrad")]
-        Skattändrad,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Skatt överklagad")]
-        Skattöverklagad,
-        
-        /// <remarks/>
-        Tvist,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Tvist avgjord")]
-        Tvistavgjord,
-        
-        /// <remarks/>
-        Uppdelning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Ursprunglig handling dödad")]
-        Ursprunglighandlingdödad,
-        
-        /// <remarks/>
-        Utbrytning,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivningshandelseType : InskrivningType
-    {
-        
-        private InskrivningshandelsetypType inskrivningshandelsetypField;
-        
-        private string akthanvisningField;
-        
-        private InskrivenBelastningreferensType[] paverkarField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public InskrivningshandelsetypType inskrivningshandelsetyp
-        {
-            get
-            {
-                return this.inskrivningshandelsetypField;
-            }
-            set
-            {
-                this.inskrivningshandelsetypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string akthanvisning
-        {
-            get
-            {
-                return this.akthanvisningField;
-            }
-            set
-            {
-                this.akthanvisningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Paverkar", Order=2)]
-        public InskrivenBelastningreferensType[] Paverkar
-        {
-            get
-            {
-                return this.paverkarField;
-            }
-            set
-            {
-                this.paverkarField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum InskrivningshandelsetypType
-    {
-        
-        /// <remarks/>
-        Dödning,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning")]
-        Exekutivförsäljning,
-        
-        /// <remarks/>
-        Expropriation,
-        
-        /// <remarks/>
-        Fastighetsreglering,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Förordnande enligt fastighetsbildningslagen")]
-        Förordnandeenligtfastighetsbildningslagen,
-        
-        /// <remarks/>
-        Inlösen,
-        
-        /// <remarks/>
-        Kommunrelax,
-        
-        /// <remarks/>
-        Nedsättning,
-        
-        /// <remarks/>
-        Relax,
-        
-        /// <remarks/>
-        Sammanföring,
-        
-        /// <remarks/>
-        Sammanläggning,
-        
-        /// <remarks/>
-        Utbyte,
-        
-        /// <remarks/>
-        Utsträckning,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivenBelastningreferensType
-    {
-        
-        private string itemField;
-        
-        private ItemChoiceType itemElementNameField;
-        
-        private RegisterenhetsreferensType[] registerenhetsreferensField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("avtalsrattighet", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("inteckning", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
-        public string Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType ItemElementName
-        {
-            get
-            {
-                return this.itemElementNameField;
-            }
-            set
-            {
-                this.itemElementNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order=2)]
-        public RegisterenhetsreferensType[] Registerenhetsreferens
-        {
-            get
-            {
-                return this.registerenhetsreferensField;
-            }
-            set
-            {
-                this.registerenhetsreferensField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema=false)]
-    public enum ItemChoiceType
-    {
-        
-        /// <remarks/>
-        avtalsrattighet,
-        
-        /// <remarks/>
-        inteckning,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public abstract partial class InskrivenBelastningType : InskrivningType
-    {
-        
-        private string[] likarattField;
-        
-        private InskrivningshandelseType[] inskrivningshandelseField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("likaratt", Order=0)]
-        public string[] likaratt
-        {
-            get
-            {
-                return this.likarattField;
-            }
-            set
-            {
-                this.likarattField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Inskrivningshandelse", Order=1)]
-        public InskrivningshandelseType[] Inskrivningshandelse
-        {
-            get
-            {
-                return this.inskrivningshandelseField;
-            }
-            set
-            {
-                this.inskrivningshandelseField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public abstract partial class AvtalsrattighetType : InskrivenBelastningType
-    {
-        
-        private AvtalsrattighetsanmarkningType[] avtalsrattighetsanmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Avtalsrattighetsanmarkning", Order=0)]
-        public AvtalsrattighetsanmarkningType[] Avtalsrattighetsanmarkning
-        {
-            get
-            {
-                return this.avtalsrattighetsanmarkningField;
-            }
-            set
-            {
-                this.avtalsrattighetsanmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AvkomstrattType : AvtalsrattighetType
-    {
-        
-        private RegisterenhetsreferensType[] belastarField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable=false)]
-        public RegisterenhetsreferensType[] Belastar
-        {
-            get
-            {
-                return this.belastarField;
-            }
-            set
-            {
-                this.belastarField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class ElkraftrattType : AvtalsrattighetType
-    {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AvtalsnyttjanderattType : AvtalsrattighetType
-    {
-        
-        private AvtalsnyttjanderattsandamalType[] avtalsnyttjanderattsandamalField;
-        
-        private string[] ovrigtAndamalField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("avtalsnyttjanderattsandamal", Order=0)]
-        public AvtalsnyttjanderattsandamalType[] avtalsnyttjanderattsandamal
-        {
-            get
-            {
-                return this.avtalsnyttjanderattsandamalField;
-            }
-            set
-            {
-                this.avtalsnyttjanderattsandamalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ovrigtAndamal", Order=1)]
-        public string[] ovrigtAndamal
-        {
-            get
-            {
-                return this.ovrigtAndamalField;
-            }
-            set
-            {
-                this.ovrigtAndamalField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum AvtalsnyttjanderattsandamalType
-    {
-        
-        /// <remarks/>
-        Avverkningsrätt,
-        
-        /// <remarks/>
-        Bostad,
-        
-        /// <remarks/>
-        Brygga,
-        
-        /// <remarks/>
-        Fiske,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Hela fastigheten")]
-        Helafastigheten,
-        
-        /// <remarks/>
-        Jakt,
-        
-        /// <remarks/>
-        Område,
-        
-        /// <remarks/>
-        Tele,
-        
-        /// <remarks/>
-        Vindkraftanläggning,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AvtalsservitutType : AvtalsrattighetType
-    {
-        
-        private ServitutsandamalType[] avtalsservitutsandamalField;
-        
-        private string[] ovrigtAndamalField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("avtalsservitutsandamal", Order=0)]
-        public ServitutsandamalType[] avtalsservitutsandamal
-        {
-            get
-            {
-                return this.avtalsservitutsandamalField;
-            }
-            set
-            {
-                this.avtalsservitutsandamalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ovrigtAndamal", Order=1)]
-        public string[] ovrigtAndamal
-        {
-            get
-            {
-                return this.ovrigtAndamalField;
-            }
-            set
-            {
-                this.ovrigtAndamalField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum ServitutsandamalType
-    {
-        
-        /// <remarks/>
-        Altan,
-        
-        /// <remarks/>
-        Avloppsledning,
-        
-        /// <remarks/>
-        Badplats,
-        
-        /// <remarks/>
-        Bergvärme,
-        
-        /// <remarks/>
-        Bete,
-        
-        /// <remarks/>
-        Brandmur,
-        
-        /// <remarks/>
-        Brunn,
-        
-        /// <remarks/>
-        Brygga,
-        
-        /// <remarks/>
-        Byggnad,
-        
-        /// <remarks/>
-        Båtplats,
-        
-        /// <remarks/>
-        Dike,
-        
-        /// <remarks/>
-        Elledning,
-        
-        /// <remarks/>
-        Fiske,
-        
-        /// <remarks/>
-        Fjärrvärmeledning,
-        
-        /// <remarks/>
-        Grundvattenskydd,
-        
-        /// <remarks/>
-        Grundvattentäkt,
-        
-        /// <remarks/>
-        Grustäkt,
-        
-        /// <remarks/>
-        Grönområde,
-        
-        /// <remarks/>
-        Jakt,
-        
-        /// <remarks/>
-        Jordvärme,
-        
-        /// <remarks/>
-        Kraftledning,
-        
-        /// <remarks/>
-        Lertäkt,
-        
-        /// <remarks/>
-        Linbana,
-        
-        /// <remarks/>
-        Område,
-        
-        /// <remarks/>
-        Optokabel,
-        
-        /// <remarks/>
-        Parkering,
-        
-        /// <remarks/>
-        Sandtäkt,
-        
-        /// <remarks/>
-        Skog,
-        
-        /// <remarks/>
-        Slåtter,
-        
-        /// <remarks/>
-        Soptipp,
-        
-        /// <remarks/>
-        Stentäkt,
-        
-        /// <remarks/>
-        Strand,
-        
-        /// <remarks/>
-        Tele,
-        
-        /// <remarks/>
-        Torvtäkt,
-        
-        /// <remarks/>
-        Transformatorstation,
-        
-        /// <remarks/>
-        Tvättstuga,
-        
-        /// <remarks/>
-        Tångtäkt,
-        
-        /// <remarks/>
-        Uppdämning,
-        
-        /// <remarks/>
-        Upplagsplats,
-        
-        /// <remarks/>
-        Utsikt,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("VA-ledningar")]
-        VAledningar,
-        
-        /// <remarks/>
-        Vatten,
-        
-        /// <remarks/>
-        Vattenkraft,
-        
-        /// <remarks/>
-        Vattenledning,
-        
-        /// <remarks/>
-        Villa,
-        
-        /// <remarks/>
-        Väg,
-        
-        /// <remarks/>
-        Värmecentral,
-        
-        /// <remarks/>
-        Värmeledning,
-        
-        /// <remarks/>
-        Ytvattenskydd,
-        
-        /// <remarks/>
-        Ytvattentäkt,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InteckningType : InskrivenBelastningType
-    {
-        
-        private BeloppType beloppField;
-        
-        private PantbrevstypType pantbrevstypField;
-        
-        private bool pantbrevstypFieldSpecified;
-        
-        private bool oklarInteckningField;
-        
-        private bool interregionalInteckningField;
-        
-        private InteckningsanmarkningType[] inteckningsanmarkningField;
-        
-        private InnehavsanteckningType innehavsanteckningField;
-        
-        private RegisterenhetsreferensType[] belastarField;
-        
-        private RegisterenhetsreferensType[] avsagUrsprungligenField;
-        
-        private RegisterenhetsreferensType[] utstrackningSoktIField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public BeloppType Belopp
-        {
-            get
-            {
-                return this.beloppField;
-            }
-            set
-            {
-                this.beloppField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public PantbrevstypType pantbrevstyp
-        {
-            get
-            {
-                return this.pantbrevstypField;
-            }
-            set
-            {
-                this.pantbrevstypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool pantbrevstypSpecified
-        {
-            get
-            {
-                return this.pantbrevstypFieldSpecified;
-            }
-            set
-            {
-                this.pantbrevstypFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public bool oklarInteckning
-        {
-            get
-            {
-                return this.oklarInteckningField;
-            }
-            set
-            {
-                this.oklarInteckningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public bool interregionalInteckning
-        {
-            get
-            {
-                return this.interregionalInteckningField;
-            }
-            set
-            {
-                this.interregionalInteckningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Inteckningsanmarkning", Order=4)]
-        public InteckningsanmarkningType[] Inteckningsanmarkning
-        {
-            get
-            {
-                return this.inteckningsanmarkningField;
-            }
-            set
-            {
-                this.inteckningsanmarkningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public InnehavsanteckningType Innehavsanteckning
-        {
-            get
-            {
-                return this.innehavsanteckningField;
-            }
-            set
-            {
-                this.innehavsanteckningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable=false)]
-        public RegisterenhetsreferensType[] Belastar
-        {
-            get
-            {
-                return this.belastarField;
-            }
-            set
-            {
-                this.belastarField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable=false)]
-        public RegisterenhetsreferensType[] AvsagUrsprungligen
-        {
-            get
-            {
-                return this.avsagUrsprungligenField;
-            }
-            set
-            {
-                this.avsagUrsprungligenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=8)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable=false)]
-        public RegisterenhetsreferensType[] UtstrackningSoktI
-        {
-            get
-            {
-                return this.utstrackningSoktIField;
-            }
-            set
-            {
-                this.utstrackningSoktIField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum PantbrevstypType
-    {
-        
-        /// <remarks/>
-        Datapantbrev,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Skriftligt pantbrev")]
-        Skriftligtpantbrev,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class TomtrattsupplatelseanmarkningType : InskrivningType
-    {
-        
-        private string anmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string anmarkning
-        {
-            get
-            {
-                return this.anmarkningField;
-            }
-            set
-            {
-                this.anmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class TomtrattsupplatelseType : InskrivningType
-    {
-        
-        private string andamalField;
-        
-        private string inskrankningField;
-        
-        private System.DateTime ursprungligtStartdatumField;
-        
-        private AvgaldType avgaldField;
-        
-        private AvgaldType framtidaAvgaldField;
-        
-        private bool aldreTomtrattField;
-        
-        private int uppsagningsperiodarField;
-        
-        private bool uppsagningsperiodarFieldSpecified;
-        
-        private System.DateTime uppsagningsdatumField;
-        
-        private bool uppsagningsdatumFieldSpecified;
-        
-        private System.DateTime upplatelsedatumField;
-        
-        private TomtrattsupplatelseanmarkningType[] tomtrattsupplatelseanmarkningField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string andamal
-        {
-            get
-            {
-                return this.andamalField;
-            }
-            set
-            {
-                this.andamalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string inskrankning
-        {
-            get
-            {
-                return this.inskrankningField;
-            }
-            set
-            {
-                this.inskrankningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=2)]
-        public System.DateTime ursprungligtStartdatum
-        {
-            get
-            {
-                return this.ursprungligtStartdatumField;
-            }
-            set
-            {
-                this.ursprungligtStartdatumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public AvgaldType Avgald
-        {
-            get
-            {
-                return this.avgaldField;
-            }
-            set
-            {
-                this.avgaldField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public AvgaldType FramtidaAvgald
-        {
-            get
-            {
-                return this.framtidaAvgaldField;
-            }
-            set
-            {
-                this.framtidaAvgaldField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public bool aldreTomtratt
-        {
-            get
-            {
-                return this.aldreTomtrattField;
-            }
-            set
-            {
-                this.aldreTomtrattField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public int uppsagningsperiodar
-        {
-            get
-            {
-                return this.uppsagningsperiodarField;
-            }
-            set
-            {
-                this.uppsagningsperiodarField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool uppsagningsperiodarSpecified
-        {
-            get
-            {
-                return this.uppsagningsperiodarFieldSpecified;
-            }
-            set
-            {
-                this.uppsagningsperiodarFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=7)]
-        public System.DateTime uppsagningsdatum
-        {
-            get
-            {
-                return this.uppsagningsdatumField;
-            }
-            set
-            {
-                this.uppsagningsdatumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool uppsagningsdatumSpecified
-        {
-            get
-            {
-                return this.uppsagningsdatumFieldSpecified;
-            }
-            set
-            {
-                this.uppsagningsdatumFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=8)]
-        public System.DateTime upplatelsedatum
-        {
-            get
-            {
-                return this.upplatelsedatumField;
-            }
-            set
-            {
-                this.upplatelsedatumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Tomtrattsupplatelseanmarkning", Order=9)]
-        public TomtrattsupplatelseanmarkningType[] Tomtrattsupplatelseanmarkning
-        {
-            get
-            {
-                return this.tomtrattsupplatelseanmarkningField;
-            }
-            set
-            {
-                this.tomtrattsupplatelseanmarkningField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class AvgaldType
-    {
-        
-        private System.DateTime startdatumField;
-        
-        private BeloppType avgiftField;
-        
-        private int periodlangdarField;
-        
-        private bool periodlangdarFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
-        public System.DateTime startdatum
-        {
-            get
-            {
-                return this.startdatumField;
-            }
-            set
-            {
-                this.startdatumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public BeloppType Avgift
-        {
-            get
-            {
-                return this.avgiftField;
-            }
-            set
-            {
-                this.avgiftField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int periodlangdar
-        {
-            get
-            {
-                return this.periodlangdarField;
-            }
-            set
-            {
-                this.periodlangdarField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool periodlangdarSpecified
-        {
-            get
-            {
-                return this.periodlangdarFieldSpecified;
-            }
-            set
-            {
-                this.periodlangdarFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class UtstrackningSoktIType : UtbytesobjektType
-    {
-        
-        private int foretradesordningField;
-        
-        private InteckningsreferensType inteckningsreferensField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int foretradesordning
-        {
-            get
-            {
-                return this.foretradesordningField;
-            }
-            set
-            {
-                this.foretradesordningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public InteckningsreferensType Inteckningsreferens
-        {
-            get
-            {
-                return this.inteckningsreferensField;
-            }
-            set
-            {
-                this.inteckningsreferensField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InteckningsreferensType
-    {
-        
-        private string inteckningField;
-        
-        private RegisterenhetsreferensType[] registerenhetsreferensField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string inteckning
-        {
-            get
-            {
-                return this.inteckningField;
-            }
-            set
-            {
-                this.inteckningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order=1)]
-        public RegisterenhetsreferensType[] Registerenhetsreferens
-        {
-            get
-            {
-                return this.registerenhetsreferensField;
-            }
-            set
-            {
-                this.registerenhetsreferensField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class BelastarType : UtbytesobjektType
-    {
-        
-        private int foretradesordningField;
-        
-        private InteckningType itemField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int foretradesordning
-        {
-            get
-            {
-                return this.foretradesordningField;
-            }
-            set
-            {
-                this.foretradesordningField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Inteckning", Order=1)]
-        public InteckningType Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class GruppinformationType : UtbytesobjektType
-    {
-        
-        private GruppinformationstypType gruppinformationstypField;
-        
-        private bool gruppinformationstypFieldSpecified;
-        
-        private string gruppinformationField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public GruppinformationstypType gruppinformationstyp
-        {
-            get
-            {
-                return this.gruppinformationstypField;
-            }
-            set
-            {
-                this.gruppinformationstypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool gruppinformationstypSpecified
-        {
-            get
-            {
-                return this.gruppinformationstypFieldSpecified;
-            }
-            set
-            {
-                this.gruppinformationstypFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string gruppinformation
-        {
-            get
-            {
-                return this.gruppinformationField;
-            }
-            set
-            {
-                this.gruppinformationField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum GruppinformationstypType
-    {
-        
-        /// <remarks/>
-        Avtalsrättighetsgruppinformation,
-        
-        /// <remarks/>
-        Lagfartsgruppinformation,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class PagaendeArendeType : UtbytesobjektType
-    {
-        
-        private System.DateTime aktualitetsdatumField;
-        
-        private PagaendeArendetypType[] pagaendeArendetypField;
-        
-        private RegisterenhetsreferensType[] registerenhetsreferensField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
-        public System.DateTime aktualitetsdatum
-        {
-            get
-            {
-                return this.aktualitetsdatumField;
-            }
-            set
-            {
-                this.aktualitetsdatumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("pagaendeArendetyp", Order=1)]
-        public PagaendeArendetypType[] pagaendeArendetyp
-        {
-            get
-            {
-                return this.pagaendeArendetypField;
-            }
-            set
-            {
-                this.pagaendeArendetypField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order=2)]
-        public RegisterenhetsreferensType[] Registerenhetsreferens
-        {
-            get
-            {
-                return this.registerenhetsreferensField;
-            }
-            set
-            {
-                this.registerenhetsreferensField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum PagaendeArendetypType
-    {
-        
-        /// <remarks/>
-        Anteckning,
-        
-        /// <remarks/>
-        Aviseringar,
-        
-        /// <remarks/>
-        Avtalsrättighet,
-        
-        /// <remarks/>
-        Inteckning,
-        
-        /// <remarks/>
-        Lagfart,
-        
-        /// <remarks/>
-        Tomträtt,
-        
-        /// <remarks/>
-        Övrigt,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class OmradeType : UtbytesobjektType
-    {
-        
-        private InskrivningskontorType inskrivningskontorField;
-        
-        private System.DateTime omradesaktualitetField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public InskrivningskontorType inskrivningskontor
-        {
-            get
-            {
-                return this.inskrivningskontorField;
-            }
-            set
-            {
-                this.inskrivningskontorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=1)]
-        public System.DateTime omradesaktualitet
-        {
-            get
-            {
-                return this.omradesaktualitetField;
-            }
-            set
-            {
-                this.omradesaktualitetField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public enum InskrivningskontorType
-    {
-        
-        /// <remarks/>
-        Eksjö,
-        
-        /// <remarks/>
-        Härnösand,
-        
-        /// <remarks/>
-        Hässleholm,
-        
-        /// <remarks/>
-        Mora,
-        
-        /// <remarks/>
-        Norrtälje,
-        
-        /// <remarks/>
-        Skellefteå,
-        
-        /// <remarks/>
-        Uddevalla,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivningResponseType : AbstractFeatureType
-    {
-        
-        private InskrivningMemberType[] inskrivningMemberField;
-        
-        private AggregationType aggregationTypeField;
-        
-        private bool aggregationTypeFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("InskrivningMember", Order=0)]
-        public InskrivningMemberType[] InskrivningMember
-        {
-            get
-            {
-                return this.inskrivningMemberField;
-            }
-            set
-            {
-                this.inskrivningMemberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public AggregationType aggregationType
-        {
-            get
-            {
-                return this.aggregationTypeField;
-            }
-            set
-            {
-                this.aggregationTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool aggregationTypeSpecified
-        {
-            get
-            {
-                return this.aggregationTypeFieldSpecified;
-            }
-            set
-            {
-                this.aggregationTypeFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivningMemberType : AbstractFeatureMemberType
-    {
-        
-        private InskrivningsinformationType inskrivningsinformationField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public InskrivningsinformationType Inskrivningsinformation
-        {
-            get
-            {
-                return this.inskrivningsinformationField;
-            }
-            set
-            {
-                this.inskrivningsinformationField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningMemberType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractFeatureMemberType
-    {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public enum AggregationType
-    {
-        
-        /// <remarks/>
-        set,
-        
-        /// <remarks/>
-        bag,
-        
-        /// <remarks/>
-        sequence,
-        
-        /// <remarks/>
-        array,
-        
-        /// <remarks/>
-        record,
-        
-        /// <remarks/>
-        table,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiSurfaceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiCurveType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiPointType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractGeometricAggregateType : AbstractGeometryType
-    {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class MultiSurfaceType : AbstractGeometricAggregateType
-    {
-        
-        private SurfacePropertyType[] surfaceMemberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("surfaceMember", Order=0)]
-        public SurfacePropertyType[] surfaceMember
-        {
-            get
-            {
-                return this.surfaceMemberField;
-            }
-            set
-            {
-                this.surfaceMemberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class MultiCurveType : AbstractGeometricAggregateType
-    {
-        
-        private CurvePropertyType[] curveMemberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("curveMember", Order=0)]
-        public CurvePropertyType[] curveMember
-        {
-            get
-            {
-                return this.curveMemberField;
-            }
-            set
-            {
-                this.curveMemberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class CurvePropertyType
-    {
-        
-        private LineStringType itemField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("LineString", Order=0)]
-        public LineStringType Item
-        {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class LineStringType : AbstractCurveType
-    {
-        
-        private DirectPositionListType posListField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public DirectPositionListType posList
-        {
-            get
-            {
-                return this.posListField;
-            }
-            set
-            {
-                this.posListField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public abstract partial class AbstractCurveType : AbstractGeometricPrimitiveType
-    {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class MultiPointType : AbstractGeometricAggregateType
-    {
-        
-        private PointPropertyType[] pointMemberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("pointMember", Order=0)]
-        public PointPropertyType[] pointMember
-        {
-            get
-            {
-                return this.pointMemberField;
-            }
-            set
-            {
-                this.pointMemberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class PointPropertyType
-    {
-        
-        private PointType pointField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public PointType Point
-        {
-            get
-            {
-                return this.pointField;
-            }
-            set
-            {
-                this.pointField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml/3.2")]
-    public partial class PointType : AbstractGeometricPrimitiveType
-    {
-        
-        private DirectPositionType posField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public DirectPositionType pos
-        {
-            get
-            {
-                return this.posField;
-            }
-            set
-            {
-                this.posField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
-    public partial class InskrivningDatasetType
-    {
-        
-        private bool[] itemsField;
-        
-        private ItemsChoiceType1[] itemsElementNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("agare", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("anteckning", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("avtalsrattighet", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("basinformation", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("historikAgande", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("inteckning", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("senasteFang", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("tomtrattsupplatelse", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("total", typeof(bool), Order=0)]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public bool[] Items
-        {
-            get
-            {
-                return this.itemsField;
-            }
-            set
-            {
-                this.itemsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order=1)]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType1[] ItemsElementName
-        {
-            get
-            {
-                return this.itemsElementNameField;
-            }
-            set
-            {
-                this.itemsElementNameField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema=false)]
-    public enum ItemsChoiceType1
-    {
-        
-        /// <remarks/>
-        agare,
-        
-        /// <remarks/>
-        anteckning,
-        
-        /// <remarks/>
-        avtalsrattighet,
-        
-        /// <remarks/>
-        basinformation,
-        
-        /// <remarks/>
-        historikAgande,
-        
-        /// <remarks/>
-        inteckning,
-        
-        /// <remarks/>
-        senasteFang,
-        
-        /// <remarks/>
-        tomtrattsupplatelse,
-        
-        /// <remarks/>
-        total,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.Xml.Serialization.XmlArrayItemAttribute("InskrivetAgande", IsNullable = false)]
+    public InskrivetAgandeType[] TidigareAgande
+    {
+      get
+      {
+        return this.tidigareAgandeField;
+      }
+      set
+      {
+        this.tidigareAgandeField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Fastighetsagandeforandring", Order = 11)]
+    public FastighetsagandeforandringType[] Fastighetsagandeforandring
+    {
+      get
+      {
+        return this.fastighetsagandeforandringField;
+      }
+      set
+      {
+        this.fastighetsagandeforandringField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class RegisterenhetsreferensType
+  {
+
+    private string objektidentitetField;
+
+    private string fastighetsnyckelField;
+
+    private string beteckningField;
+
+    private RegisterenhetstypType typField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string objektidentitet
+    {
+      get
+      {
+        return this.objektidentitetField;
+      }
+      set
+      {
+        this.objektidentitetField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string fastighetsnyckel
+    {
+      get
+      {
+        return this.fastighetsnyckelField;
+      }
+      set
+      {
+        this.fastighetsnyckelField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string beteckning
+    {
+      get
+      {
+        return this.beteckningField;
+      }
+      set
+      {
+        this.beteckningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public RegisterenhetstypType typ
+    {
+      get
+      {
+        return this.typField;
+      }
+      set
+      {
+        this.typField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum RegisterenhetstypType
+  {
+
+    /// <remarks/>
+    Fastighet,
+
+    /// <remarks/>
+    Samfällighet,
+
+    /// <remarks/>
+    Gemensamhetsanläggning,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class IRFastighetType : UtbytesobjektType
+  {
+
+    private string aldreForhallandeField;
+
+    private bool allvarligtFelIRField;
+
+    private bool oklaraInskrivningsforhallandenField;
+
+    private System.DateTime senasteAndringInskrivningsdelenField;
+
+    private bool senasteAndringInskrivningsdelenFieldSpecified;
+
+    private System.DateTime aktualitetsdatumField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string aldreForhallande
+    {
+      get
+      {
+        return this.aldreForhallandeField;
+      }
+      set
+      {
+        this.aldreForhallandeField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public bool allvarligtFelIR
+    {
+      get
+      {
+        return this.allvarligtFelIRField;
+      }
+      set
+      {
+        this.allvarligtFelIRField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public bool oklaraInskrivningsforhallanden
+    {
+      get
+      {
+        return this.oklaraInskrivningsforhallandenField;
+      }
+      set
+      {
+        this.oklaraInskrivningsforhallandenField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public System.DateTime senasteAndringInskrivningsdelen
+    {
+      get
+      {
+        return this.senasteAndringInskrivningsdelenField;
+      }
+      set
+      {
+        this.senasteAndringInskrivningsdelenField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool senasteAndringInskrivningsdelenSpecified
+    {
+      get
+      {
+        return this.senasteAndringInskrivningsdelenFieldSpecified;
+      }
+      set
+      {
+        this.senasteAndringInskrivningsdelenFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
+    public System.DateTime aktualitetsdatum
+    {
+      get
+      {
+        return this.aktualitetsdatumField;
+      }
+      set
+      {
+        this.aktualitetsdatumField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(OverlatelseType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(KopeskillingType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(FastighetsagandeforandringType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtstrackningSoktIType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(BelastarType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtlandskAgareType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivenPersonType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(FangType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivetAgandeType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InnehavsanteckningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningshandelseType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivenBelastningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(GruppinformationType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(PagaendeArendeType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(OmradeType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(IRFastighetType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public abstract partial class UtbytesobjektType
+  {
+
+    private string objektidentitetField;
+
+    private int objektversionField;
+
+    private System.DateTime versionGiltigFranField;
+
+    private bool versionGiltigFranFieldSpecified;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string objektidentitet
+    {
+      get
+      {
+        return this.objektidentitetField;
+      }
+      set
+      {
+        this.objektidentitetField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public int objektversion
+    {
+      get
+      {
+        return this.objektversionField;
+      }
+      set
+      {
+        this.objektversionField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public System.DateTime versionGiltigFran
+    {
+      get
+      {
+        return this.versionGiltigFranField;
+      }
+      set
+      {
+        this.versionGiltigFranField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool versionGiltigFranSpecified
+    {
+      get
+      {
+        return this.versionGiltigFranFieldSpecified;
+      }
+      set
+      {
+        this.versionGiltigFranFieldSpecified = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class OverlatelseType : UtbytesobjektType
+  {
+
+    private BrakType andelOverlatelseField;
+
+    private string inskrivetAgandeField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public BrakType AndelOverlatelse
+    {
+      get
+      {
+        return this.andelOverlatelseField;
+      }
+      set
+      {
+        this.andelOverlatelseField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string inskrivetAgande
+    {
+      get
+      {
+        return this.inskrivetAgandeField;
+      }
+      set
+      {
+        this.inskrivetAgandeField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class BrakType
+  {
+
+    private string taljareField;
+
+    private string namnareField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
+    public string taljare
+    {
+      get
+      {
+        return this.taljareField;
+      }
+      set
+      {
+        this.taljareField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
+    public string namnare
+    {
+      get
+      {
+        return this.namnareField;
+      }
+      set
+      {
+        this.namnareField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class KopeskillingType : UtbytesobjektType
+  {
+
+    private BeloppType preliminarKopeskillingFastEgendomField;
+
+    private BeloppType omraknadPreliminarKopeskillingField;
+
+    private BeloppType kopeskillingFastEgendomField;
+
+    private BeloppType omraknadKopeskillingField;
+
+    private BeloppType mellangiftField;
+
+    private BeloppType kopeskillingLosEgendomField;
+
+    private KopeskillingstypType kopeskillingstypField;
+
+    private bool kopeskillingstypFieldSpecified;
+
+    private RegisterenhetsreferensType[] omfattarField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public BeloppType PreliminarKopeskillingFastEgendom
+    {
+      get
+      {
+        return this.preliminarKopeskillingFastEgendomField;
+      }
+      set
+      {
+        this.preliminarKopeskillingFastEgendomField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public BeloppType OmraknadPreliminarKopeskilling
+    {
+      get
+      {
+        return this.omraknadPreliminarKopeskillingField;
+      }
+      set
+      {
+        this.omraknadPreliminarKopeskillingField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public BeloppType KopeskillingFastEgendom
+    {
+      get
+      {
+        return this.kopeskillingFastEgendomField;
+      }
+      set
+      {
+        this.kopeskillingFastEgendomField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public BeloppType OmraknadKopeskilling
+    {
+      get
+      {
+        return this.omraknadKopeskillingField;
+      }
+      set
+      {
+        this.omraknadKopeskillingField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public BeloppType Mellangift
+    {
+      get
+      {
+        return this.mellangiftField;
+      }
+      set
+      {
+        this.mellangiftField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public BeloppType KopeskillingLosEgendom
+    {
+      get
+      {
+        return this.kopeskillingLosEgendomField;
+      }
+      set
+      {
+        this.kopeskillingLosEgendomField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+    public KopeskillingstypType kopeskillingstyp
+    {
+      get
+      {
+        return this.kopeskillingstypField;
+      }
+      set
+      {
+        this.kopeskillingstypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool kopeskillingstypSpecified
+    {
+      get
+      {
+        return this.kopeskillingstypFieldSpecified;
+      }
+      set
+      {
+        this.kopeskillingstypFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 7)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable = false)]
+    public RegisterenhetsreferensType[] Omfattar
+    {
+      get
+      {
+        return this.omfattarField;
+      }
+      set
+      {
+        this.omfattarField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class BeloppType
+  {
+
+    private string valutaField;
+
+    private long summaField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string valuta
+    {
+      get
+      {
+        return this.valutaField;
+      }
+      set
+      {
+        this.valutaField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public long summa
+    {
+      get
+      {
+        return this.summaField;
+      }
+      set
+      {
+        this.summaField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum KopeskillingstypType
+  {
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ingen köpeskilling redovisas")]
+    Ingenköpeskillingredovisas,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Avser hela fastigheten")]
+    Avserhelafastigheten,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Avser även annan fastighet")]
+    Avserävenannanfastighet,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class FastighetsagandeforandringType : UtbytesobjektType
+  {
+
+    private KopeskillingType kopeskillingField;
+
+    private FangType[] fangField;
+
+    private OverlatelseType[] overlatelseField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public KopeskillingType Kopeskilling
+    {
+      get
+      {
+        return this.kopeskillingField;
+      }
+      set
+      {
+        this.kopeskillingField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Fang", Order = 1)]
+    public FangType[] Fang
+    {
+      get
+      {
+        return this.fangField;
+      }
+      set
+      {
+        this.fangField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Overlatelse", Order = 2)]
+    public OverlatelseType[] Overlatelse
+    {
+      get
+      {
+        return this.overlatelseField;
+      }
+      set
+      {
+        this.overlatelseField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class FangType : InskrivningType
+  {
+
+    private BrakType andelFangField;
+
+    private object itemField;
+
+    private FangesartType fangesartField;
+
+    private bool fangesartFieldSpecified;
+
+    private FangeskodType fangeskodField;
+
+    private bool fangeskodFieldSpecified;
+
+    private ForvarvstypType forvarvstypField;
+
+    private bool forvarvstypFieldSpecified;
+
+    private string omradesbeskrivningField;
+
+    private InskrivningType[] itemsField;
+
+    private string inskrivetAgandeField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public BrakType AndelFang
+    {
+      get
+      {
+        return this.andelFangField;
+      }
+      set
+      {
+        this.andelFangField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("fangesar", typeof(int), Order = 1)]
+    [System.Xml.Serialization.XmlElementAttribute("fangesdag", typeof(System.DateTime), DataType = "date", Order = 1)]
+    [System.Xml.Serialization.XmlElementAttribute("fangesmanad", typeof(string), Order = 1)]
+    public object Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public FangesartType fangesart
+    {
+      get
+      {
+        return this.fangesartField;
+      }
+      set
+      {
+        this.fangesartField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool fangesartSpecified
+    {
+      get
+      {
+        return this.fangesartFieldSpecified;
+      }
+      set
+      {
+        this.fangesartFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public FangeskodType fangeskod
+    {
+      get
+      {
+        return this.fangeskodField;
+      }
+      set
+      {
+        this.fangeskodField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool fangeskodSpecified
+    {
+      get
+      {
+        return this.fangeskodFieldSpecified;
+      }
+      set
+      {
+        this.fangeskodFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public ForvarvstypType forvarvstyp
+    {
+      get
+      {
+        return this.forvarvstypField;
+      }
+      set
+      {
+        this.forvarvstypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool forvarvstypSpecified
+    {
+      get
+      {
+        return this.forvarvstypFieldSpecified;
+      }
+      set
+      {
+        this.forvarvstypFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public string omradesbeskrivning
+    {
+      get
+      {
+        return this.omradesbeskrivningField;
+      }
+      set
+      {
+        this.omradesbeskrivningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Lagfartsanmarkning", typeof(LagfartsanmarkningType), Order = 6)]
+    [System.Xml.Serialization.XmlElementAttribute("Tomtrattsinnehavsanmarkning", typeof(TomtrattsinnehavsanmarkningType), Order = 6)]
+    public InskrivningType[] Items
+    {
+      get
+      {
+        return this.itemsField;
+      }
+      set
+      {
+        this.itemsField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+    public string inskrivetAgande
+    {
+      get
+      {
+        return this.inskrivetAgandeField;
+      }
+      set
+      {
+        this.inskrivetAgandeField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum FangesartType
+  {
+
+    /// <remarks/>
+    Arv,
+
+    /// <remarks/>
+    Avhandling,
+
+    /// <remarks/>
+    Avtal,
+
+    /// <remarks/>
+    Bodelning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Bodelning pga. dödsfall")]
+    Bodelningpgadödsfall,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Bodelning pga. samboförhållandets upphörande")]
+    Bodelningpgasamboförhållandetsupphörande,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Bodelning pga. äktenskapsskillnad")]
+    Bodelningpgaäktenskapsskillnad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Bodelning under bestående äktenskap")]
+    Bodelningunderbeståendeäktenskap,
+
+    /// <remarks/>
+    Bouppteckning,
+
+    /// <remarks/>
+    Byte,
+
+    /// <remarks/>
+    Delning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Domstols utslag eller dom")]
+    Domstolsutslagellerdom,
+
+    /// <remarks/>
+    Ensittarinlösen,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning")]
+    Exekutivförsäljning,
+
+    /// <remarks/>
+    Expropriation,
+
+    /// <remarks/>
+    Fideikommiss,
+
+    /// <remarks/>
+    Fusion,
+
+    /// <remarks/>
+    Förköp,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förvärv av kyrklig jord prästlöneboställe")]
+    Förvärvavkyrkligjordprästlöneboställe,
+
+    /// <remarks/>
+    Gåva,
+
+    /// <remarks/>
+    Inlösen,
+
+    /// <remarks/>
+    Järnvägslagfart,
+
+    /// <remarks/>
+    Konkursförsäljning,
+
+    /// <remarks/>
+    Köp,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Laga skifte")]
+    Lagaskifte,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Lagfart på grundval av protokoll från lagfartssammanträde")]
+    Lagfartpågrundvalavprotokollfrånlagfartssammanträde,
+
+    /// <remarks/>
+    Skifte,
+
+    /// <remarks/>
+    Storskifte,
+
+    /// <remarks/>
+    Testamente,
+
+    /// <remarks/>
+    Tillskott,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Upplåtelse av tomträtt")]
+    Upplåtelseavtomträtt,
+
+    /// <remarks/>
+    Utdelning,
+
+    /// <remarks/>
+    Äganderättsförteckning,
+
+    /// <remarks/>
+    Äktenskapsförord,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Övriga fångeshandlingar")]
+    Övrigafångeshandlingar,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum FangeskodType
+  {
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Köp normalfall")]
+    Köpnormalfall,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Köp specialfall, Gåva som köp (vanligt)")]
+    KöpspecialfallGåvasomköpvanligt,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Släktköp, annan fastighet")]
+    Släktköpannanfastighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Släktköp, jordbruksfastighet, normalfall")]
+    Släktköpjordbruksfastighetnormalfall,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Släktköp, jordbruksfastighet, specialfall. Gåva som köp (släkt)")]
+    SläktköpjordbruksfastighetspecialfallGåvasomköpsläkt,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förköp, normalfall")]
+    Förköpnormalfall,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förköp, specialfall")]
+    Förköpspecialfall,
+
+    /// <remarks/>
+    Byte,
+
+    /// <remarks/>
+    Gåva,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Arv, bouppteckning, bodelning, äktenskapsförord mm")]
+    Arvbouppteckningbodelningäktenskapsförordmm,
+
+    /// <remarks/>
+    Testamente,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Exekutive auktion")]
+    Exekutiveauktion,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Expropriation och annan inlösen enligt lag")]
+    Expropriationochannaninlösenenligtlag,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Övrigt fång")]
+    Övrigtfång,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum ForvarvstypType
+  {
+
+    /// <remarks/>
+    Område,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Undantag av område")]
+    Undantagavområde,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Undantag av utrymme")]
+    Undantagavutrymme,
+
+    /// <remarks/>
+    Utrymme,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class LagfartsanmarkningType : InskrivningType
+  {
+
+    private InskrivetAgandeanmarkningstypType lagfartsanmarkningField;
+
+    private bool lagfartsanmarkningFieldSpecified;
+
+    private string ovrigAnmarkningField;
+
+    private string gemensamBostadSamboField;
+
+    private string tvistAvgjordTillFormanForField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public InskrivetAgandeanmarkningstypType lagfartsanmarkning
+    {
+      get
+      {
+        return this.lagfartsanmarkningField;
+      }
+      set
+      {
+        this.lagfartsanmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool lagfartsanmarkningSpecified
+    {
+      get
+      {
+        return this.lagfartsanmarkningFieldSpecified;
+      }
+      set
+      {
+        this.lagfartsanmarkningFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string ovrigAnmarkning
+    {
+      get
+      {
+        return this.ovrigAnmarkningField;
+      }
+      set
+      {
+        this.ovrigAnmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string gemensamBostadSambo
+    {
+      get
+      {
+        return this.gemensamBostadSamboField;
+      }
+      set
+      {
+        this.gemensamBostadSamboField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string tvistAvgjordTillFormanFor
+    {
+      get
+      {
+        return this.tvistAvgjordTillFormanForField;
+      }
+      set
+      {
+        this.tvistAvgjordTillFormanForField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum InskrivetAgandeanmarkningstypType
+  {
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Andel osäker")]
+    Andelosäker,
+
+    /// <remarks/>
+    Anmärkning,
+
+    /// <remarks/>
+    Avyttringsskyldighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Enskild egendom")]
+    Enskildegendom,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Fråga om rättelse")]
+    Frågaomrättelse,
+
+    /// <remarks/>
+    Förbehåll,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning")]
+    Förbehållominteckning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning, pantsättning")]
+    Förbehållominteckningpantsättning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning, pantsättning, upplåta rättighet")]
+    Förbehållominteckningpantsättningupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om inteckning, upplåta rättighet")]
+    Förbehållominteckningupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om pantsättning")]
+    Förbehållompantsättning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om pantsättning, upplåta rättighet")]
+    Förbehållompantsättningupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om upplåta rättighet")]
+    Förbehållomupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse")]
+    Förbehållomöverlåtelse,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning")]
+    Förbehållomöverlåtelseinteckning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning, pantsättning")]
+    Förbehållomöverlåtelseinteckningpantsättning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning, pantsättning, upplåta rättighet")]
+    Förbehållomöverlåtelseinteckningpantsättningupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, inteckning, upplåta rättighet")]
+    Förbehållomöverlåtelseinteckningupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, pantsättning")]
+    Förbehållomöverlåtelsepantsättning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, pantsättning, upplåta rättighet")]
+    Förbehållomöverlåtelsepantsättningupplåtarättighet,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förbehåll om överlåtelse, upplåta rättighet")]
+    Förbehållomöverlåtelseupplåtarättighet,
+
+    /// <remarks/>
+    Hembud,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("ID-nummer kompletterat")]
+    IDnummerkompletterat,
+
+    /// <remarks/>
+    Järnvägslagfart,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Kommunens lagfartsförhållanden ej utredda")]
+    Kommunenslagfartsförhållandenejutredda,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Lagfarten avser stamfastigheten")]
+    Lagfartenavserstamfastigheten,
+
+    /// <remarks/>
+    Namn,
+
+    /// <remarks/>
+    Rättat,
+
+    /// <remarks/>
+    Sammanläggningsavtal,
+
+    /// <remarks/>
+    Tvist,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Tvist avgjord")]
+    Tvistavgjord,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ytterligare fång förekommer")]
+    Ytterligarefångförekommer,
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(FangType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivetAgandeType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnteckningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InnehavsanteckningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningsanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningshandelseType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivenBelastningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseanmarkningType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsupplatelseType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public abstract partial class InskrivningType : UtbytesobjektType
+  {
+
+    private System.DateTime inskrivningsdagField;
+
+    private bool inskrivningsdagFieldSpecified;
+
+    private string[] dagboksnummerField;
+
+    private string aktnummerField;
+
+    private BeslutstypType beslutField;
+
+    private NyttBeslutType nyttBeslutField;
+
+    private System.DateTime uppskovsdatumField;
+
+    private bool uppskovsdatumFieldSpecified;
+
+    private string overklagandeField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
+    public System.DateTime inskrivningsdag
+    {
+      get
+      {
+        return this.inskrivningsdagField;
+      }
+      set
+      {
+        this.inskrivningsdagField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool inskrivningsdagSpecified
+    {
+      get
+      {
+        return this.inskrivningsdagFieldSpecified;
+      }
+      set
+      {
+        this.inskrivningsdagFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("dagboksnummer", Order = 1)]
+    public string[] dagboksnummer
+    {
+      get
+      {
+        return this.dagboksnummerField;
+      }
+      set
+      {
+        this.dagboksnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string aktnummer
+    {
+      get
+      {
+        return this.aktnummerField;
+      }
+      set
+      {
+        this.aktnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public BeslutstypType beslut
+    {
+      get
+      {
+        return this.beslutField;
+      }
+      set
+      {
+        this.beslutField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public NyttBeslutType NyttBeslut
+    {
+      get
+      {
+        return this.nyttBeslutField;
+      }
+      set
+      {
+        this.nyttBeslutField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 5)]
+    public System.DateTime uppskovsdatum
+    {
+      get
+      {
+        return this.uppskovsdatumField;
+      }
+      set
+      {
+        this.uppskovsdatumField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool uppskovsdatumSpecified
+    {
+      get
+      {
+        return this.uppskovsdatumFieldSpecified;
+      }
+      set
+      {
+        this.uppskovsdatumFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+    public string overklagande
+    {
+      get
+      {
+        return this.overklagandeField;
+      }
+      set
+      {
+        this.overklagandeField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum BeslutstypType
+  {
+
+    /// <remarks/>
+    Avslag,
+
+    /// <remarks/>
+    Avvisad,
+
+    /// <remarks/>
+    Beviljad,
+
+    /// <remarks/>
+    Okänd,
+
+    /// <remarks/>
+    Uppskov,
+
+    /// <remarks/>
+    Vilande,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class NyttBeslutType
+  {
+
+    private System.DateTime beslutetsInskrivningsdagField;
+
+    private bool beslutetsInskrivningsdagFieldSpecified;
+
+    private string beslutetsDagboksnummerField;
+
+    private string beslutetsAktnummerField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
+    public System.DateTime beslutetsInskrivningsdag
+    {
+      get
+      {
+        return this.beslutetsInskrivningsdagField;
+      }
+      set
+      {
+        this.beslutetsInskrivningsdagField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool beslutetsInskrivningsdagSpecified
+    {
+      get
+      {
+        return this.beslutetsInskrivningsdagFieldSpecified;
+      }
+      set
+      {
+        this.beslutetsInskrivningsdagFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string beslutetsDagboksnummer
+    {
+      get
+      {
+        return this.beslutetsDagboksnummerField;
+      }
+      set
+      {
+        this.beslutetsDagboksnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string beslutetsAktnummer
+    {
+      get
+      {
+        return this.beslutetsAktnummerField;
+      }
+      set
+      {
+        this.beslutetsAktnummerField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class TomtrattsinnehavsanmarkningType : InskrivningType
+  {
+
+    private InskrivetAgandeanmarkningstypType tomtrattsinnehavsanmarkningField;
+
+    private bool tomtrattsinnehavsanmarkningFieldSpecified;
+
+    private string ovrigAnmarkningField;
+
+    private string gemensamBostadSamboField;
+
+    private string tvistAvgjordTillFormanForField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public InskrivetAgandeanmarkningstypType tomtrattsinnehavsanmarkning
+    {
+      get
+      {
+        return this.tomtrattsinnehavsanmarkningField;
+      }
+      set
+      {
+        this.tomtrattsinnehavsanmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool tomtrattsinnehavsanmarkningSpecified
+    {
+      get
+      {
+        return this.tomtrattsinnehavsanmarkningFieldSpecified;
+      }
+      set
+      {
+        this.tomtrattsinnehavsanmarkningFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string ovrigAnmarkning
+    {
+      get
+      {
+        return this.ovrigAnmarkningField;
+      }
+      set
+      {
+        this.ovrigAnmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string gemensamBostadSambo
+    {
+      get
+      {
+        return this.gemensamBostadSamboField;
+      }
+      set
+      {
+        this.gemensamBostadSamboField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string tvistAvgjordTillFormanFor
+    {
+      get
+      {
+        return this.tvistAvgjordTillFormanForField;
+      }
+      set
+      {
+        this.tvistAvgjordTillFormanForField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(TomtrattsinnehavType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LagfartType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public abstract partial class InskrivetAgandeType : InskrivningType
+  {
+
+    private BrakType beviljadAndelField;
+
+    private InskrivenPersonType agareField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public BrakType BeviljadAndel
+    {
+      get
+      {
+        return this.beviljadAndelField;
+      }
+      set
+      {
+        this.beviljadAndelField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public InskrivenPersonType Agare
+    {
+      get
+      {
+        return this.agareField;
+      }
+      set
+      {
+        this.agareField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivenPersonType : UtbytesobjektType
+  {
+
+    private string efternamnField;
+
+    private string fornamnField;
+
+    private string organisationsnamnField;
+
+    private string iDnummerField;
+
+    private object itemField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string efternamn
+    {
+      get
+      {
+        return this.efternamnField;
+      }
+      set
+      {
+        this.efternamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string fornamn
+    {
+      get
+      {
+        return this.fornamnField;
+      }
+      set
+      {
+        this.fornamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string organisationsnamn
+    {
+      get
+      {
+        return this.organisationsnamnField;
+      }
+      set
+      {
+        this.organisationsnamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string IDnummer
+    {
+      get
+      {
+        return this.iDnummerField;
+      }
+      set
+      {
+        this.iDnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Organisation", typeof(OrganisationType), Order = 4)]
+    [System.Xml.Serialization.XmlElementAttribute("Person", typeof(PersonType), Order = 4)]
+    [System.Xml.Serialization.XmlElementAttribute("UtlandskAgare", typeof(UtlandskAgareType), Order = 4)]
+    public object Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class OrganisationType
+  {
+
+    private string organisationsnummerField;
+
+    private string organisationsnamnField;
+
+    private string juridiskFormField;
+
+    private AdressType adressField;
+
+    private UtlandsadressType utlandsadressField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string organisationsnummer
+    {
+      get
+      {
+        return this.organisationsnummerField;
+      }
+      set
+      {
+        this.organisationsnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string organisationsnamn
+    {
+      get
+      {
+        return this.organisationsnamnField;
+      }
+      set
+      {
+        this.organisationsnamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string juridiskForm
+    {
+      get
+      {
+        return this.juridiskFormField;
+      }
+      set
+      {
+        this.juridiskFormField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public AdressType Adress
+    {
+      get
+      {
+        return this.adressField;
+      }
+      set
+      {
+        this.adressField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public UtlandsadressType Utlandsadress
+    {
+      get
+      {
+        return this.utlandsadressField;
+      }
+      set
+      {
+        this.utlandsadressField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AdressType
+  {
+
+    private string coAdressField;
+
+    private string utdelningsadress1Field;
+
+    private string utdelningsadress2Field;
+
+    private string postnummerField;
+
+    private string postortField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string coAdress
+    {
+      get
+      {
+        return this.coAdressField;
+      }
+      set
+      {
+        this.coAdressField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string utdelningsadress1
+    {
+      get
+      {
+        return this.utdelningsadress1Field;
+      }
+      set
+      {
+        this.utdelningsadress1Field = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string utdelningsadress2
+    {
+      get
+      {
+        return this.utdelningsadress2Field;
+      }
+      set
+      {
+        this.utdelningsadress2Field = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string postnummer
+    {
+      get
+      {
+        return this.postnummerField;
+      }
+      set
+      {
+        this.postnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public string postort
+    {
+      get
+      {
+        return this.postortField;
+      }
+      set
+      {
+        this.postortField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class UtlandsadressType
+  {
+
+    private string utdelningsadress1Field;
+
+    private string utdelningsadress2Field;
+
+    private string utdelningsadress3Field;
+
+    private string utdelningsadress4Field;
+
+    private string landField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string utdelningsadress1
+    {
+      get
+      {
+        return this.utdelningsadress1Field;
+      }
+      set
+      {
+        this.utdelningsadress1Field = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string utdelningsadress2
+    {
+      get
+      {
+        return this.utdelningsadress2Field;
+      }
+      set
+      {
+        this.utdelningsadress2Field = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string utdelningsadress3
+    {
+      get
+      {
+        return this.utdelningsadress3Field;
+      }
+      set
+      {
+        this.utdelningsadress3Field = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string utdelningsadress4
+    {
+      get
+      {
+        return this.utdelningsadress4Field;
+      }
+      set
+      {
+        this.utdelningsadress4Field = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public string land
+    {
+      get
+      {
+        return this.landField;
+      }
+      set
+      {
+        this.landField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class PersonType
+  {
+
+    private string personnummerField;
+
+    private string fornamnField;
+
+    private string mellannamnField;
+
+    private string efternamnField;
+
+    private string tilltalsnamnField;
+
+    private AdressType adressField;
+
+    private AdressType sarskildAdressField;
+
+    private UtlandsadressType utlandsadressField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string personnummer
+    {
+      get
+      {
+        return this.personnummerField;
+      }
+      set
+      {
+        this.personnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string fornamn
+    {
+      get
+      {
+        return this.fornamnField;
+      }
+      set
+      {
+        this.fornamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string mellannamn
+    {
+      get
+      {
+        return this.mellannamnField;
+      }
+      set
+      {
+        this.mellannamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string efternamn
+    {
+      get
+      {
+        return this.efternamnField;
+      }
+      set
+      {
+        this.efternamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public string tilltalsnamn
+    {
+      get
+      {
+        return this.tilltalsnamnField;
+      }
+      set
+      {
+        this.tilltalsnamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public AdressType Adress
+    {
+      get
+      {
+        return this.adressField;
+      }
+      set
+      {
+        this.adressField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+    public AdressType SarskildAdress
+    {
+      get
+      {
+        return this.sarskildAdressField;
+      }
+      set
+      {
+        this.sarskildAdressField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+    public UtlandsadressType Utlandsadress
+    {
+      get
+      {
+        return this.utlandsadressField;
+      }
+      set
+      {
+        this.utlandsadressField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class UtlandskAgareType : UtbytesobjektType
+  {
+
+    private string annatIDField;
+
+    private string utdelningsadressField;
+
+    private string postkodField;
+
+    private string postortField;
+
+    private string landField;
+
+    private string landskodField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string annatID
+    {
+      get
+      {
+        return this.annatIDField;
+      }
+      set
+      {
+        this.annatIDField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string utdelningsadress
+    {
+      get
+      {
+        return this.utdelningsadressField;
+      }
+      set
+      {
+        this.utdelningsadressField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string postkod
+    {
+      get
+      {
+        return this.postkodField;
+      }
+      set
+      {
+        this.postkodField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string postort
+    {
+      get
+      {
+        return this.postortField;
+      }
+      set
+      {
+        this.postortField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public string land
+    {
+      get
+      {
+        return this.landField;
+      }
+      set
+      {
+        this.landField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public string landskod
+    {
+      get
+      {
+        return this.landskodField;
+      }
+      set
+      {
+        this.landskodField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class TomtrattsinnehavType : InskrivetAgandeType
+  {
+
+    private TomtrattsinnehavsanmarkningType[] tomtrattsinnehavsanmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Tomtrattsinnehavsanmarkning", Order = 0)]
+    public TomtrattsinnehavsanmarkningType[] Tomtrattsinnehavsanmarkning
+    {
+      get
+      {
+        return this.tomtrattsinnehavsanmarkningField;
+      }
+      set
+      {
+        this.tomtrattsinnehavsanmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class LagfartType : InskrivetAgandeType
+  {
+
+    private LagfartsanmarkningType[] lagfartsanmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Lagfartsanmarkning", Order = 0)]
+    public LagfartsanmarkningType[] Lagfartsanmarkning
+    {
+      get
+      {
+        return this.lagfartsanmarkningField;
+      }
+      set
+      {
+        this.lagfartsanmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AnteckningsanmarkningType : InskrivningType
+  {
+
+    private string anmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string anmarkning
+    {
+      get
+      {
+        return this.anmarkningField;
+      }
+      set
+      {
+        this.anmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AnteckningType : InskrivningType
+  {
+
+    private AnteckningstypType anteckningstypField;
+
+    private string anteckningstextField;
+
+    private AnteckningsanmarkningType[] anteckningsanmarkningField;
+
+    private RegisterenhetsreferensType[] belastarField;
+
+    private AvserreferensType[] avserField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public AnteckningstypType anteckningstyp
+    {
+      get
+      {
+        return this.anteckningstypField;
+      }
+      set
+      {
+        this.anteckningstypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string anteckningstext
+    {
+      get
+      {
+        return this.anteckningstextField;
+      }
+      set
+      {
+        this.anteckningstextField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Anteckningsanmarkning", Order = 2)]
+    public AnteckningsanmarkningType[] Anteckningsanmarkning
+    {
+      get
+      {
+        return this.anteckningsanmarkningField;
+      }
+      set
+      {
+        this.anteckningsanmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable = false)]
+    public RegisterenhetsreferensType[] Belastar
+    {
+      get
+      {
+        return this.belastarField;
+      }
+      set
+      {
+        this.belastarField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Avser", Order = 4)]
+    public AvserreferensType[] Avser
+    {
+      get
+      {
+        return this.avserField;
+      }
+      set
+      {
+        this.avserField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum AnteckningstypType
+  {
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ansökan om sammanläggning")]
+    Ansökanomsammanläggning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Beslut om sammanläggning")]
+    Beslutomsammanläggning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Beslut om tagande i förvar")]
+    Beslutomtagandeiförvar,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Betalningssäkring verkställd")]
+    Betalningssäkringverkställd,
+
+    /// <remarks/>
+    Ersättningsbeslut,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning")]
+    Exekutivförsäljning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning begärd")]
+    Exekutivförsäljningbegärd,
+
+    /// <remarks/>
+    Exploateringssamverkan,
+
+    /// <remarks/>
+    Expropriation,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Expropriationsrätten förverkad")]
+    Expropriationsrättenförverkad,
+
+    /// <remarks/>
+    Expropriationsstämning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Fråga om inlösen enligt anläggningslagen")]
+    Frågaominlösenenligtanläggningslagen,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Fråga om inlösen enligt fastighetsbildningslagen")]
+    Frågaominlösenenligtfastighetsbildningslagen,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Fråga om inlösen enligt ledningsrättslagen")]
+    Frågaominlösenenligtledningsrättslagen,
+
+    /// <remarks/>
+    Förbud,
+
+    /// <remarks/>
+    Föreläggande,
+
+    /// <remarks/>
+    Företagsinteckning,
+
+    /// <remarks/>
+    Förköpsrätt,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förköpsrätt bestridd")]
+    Förköpsrättbestridd,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förmånsrätt för fordran")]
+    Förmånsrättförfordran,
+
+    /// <remarks/>
+    Förnyelse,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förordnande att hela fastigheten skall säljas")]
+    Förordnandeatthelafastighetenskallsäljas,
+
+    /// <remarks/>
+    Hembud,
+
+    /// <remarks/>
+    Industritillbehör,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Intresseanmälan för arrendatorers rätt att förvärva arrendeställe")]
+    Intresseanmälanförarrendatorersrättattförvärvaarrendeställe,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Intresseanmälan för ombildning till bostadsrätt")]
+    Intresseanmälanförombildningtillbostadsrätt,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Intresseanmälan för ombildning till kooperativ hyresrätt")]
+    Intresseanmälanförombildningtillkooperativhyresrätt,
+
+    /// <remarks/>
+    Konkurs,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Konkurs avslutad utan att fastigheten sålts")]
+    Konkursavslutadutanattfastighetensålts,
+
+    /// <remarks/>
+    Kvarstad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Orubbad avtalsrättighet vid inlösen")]
+    Orubbadavtalsrättighetvidinlösen,
+
+    /// <remarks/>
+    Ställföreträdare,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Stämning i mål om inlösen")]
+    Stämningimålominlösen,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Talan om bulvanförhållande")]
+    Talanombulvanförhållande,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Talan om inlösen")]
+    Talanominlösen,
+
+    /// <remarks/>
+    Tvångsförvaltning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för likvidationsförfarande")]
+    Utländsktbeslutförlikvidationsförfarande,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för insolvensförfarande")]
+    Utländsktbeslutförinsolvensförfarande,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för rekonstruktionsåtgärd/likvidationsförfarande")]
+    Utländsktbeslutförrekonstruktionsåtgärdlikvidationsförfarande,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Utländskt beslut för rekonstruktionsåtgärd")]
+    Utländsktbeslutförrekonstruktionsåtgärd,
+
+    /// <remarks/>
+    Utmätning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Yttrande om sammanläggning")]
+    Yttrandeomsammanläggning,
+
+    /// <remarks/>
+    Åläggande,
+
+    /// <remarks/>
+    Överlåtelseförbud,
+
+    /// <remarks/>
+    Övrigt,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AvserreferensType
+  {
+
+    private string itemField;
+
+    private ItemChoiceType1 itemElementNameField;
+
+    private RegisterenhetsreferensType[] registerenhetsreferensField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("avtalsrattighet", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("inskrivetAgande", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("inteckning", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
+    public string Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public ItemChoiceType1 ItemElementName
+    {
+      get
+      {
+        return this.itemElementNameField;
+      }
+      set
+      {
+        this.itemElementNameField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order = 2)]
+    public RegisterenhetsreferensType[] Registerenhetsreferens
+    {
+      get
+      {
+        return this.registerenhetsreferensField;
+      }
+      set
+      {
+        this.registerenhetsreferensField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema = false)]
+  public enum ItemChoiceType1
+  {
+
+    /// <remarks/>
+    avtalsrattighet,
+
+    /// <remarks/>
+    inskrivetAgande,
+
+    /// <remarks/>
+    inteckning,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AvtalsrattighetsanmarkningType : InskrivningType
+  {
+
+    private string anmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string anmarkning
+    {
+      get
+      {
+        return this.anmarkningField;
+      }
+      set
+      {
+        this.anmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InnehavsanteckningType : InskrivningType
+  {
+
+    private string organisationsnamnField;
+
+    private string efternamnField;
+
+    private string fornamnField;
+
+    private string utdelningsadressField;
+
+    private int postnummerField;
+
+    private bool postnummerFieldSpecified;
+
+    private string postkodField;
+
+    private string postortField;
+
+    private string landField;
+
+    private string landskodField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string organisationsnamn
+    {
+      get
+      {
+        return this.organisationsnamnField;
+      }
+      set
+      {
+        this.organisationsnamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string efternamn
+    {
+      get
+      {
+        return this.efternamnField;
+      }
+      set
+      {
+        this.efternamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string fornamn
+    {
+      get
+      {
+        return this.fornamnField;
+      }
+      set
+      {
+        this.fornamnField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string utdelningsadress
+    {
+      get
+      {
+        return this.utdelningsadressField;
+      }
+      set
+      {
+        this.utdelningsadressField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public int postnummer
+    {
+      get
+      {
+        return this.postnummerField;
+      }
+      set
+      {
+        this.postnummerField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool postnummerSpecified
+    {
+      get
+      {
+        return this.postnummerFieldSpecified;
+      }
+      set
+      {
+        this.postnummerFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public string postkod
+    {
+      get
+      {
+        return this.postkodField;
+      }
+      set
+      {
+        this.postkodField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+    public string postort
+    {
+      get
+      {
+        return this.postortField;
+      }
+      set
+      {
+        this.postortField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+    public string land
+    {
+      get
+      {
+        return this.landField;
+      }
+      set
+      {
+        this.landField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
+    public string landskod
+    {
+      get
+      {
+        return this.landskodField;
+      }
+      set
+      {
+        this.landskodField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InteckningsanmarkningType : InskrivningType
+  {
+
+    private InteckningsanmarkningstypType inteckningsanmarkningField;
+
+    private bool inteckningsanmarkningFieldSpecified;
+
+    private string ovrigAnmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public InteckningsanmarkningstypType inteckningsanmarkning
+    {
+      get
+      {
+        return this.inteckningsanmarkningField;
+      }
+      set
+      {
+        this.inteckningsanmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool inteckningsanmarkningSpecified
+    {
+      get
+      {
+        return this.inteckningsanmarkningFieldSpecified;
+      }
+      set
+      {
+        this.inteckningsanmarkningFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string ovrigAnmarkning
+    {
+      get
+      {
+        return this.ovrigAnmarkningField;
+      }
+      set
+      {
+        this.ovrigAnmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum InteckningsanmarkningstypType
+  {
+
+    /// <remarks/>
+    Anmärkning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ansökan att handlingen dödas avslagen")]
+    Ansökanatthandlingendödasavslagen,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ansökan att handlingen dödas")]
+    Ansökanatthandlingendödas,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ansökan att ursprunglig handling dödas")]
+    Ansökanattursprunglighandlingdödas,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ansökan om dödning av inteckningen utan handlingens företeende")]
+    Ansökanomdödningavinteckningenutanhandlingensföreteende,
+
+    /// <remarks/>
+    Delexpropriation,
+
+    /// <remarks/>
+    Delinlösen,
+
+    /// <remarks/>
+    Ensittarinlösen,
+
+    /// <remarks/>
+    Expropriationsstämning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Fråga om rättelse")]
+    Frågaomrättelse,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Handlingen dödad")]
+    Handlingendödad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Homogenitetsprincipen ej beaktad")]
+    Homogenitetsprincipenejbeaktad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Inteckningen får dödas utan handlingens företeende")]
+    Inteckningenfårdödasutanhandlingensföreteende,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Minskat kapitalbelopp")]
+    Minskatkapitalbelopp,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ny handling utfärdad")]
+    Nyhandlingutfärdad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ogulden köpeskilling")]
+    Oguldenköpeskilling,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Omprövat beslut")]
+    Omprövatbeslut,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Omräknat från äldre mynt")]
+    Omräknatfrånäldremynt,
+
+    /// <remarks/>
+    Ränta,
+
+    /// <remarks/>
+    Rättat,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Skatt beslutad")]
+    Skattbeslutad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Skatt ej beslutad")]
+    Skattejbeslutad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Skatt omprövad")]
+    Skattomprövad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Skatt ändrad")]
+    Skattändrad,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Skatt överklagad")]
+    Skattöverklagad,
+
+    /// <remarks/>
+    Tvist,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Tvist avgjord")]
+    Tvistavgjord,
+
+    /// <remarks/>
+    Uppdelning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Ursprunglig handling dödad")]
+    Ursprunglighandlingdödad,
+
+    /// <remarks/>
+    Utbrytning,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivningshandelseType : InskrivningType
+  {
+
+    private InskrivningshandelsetypType inskrivningshandelsetypField;
+
+    private string akthanvisningField;
+
+    private InskrivenBelastningreferensType[] paverkarField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public InskrivningshandelsetypType inskrivningshandelsetyp
+    {
+      get
+      {
+        return this.inskrivningshandelsetypField;
+      }
+      set
+      {
+        this.inskrivningshandelsetypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string akthanvisning
+    {
+      get
+      {
+        return this.akthanvisningField;
+      }
+      set
+      {
+        this.akthanvisningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Paverkar", Order = 2)]
+    public InskrivenBelastningreferensType[] Paverkar
+    {
+      get
+      {
+        return this.paverkarField;
+      }
+      set
+      {
+        this.paverkarField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum InskrivningshandelsetypType
+  {
+
+    /// <remarks/>
+    Dödning,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Exekutiv försäljning")]
+    Exekutivförsäljning,
+
+    /// <remarks/>
+    Expropriation,
+
+    /// <remarks/>
+    Fastighetsreglering,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Förordnande enligt fastighetsbildningslagen")]
+    Förordnandeenligtfastighetsbildningslagen,
+
+    /// <remarks/>
+    Inlösen,
+
+    /// <remarks/>
+    Kommunrelax,
+
+    /// <remarks/>
+    Nedsättning,
+
+    /// <remarks/>
+    Relax,
+
+    /// <remarks/>
+    Sammanföring,
+
+    /// <remarks/>
+    Sammanläggning,
+
+    /// <remarks/>
+    Utbyte,
+
+    /// <remarks/>
+    Utsträckning,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivenBelastningreferensType
+  {
+
+    private string itemField;
+
+    private ItemChoiceType itemElementNameField;
+
+    private RegisterenhetsreferensType[] registerenhetsreferensField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("avtalsrattighet", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("inteckning", typeof(string), Order = 0)]
+    [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
+    public string Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public ItemChoiceType ItemElementName
+    {
+      get
+      {
+        return this.itemElementNameField;
+      }
+      set
+      {
+        this.itemElementNameField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order = 2)]
+    public RegisterenhetsreferensType[] Registerenhetsreferens
+    {
+      get
+      {
+        return this.registerenhetsreferensField;
+      }
+      set
+      {
+        this.registerenhetsreferensField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema = false)]
+  public enum ItemChoiceType
+  {
+
+    /// <remarks/>
+    avtalsrattighet,
+
+    /// <remarks/>
+    inteckning,
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsrattighetType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InteckningType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public abstract partial class InskrivenBelastningType : InskrivningType
+  {
+
+    private string[] likarattField;
+
+    private InskrivningshandelseType[] inskrivningshandelseField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("likaratt", Order = 0)]
+    public string[] likaratt
+    {
+      get
+      {
+        return this.likarattField;
+      }
+      set
+      {
+        this.likarattField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Inskrivningshandelse", Order = 1)]
+    public InskrivningshandelseType[] Inskrivningshandelse
+    {
+      get
+      {
+        return this.inskrivningshandelseField;
+      }
+      set
+      {
+        this.inskrivningshandelseField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvkomstrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElkraftrattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsnyttjanderattType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvtalsservitutType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public abstract partial class AvtalsrattighetType : InskrivenBelastningType
+  {
+
+    private AvtalsrattighetsanmarkningType[] avtalsrattighetsanmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Avtalsrattighetsanmarkning", Order = 0)]
+    public AvtalsrattighetsanmarkningType[] Avtalsrattighetsanmarkning
+    {
+      get
+      {
+        return this.avtalsrattighetsanmarkningField;
+      }
+      set
+      {
+        this.avtalsrattighetsanmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AvkomstrattType : AvtalsrattighetType
+  {
+
+    private RegisterenhetsreferensType[] belastarField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable = false)]
+    public RegisterenhetsreferensType[] Belastar
+    {
+      get
+      {
+        return this.belastarField;
+      }
+      set
+      {
+        this.belastarField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class ElkraftrattType : AvtalsrattighetType
+  {
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AvtalsnyttjanderattType : AvtalsrattighetType
+  {
+
+    private AvtalsnyttjanderattsandamalType[] avtalsnyttjanderattsandamalField;
+
+    private string[] ovrigtAndamalField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("avtalsnyttjanderattsandamal", Order = 0)]
+    public AvtalsnyttjanderattsandamalType[] avtalsnyttjanderattsandamal
+    {
+      get
+      {
+        return this.avtalsnyttjanderattsandamalField;
+      }
+      set
+      {
+        this.avtalsnyttjanderattsandamalField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ovrigtAndamal", Order = 1)]
+    public string[] ovrigtAndamal
+    {
+      get
+      {
+        return this.ovrigtAndamalField;
+      }
+      set
+      {
+        this.ovrigtAndamalField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum AvtalsnyttjanderattsandamalType
+  {
+
+    /// <remarks/>
+    Avverkningsrätt,
+
+    /// <remarks/>
+    Bostad,
+
+    /// <remarks/>
+    Brygga,
+
+    /// <remarks/>
+    Fiske,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Hela fastigheten")]
+    Helafastigheten,
+
+    /// <remarks/>
+    Jakt,
+
+    /// <remarks/>
+    Område,
+
+    /// <remarks/>
+    Tele,
+
+    /// <remarks/>
+    Vindkraftanläggning,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AvtalsservitutType : AvtalsrattighetType
+  {
+
+    private ServitutsandamalType[] avtalsservitutsandamalField;
+
+    private string[] ovrigtAndamalField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("avtalsservitutsandamal", Order = 0)]
+    public ServitutsandamalType[] avtalsservitutsandamal
+    {
+      get
+      {
+        return this.avtalsservitutsandamalField;
+      }
+      set
+      {
+        this.avtalsservitutsandamalField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ovrigtAndamal", Order = 1)]
+    public string[] ovrigtAndamal
+    {
+      get
+      {
+        return this.ovrigtAndamalField;
+      }
+      set
+      {
+        this.ovrigtAndamalField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum ServitutsandamalType
+  {
+
+    /// <remarks/>
+    Altan,
+
+    /// <remarks/>
+    Avloppsledning,
+
+    /// <remarks/>
+    Badplats,
+
+    /// <remarks/>
+    Bergvärme,
+
+    /// <remarks/>
+    Bete,
+
+    /// <remarks/>
+    Brandmur,
+
+    /// <remarks/>
+    Brunn,
+
+    /// <remarks/>
+    Brygga,
+
+    /// <remarks/>
+    Byggnad,
+
+    /// <remarks/>
+    Båtplats,
+
+    /// <remarks/>
+    Dike,
+
+    /// <remarks/>
+    Elledning,
+
+    /// <remarks/>
+    Fiske,
+
+    /// <remarks/>
+    Fjärrvärmeledning,
+
+    /// <remarks/>
+    Grundvattenskydd,
+
+    /// <remarks/>
+    Grundvattentäkt,
+
+    /// <remarks/>
+    Grustäkt,
+
+    /// <remarks/>
+    Grönområde,
+
+    /// <remarks/>
+    Jakt,
+
+    /// <remarks/>
+    Jordvärme,
+
+    /// <remarks/>
+    Kraftledning,
+
+    /// <remarks/>
+    Lertäkt,
+
+    /// <remarks/>
+    Linbana,
+
+    /// <remarks/>
+    Område,
+
+    /// <remarks/>
+    Optokabel,
+
+    /// <remarks/>
+    Parkering,
+
+    /// <remarks/>
+    Sandtäkt,
+
+    /// <remarks/>
+    Skog,
+
+    /// <remarks/>
+    Slåtter,
+
+    /// <remarks/>
+    Soptipp,
+
+    /// <remarks/>
+    Stentäkt,
+
+    /// <remarks/>
+    Strand,
+
+    /// <remarks/>
+    Tele,
+
+    /// <remarks/>
+    Torvtäkt,
+
+    /// <remarks/>
+    Transformatorstation,
+
+    /// <remarks/>
+    Tvättstuga,
+
+    /// <remarks/>
+    Tångtäkt,
+
+    /// <remarks/>
+    Uppdämning,
+
+    /// <remarks/>
+    Upplagsplats,
+
+    /// <remarks/>
+    Utsikt,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("VA-ledningar")]
+    VAledningar,
+
+    /// <remarks/>
+    Vatten,
+
+    /// <remarks/>
+    Vattenkraft,
+
+    /// <remarks/>
+    Vattenledning,
+
+    /// <remarks/>
+    Villa,
+
+    /// <remarks/>
+    Väg,
+
+    /// <remarks/>
+    Värmecentral,
+
+    /// <remarks/>
+    Värmeledning,
+
+    /// <remarks/>
+    Ytvattenskydd,
+
+    /// <remarks/>
+    Ytvattentäkt,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InteckningType : InskrivenBelastningType
+  {
+
+    private BeloppType beloppField;
+
+    private PantbrevstypType pantbrevstypField;
+
+    private bool pantbrevstypFieldSpecified;
+
+    private bool oklarInteckningField;
+
+    private bool interregionalInteckningField;
+
+    private InteckningsanmarkningType[] inteckningsanmarkningField;
+
+    private InnehavsanteckningType innehavsanteckningField;
+
+    private RegisterenhetsreferensType[] belastarField;
+
+    private RegisterenhetsreferensType[] avsagUrsprungligenField;
+
+    private RegisterenhetsreferensType[] utstrackningSoktIField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public BeloppType Belopp
+    {
+      get
+      {
+        return this.beloppField;
+      }
+      set
+      {
+        this.beloppField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public PantbrevstypType pantbrevstyp
+    {
+      get
+      {
+        return this.pantbrevstypField;
+      }
+      set
+      {
+        this.pantbrevstypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool pantbrevstypSpecified
+    {
+      get
+      {
+        return this.pantbrevstypFieldSpecified;
+      }
+      set
+      {
+        this.pantbrevstypFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public bool oklarInteckning
+    {
+      get
+      {
+        return this.oklarInteckningField;
+      }
+      set
+      {
+        this.oklarInteckningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public bool interregionalInteckning
+    {
+      get
+      {
+        return this.interregionalInteckningField;
+      }
+      set
+      {
+        this.interregionalInteckningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Inteckningsanmarkning", Order = 4)]
+    public InteckningsanmarkningType[] Inteckningsanmarkning
+    {
+      get
+      {
+        return this.inteckningsanmarkningField;
+      }
+      set
+      {
+        this.inteckningsanmarkningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public InnehavsanteckningType Innehavsanteckning
+    {
+      get
+      {
+        return this.innehavsanteckningField;
+      }
+      set
+      {
+        this.innehavsanteckningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 6)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable = false)]
+    public RegisterenhetsreferensType[] Belastar
+    {
+      get
+      {
+        return this.belastarField;
+      }
+      set
+      {
+        this.belastarField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 7)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable = false)]
+    public RegisterenhetsreferensType[] AvsagUrsprungligen
+    {
+      get
+      {
+        return this.avsagUrsprungligenField;
+      }
+      set
+      {
+        this.avsagUrsprungligenField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 8)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Registerenhetsreferens", IsNullable = false)]
+    public RegisterenhetsreferensType[] UtstrackningSoktI
+    {
+      get
+      {
+        return this.utstrackningSoktIField;
+      }
+      set
+      {
+        this.utstrackningSoktIField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum PantbrevstypType
+  {
+
+    /// <remarks/>
+    Datapantbrev,
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlEnumAttribute("Skriftligt pantbrev")]
+    Skriftligtpantbrev,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class TomtrattsupplatelseanmarkningType : InskrivningType
+  {
+
+    private string anmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string anmarkning
+    {
+      get
+      {
+        return this.anmarkningField;
+      }
+      set
+      {
+        this.anmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class TomtrattsupplatelseType : InskrivningType
+  {
+
+    private string andamalField;
+
+    private string inskrankningField;
+
+    private System.DateTime ursprungligtStartdatumField;
+
+    private AvgaldType avgaldField;
+
+    private AvgaldType framtidaAvgaldField;
+
+    private bool aldreTomtrattField;
+
+    private int uppsagningsperiodarField;
+
+    private bool uppsagningsperiodarFieldSpecified;
+
+    private System.DateTime uppsagningsdatumField;
+
+    private bool uppsagningsdatumFieldSpecified;
+
+    private System.DateTime upplatelsedatumField;
+
+    private TomtrattsupplatelseanmarkningType[] tomtrattsupplatelseanmarkningField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string andamal
+    {
+      get
+      {
+        return this.andamalField;
+      }
+      set
+      {
+        this.andamalField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string inskrankning
+    {
+      get
+      {
+        return this.inskrankningField;
+      }
+      set
+      {
+        this.inskrankningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
+    public System.DateTime ursprungligtStartdatum
+    {
+      get
+      {
+        return this.ursprungligtStartdatumField;
+      }
+      set
+      {
+        this.ursprungligtStartdatumField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public AvgaldType Avgald
+    {
+      get
+      {
+        return this.avgaldField;
+      }
+      set
+      {
+        this.avgaldField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public AvgaldType FramtidaAvgald
+    {
+      get
+      {
+        return this.framtidaAvgaldField;
+      }
+      set
+      {
+        this.framtidaAvgaldField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public bool aldreTomtratt
+    {
+      get
+      {
+        return this.aldreTomtrattField;
+      }
+      set
+      {
+        this.aldreTomtrattField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+    public int uppsagningsperiodar
+    {
+      get
+      {
+        return this.uppsagningsperiodarField;
+      }
+      set
+      {
+        this.uppsagningsperiodarField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool uppsagningsperiodarSpecified
+    {
+      get
+      {
+        return this.uppsagningsperiodarFieldSpecified;
+      }
+      set
+      {
+        this.uppsagningsperiodarFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 7)]
+    public System.DateTime uppsagningsdatum
+    {
+      get
+      {
+        return this.uppsagningsdatumField;
+      }
+      set
+      {
+        this.uppsagningsdatumField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool uppsagningsdatumSpecified
+    {
+      get
+      {
+        return this.uppsagningsdatumFieldSpecified;
+      }
+      set
+      {
+        this.uppsagningsdatumFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 8)]
+    public System.DateTime upplatelsedatum
+    {
+      get
+      {
+        return this.upplatelsedatumField;
+      }
+      set
+      {
+        this.upplatelsedatumField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Tomtrattsupplatelseanmarkning", Order = 9)]
+    public TomtrattsupplatelseanmarkningType[] Tomtrattsupplatelseanmarkning
+    {
+      get
+      {
+        return this.tomtrattsupplatelseanmarkningField;
+      }
+      set
+      {
+        this.tomtrattsupplatelseanmarkningField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class AvgaldType
+  {
+
+    private System.DateTime startdatumField;
+
+    private BeloppType avgiftField;
+
+    private int periodlangdarField;
+
+    private bool periodlangdarFieldSpecified;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
+    public System.DateTime startdatum
+    {
+      get
+      {
+        return this.startdatumField;
+      }
+      set
+      {
+        this.startdatumField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public BeloppType Avgift
+    {
+      get
+      {
+        return this.avgiftField;
+      }
+      set
+      {
+        this.avgiftField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public int periodlangdar
+    {
+      get
+      {
+        return this.periodlangdarField;
+      }
+      set
+      {
+        this.periodlangdarField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool periodlangdarSpecified
+    {
+      get
+      {
+        return this.periodlangdarFieldSpecified;
+      }
+      set
+      {
+        this.periodlangdarFieldSpecified = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class UtstrackningSoktIType : UtbytesobjektType
+  {
+
+    private int foretradesordningField;
+
+    private InteckningsreferensType inteckningsreferensField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public int foretradesordning
+    {
+      get
+      {
+        return this.foretradesordningField;
+      }
+      set
+      {
+        this.foretradesordningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public InteckningsreferensType Inteckningsreferens
+    {
+      get
+      {
+        return this.inteckningsreferensField;
+      }
+      set
+      {
+        this.inteckningsreferensField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InteckningsreferensType
+  {
+
+    private string inteckningField;
+
+    private RegisterenhetsreferensType[] registerenhetsreferensField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string inteckning
+    {
+      get
+      {
+        return this.inteckningField;
+      }
+      set
+      {
+        this.inteckningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order = 1)]
+    public RegisterenhetsreferensType[] Registerenhetsreferens
+    {
+      get
+      {
+        return this.registerenhetsreferensField;
+      }
+      set
+      {
+        this.registerenhetsreferensField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class BelastarType : UtbytesobjektType
+  {
+
+    private int foretradesordningField;
+
+    private InteckningType itemField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public int foretradesordning
+    {
+      get
+      {
+        return this.foretradesordningField;
+      }
+      set
+      {
+        this.foretradesordningField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Inteckning", Order = 1)]
+    public InteckningType Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class GruppinformationType : UtbytesobjektType
+  {
+
+    private GruppinformationstypType gruppinformationstypField;
+
+    private bool gruppinformationstypFieldSpecified;
+
+    private string gruppinformationField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public GruppinformationstypType gruppinformationstyp
+    {
+      get
+      {
+        return this.gruppinformationstypField;
+      }
+      set
+      {
+        this.gruppinformationstypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool gruppinformationstypSpecified
+    {
+      get
+      {
+        return this.gruppinformationstypFieldSpecified;
+      }
+      set
+      {
+        this.gruppinformationstypFieldSpecified = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string gruppinformation
+    {
+      get
+      {
+        return this.gruppinformationField;
+      }
+      set
+      {
+        this.gruppinformationField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum GruppinformationstypType
+  {
+
+    /// <remarks/>
+    Avtalsrättighetsgruppinformation,
+
+    /// <remarks/>
+    Lagfartsgruppinformation,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class PagaendeArendeType : UtbytesobjektType
+  {
+
+    private System.DateTime aktualitetsdatumField;
+
+    private PagaendeArendetypType[] pagaendeArendetypField;
+
+    private RegisterenhetsreferensType[] registerenhetsreferensField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
+    public System.DateTime aktualitetsdatum
+    {
+      get
+      {
+        return this.aktualitetsdatumField;
+      }
+      set
+      {
+        this.aktualitetsdatumField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("pagaendeArendetyp", Order = 1)]
+    public PagaendeArendetypType[] pagaendeArendetyp
+    {
+      get
+      {
+        return this.pagaendeArendetypField;
+      }
+      set
+      {
+        this.pagaendeArendetypField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Registerenhetsreferens", Order = 2)]
+    public RegisterenhetsreferensType[] Registerenhetsreferens
+    {
+      get
+      {
+        return this.registerenhetsreferensField;
+      }
+      set
+      {
+        this.registerenhetsreferensField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum PagaendeArendetypType
+  {
+
+    /// <remarks/>
+    Anteckning,
+
+    /// <remarks/>
+    Aviseringar,
+
+    /// <remarks/>
+    Avtalsrättighet,
+
+    /// <remarks/>
+    Inteckning,
+
+    /// <remarks/>
+    Lagfart,
+
+    /// <remarks/>
+    Tomträtt,
+
+    /// <remarks/>
+    Övrigt,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class OmradeType : UtbytesobjektType
+  {
+
+    private InskrivningskontorType inskrivningskontorField;
+
+    private System.DateTime omradesaktualitetField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public InskrivningskontorType inskrivningskontor
+    {
+      get
+      {
+        return this.inskrivningskontorField;
+      }
+      set
+      {
+        this.inskrivningskontorField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
+    public System.DateTime omradesaktualitet
+    {
+      get
+      {
+        return this.omradesaktualitetField;
+      }
+      set
+      {
+        this.omradesaktualitetField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public enum InskrivningskontorType
+  {
+
+    /// <remarks/>
+    Eksjö,
+
+    /// <remarks/>
+    Härnösand,
+
+    /// <remarks/>
+    Hässleholm,
+
+    /// <remarks/>
+    Mora,
+
+    /// <remarks/>
+    Norrtälje,
+
+    /// <remarks/>
+    Skellefteå,
+
+    /// <remarks/>
+    Uddevalla,
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivningResponseType : AbstractFeatureType
+  {
+
+    private InskrivningMemberType[] inskrivningMemberField;
+
+    private AggregationType aggregationTypeField;
+
+    private bool aggregationTypeFieldSpecified;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("InskrivningMember", Order = 0)]
+    public InskrivningMemberType[] InskrivningMember
+    {
+      get
+      {
+        return this.inskrivningMemberField;
+      }
+      set
+      {
+        this.inskrivningMemberField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public AggregationType aggregationType
+    {
+      get
+      {
+        return this.aggregationTypeField;
+      }
+      set
+      {
+        this.aggregationTypeField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool aggregationTypeSpecified
+    {
+      get
+      {
+        return this.aggregationTypeFieldSpecified;
+      }
+      set
+      {
+        this.aggregationTypeFieldSpecified = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivningMemberType : AbstractFeatureMemberType
+  {
+
+    private InskrivningsinformationType inskrivningsinformationField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public InskrivningsinformationType Inskrivningsinformation
+    {
+      get
+      {
+        return this.inskrivningsinformationField;
+      }
+      set
+      {
+        this.inskrivningsinformationField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(InskrivningMemberType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractFeatureMemberType
+  {
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public enum AggregationType
+  {
+
+    /// <remarks/>
+    set,
+
+    /// <remarks/>
+    bag,
+
+    /// <remarks/>
+    sequence,
+
+    /// <remarks/>
+    array,
+
+    /// <remarks/>
+    record,
+
+    /// <remarks/>
+    table,
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiSurfaceType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiCurveType))]
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiPointType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractGeometricAggregateType : AbstractGeometryType
+  {
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class MultiSurfaceType : AbstractGeometricAggregateType
+  {
+
+    private SurfacePropertyType[] surfaceMemberField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("surfaceMember", Order = 0)]
+    public SurfacePropertyType[] surfaceMember
+    {
+      get
+      {
+        return this.surfaceMemberField;
+      }
+      set
+      {
+        this.surfaceMemberField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class MultiCurveType : AbstractGeometricAggregateType
+  {
+
+    private CurvePropertyType[] curveMemberField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("curveMember", Order = 0)]
+    public CurvePropertyType[] curveMember
+    {
+      get
+      {
+        return this.curveMemberField;
+      }
+      set
+      {
+        this.curveMemberField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class CurvePropertyType
+  {
+
+    private LineStringType itemField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("LineString", Order = 0)]
+    public LineStringType Item
+    {
+      get
+      {
+        return this.itemField;
+      }
+      set
+      {
+        this.itemField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class LineStringType : AbstractCurveType
+  {
+
+    private DirectPositionListType posListField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public DirectPositionListType posList
+    {
+      get
+      {
+        return this.posListField;
+      }
+      set
+      {
+        this.posListField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStringType))]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public abstract partial class AbstractCurveType : AbstractGeometricPrimitiveType
+  {
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class MultiPointType : AbstractGeometricAggregateType
+  {
+
+    private PointPropertyType[] pointMemberField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("pointMember", Order = 0)]
+    public PointPropertyType[] pointMember
+    {
+      get
+      {
+        return this.pointMemberField;
+      }
+      set
+      {
+        this.pointMemberField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class PointPropertyType
+  {
+
+    private PointType pointField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public PointType Point
+    {
+      get
+      {
+        return this.pointField;
+      }
+      set
+      {
+        this.pointField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/gml/3.2")]
+  public partial class PointType : AbstractGeometricPrimitiveType
+  {
+
+    private DirectPositionType posField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public DirectPositionType pos
+    {
+      get
+      {
+        return this.posField;
+      }
+      set
+      {
+        this.posField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1")]
+  public partial class InskrivningDatasetType
+  {
+
+    private bool[] itemsField;
+
+    private ItemsChoiceType1[] itemsElementNameField;
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("agare", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("anteckning", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("avtalsrattighet", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("basinformation", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("historikAgande", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("inteckning", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("senasteFang", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("tomtrattsupplatelse", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlElementAttribute("total", typeof(bool), Order = 0)]
+    [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
+    public bool[] Items
+    {
+      get
+      {
+        return this.itemsField;
+      }
+      set
+      {
+        this.itemsField = value;
+      }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public ItemsChoiceType1[] ItemsElementName
+    {
+      get
+      {
+        return this.itemsElementNameField;
+      }
+      set
+      {
+        this.itemsElementNameField = value;
+      }
+    }
+  }
+
+  /// <remarks/>
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", IncludeInSchema = false)]
+  public enum ItemsChoiceType1
+  {
+
+    /// <remarks/>
+    agare,
+
+    /// <remarks/>
+    anteckning,
+
+    /// <remarks/>
+    avtalsrattighet,
+
+    /// <remarks/>
+    basinformation,
+
+    /// <remarks/>
+    historikAgande,
+
+    /// <remarks/>
+    inteckning,
+
+    /// <remarks/>
+    senasteFang,
+
+    /// <remarks/>
+    tomtrattsupplatelse,
+
+    /// <remarks/>
+    total,
+  }
+
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+  [System.ServiceModel.MessageContractAttribute(IsWrapped = false)]
+  public partial class GetInskrivningRequest
+  {
+
+    [System.ServiceModel.MessageBodyMemberAttribute(Name = "GetInskrivningRequest", Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", Order = 0)]
+    public LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1;
+
+    public GetInskrivningRequest()
+    {
+    }
+
+    public GetInskrivningRequest(LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1)
+    {
+      this.GetInskrivningRequest1 = GetInskrivningRequest1;
+    }
+  }
+
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+  [System.ServiceModel.MessageContractAttribute(IsWrapped = false)]
+  public partial class InskrivningResponse
+  {
+
+    [System.ServiceModel.MessageBodyMemberAttribute(Name = "InskrivningResponse", Namespace = "http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", Order = 0)]
+    public LM.InskrivningDirekt.InskrivningResponseType InskrivningResponse1;
+
+    public InskrivningResponse()
+    {
+    }
+
+    public InskrivningResponse(LM.InskrivningDirekt.InskrivningResponseType InskrivningResponse1)
+    {
+      this.InskrivningResponse1 = InskrivningResponse1;
+    }
+  }
+
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  public interface InskrivningPortTypeChannel : LM.InskrivningDirekt.InskrivningPortType, System.ServiceModel.IClientChannel
+  {
+  }
+
+  [System.Diagnostics.DebuggerStepThroughAttribute()]
+  [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+  public partial class InskrivningPortTypeClient : System.ServiceModel.ClientBase<LM.InskrivningDirekt.InskrivningPortType>, LM.InskrivningDirekt.InskrivningPortType
+  {
+
+    /// <summary>
+    /// Implement this partial method to configure the service endpoint.
+    /// </summary>
+    /// <param name="serviceEndpoint">The endpoint to configure</param>
+    /// <param name="clientCredentials">The client credentials</param>
+    static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
+
+    public InskrivningPortTypeClient() :
+            base(InskrivningPortTypeClient.GetDefaultBinding(), InskrivningPortTypeClient.GetDefaultEndpointAddress())
+    {
+      this.Endpoint.Name = EndpointConfiguration.InskrivningSoapBinding.ToString();
+      ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+    }
+
+    public InskrivningPortTypeClient(EndpointConfiguration endpointConfiguration) :
+            base(InskrivningPortTypeClient.GetBindingForEndpoint(endpointConfiguration), InskrivningPortTypeClient.GetEndpointAddress(endpointConfiguration))
+    {
+      this.Endpoint.Name = endpointConfiguration.ToString();
+      ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+    }
+
+    public InskrivningPortTypeClient(EndpointConfiguration endpointConfiguration, string remoteAddress) :
+            base(InskrivningPortTypeClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
+    {
+      this.Endpoint.Name = endpointConfiguration.ToString();
+      ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+    }
+
+    public InskrivningPortTypeClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) :
+            base(InskrivningPortTypeClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+    {
+      this.Endpoint.Name = endpointConfiguration.ToString();
+      ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+    }
+
+    public InskrivningPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
+            base(binding, remoteAddress)
+    {
+    }
+
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetInskrivningRequest
+    LM.InskrivningDirekt.InskrivningResponse LM.InskrivningDirekt.InskrivningPortType.GetInskrivning(LM.InskrivningDirekt.GetInskrivningRequest request)
     {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetInskrivningRequest", Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", Order=0)]
-        public LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1;
-        
-        public GetInskrivningRequest()
-        {
-        }
-        
-        public GetInskrivningRequest(LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1)
-        {
-            this.GetInskrivningRequest1 = GetInskrivningRequest1;
-        }
+      return base.Channel.GetInskrivning(request);
     }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+
+    public LM.InskrivningDirekt.InskrivningResponseType GetInskrivning(LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1)
+    {
+      LM.InskrivningDirekt.GetInskrivningRequest inValue = new LM.InskrivningDirekt.GetInskrivningRequest();
+      inValue.GetInskrivningRequest1 = GetInskrivningRequest1;
+      LM.InskrivningDirekt.InskrivningResponse retVal = ((LM.InskrivningDirekt.InskrivningPortType)(this)).GetInskrivning(inValue);
+      return retVal.InskrivningResponse1;
+    }
+
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class InskrivningResponse
+    System.Threading.Tasks.Task<LM.InskrivningDirekt.InskrivningResponse> LM.InskrivningDirekt.InskrivningPortType.GetInskrivningAsync(LM.InskrivningDirekt.GetInskrivningRequest request)
     {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="InskrivningResponse", Namespace="http://namespace.lantmateriet.se/distribution/produkter/inskrivning/v2.1", Order=0)]
-        public LM.InskrivningDirekt.InskrivningResponseType InskrivningResponse1;
-        
-        public InskrivningResponse()
-        {
-        }
-        
-        public InskrivningResponse(LM.InskrivningDirekt.InskrivningResponseType InskrivningResponse1)
-        {
-            this.InskrivningResponse1 = InskrivningResponse1;
-        }
+      return base.Channel.GetInskrivningAsync(request);
     }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    public interface InskrivningPortTypeChannel : LM.InskrivningDirekt.InskrivningPortType, System.ServiceModel.IClientChannel
+
+    public System.Threading.Tasks.Task<LM.InskrivningDirekt.InskrivningResponse> GetInskrivningAsync(LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1)
     {
+      LM.InskrivningDirekt.GetInskrivningRequest inValue = new LM.InskrivningDirekt.GetInskrivningRequest();
+      inValue.GetInskrivningRequest1 = GetInskrivningRequest1;
+      return ((LM.InskrivningDirekt.InskrivningPortType)(this)).GetInskrivningAsync(inValue);
     }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
-    public partial class InskrivningPortTypeClient : System.ServiceModel.ClientBase<LM.InskrivningDirekt.InskrivningPortType>, LM.InskrivningDirekt.InskrivningPortType
+
+    public virtual System.Threading.Tasks.Task OpenAsync()
     {
-        
-        /// <summary>
-        /// Implement this partial method to configure the service endpoint.
-        /// </summary>
-        /// <param name="serviceEndpoint">The endpoint to configure</param>
-        /// <param name="clientCredentials">The client credentials</param>
-        static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
-        
-        public InskrivningPortTypeClient() : 
-                base(InskrivningPortTypeClient.GetDefaultBinding(), InskrivningPortTypeClient.GetDefaultEndpointAddress())
-        {
-            this.Endpoint.Name = EndpointConfiguration.InskrivningSoapBinding.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
-        
-        public InskrivningPortTypeClient(EndpointConfiguration endpointConfiguration) : 
-                base(InskrivningPortTypeClient.GetBindingForEndpoint(endpointConfiguration), InskrivningPortTypeClient.GetEndpointAddress(endpointConfiguration))
-        {
-            this.Endpoint.Name = endpointConfiguration.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
-        
-        public InskrivningPortTypeClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
-                base(InskrivningPortTypeClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
-        {
-            this.Endpoint.Name = endpointConfiguration.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
-        
-        public InskrivningPortTypeClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(InskrivningPortTypeClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
-        {
-            this.Endpoint.Name = endpointConfiguration.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
-        
-        public InskrivningPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress)
-        {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        LM.InskrivningDirekt.InskrivningResponse LM.InskrivningDirekt.InskrivningPortType.GetInskrivning(LM.InskrivningDirekt.GetInskrivningRequest request)
-        {
-            return base.Channel.GetInskrivning(request);
-        }
-        
-        public LM.InskrivningDirekt.InskrivningResponseType GetInskrivning(LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1)
-        {
-            LM.InskrivningDirekt.GetInskrivningRequest inValue = new LM.InskrivningDirekt.GetInskrivningRequest();
-            inValue.GetInskrivningRequest1 = GetInskrivningRequest1;
-            LM.InskrivningDirekt.InskrivningResponse retVal = ((LM.InskrivningDirekt.InskrivningPortType)(this)).GetInskrivning(inValue);
-            return retVal.InskrivningResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<LM.InskrivningDirekt.InskrivningResponse> LM.InskrivningDirekt.InskrivningPortType.GetInskrivningAsync(LM.InskrivningDirekt.GetInskrivningRequest request)
-        {
-            return base.Channel.GetInskrivningAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<LM.InskrivningDirekt.InskrivningResponse> GetInskrivningAsync(LM.InskrivningDirekt.GetInskrivningRequestType GetInskrivningRequest1)
-        {
-            LM.InskrivningDirekt.GetInskrivningRequest inValue = new LM.InskrivningDirekt.GetInskrivningRequest();
-            inValue.GetInskrivningRequest1 = GetInskrivningRequest1;
-            return ((LM.InskrivningDirekt.InskrivningPortType)(this)).GetInskrivningAsync(inValue);
-        }
-        
-        public virtual System.Threading.Tasks.Task OpenAsync()
-        {
-            return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
-        }
-        
-        public virtual System.Threading.Tasks.Task CloseAsync()
-        {
-            return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginClose(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndClose));
-        }
-        
-        private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
-        {
-            if ((endpointConfiguration == EndpointConfiguration.InskrivningSoapBinding))
-            {
-                System.ServiceModel.Channels.CustomBinding result = new System.ServiceModel.Channels.CustomBinding();
-                System.ServiceModel.Channels.TextMessageEncodingBindingElement textBindingElement = new System.ServiceModel.Channels.TextMessageEncodingBindingElement();
-                textBindingElement.MessageVersion = System.ServiceModel.Channels.MessageVersion.CreateVersion(System.ServiceModel.EnvelopeVersion.Soap12, System.ServiceModel.Channels.AddressingVersion.None);
-                result.Elements.Add(textBindingElement);
-                System.ServiceModel.Channels.HttpsTransportBindingElement httpsBindingElement = new System.ServiceModel.Channels.HttpsTransportBindingElement();
-                httpsBindingElement.AllowCookies = true;
-                httpsBindingElement.MaxBufferSize = int.MaxValue;
-                httpsBindingElement.MaxReceivedMessageSize = int.MaxValue;
-                result.Elements.Add(httpsBindingElement);
-                return result;
-            }
-            throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
-        }
-        
-        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
-        {
-            if ((endpointConfiguration == EndpointConfiguration.InskrivningSoapBinding))
-            {
-                return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/inskrivning/v2.1");
-            }
-            throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
-        }
-        
-        private static System.ServiceModel.Channels.Binding GetDefaultBinding()
-        {
-            return InskrivningPortTypeClient.GetBindingForEndpoint(EndpointConfiguration.InskrivningSoapBinding);
-        }
-        
-        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
-        {
-            return InskrivningPortTypeClient.GetEndpointAddress(EndpointConfiguration.InskrivningSoapBinding);
-        }
-        
-        public enum EndpointConfiguration
-        {
-            
-            InskrivningSoapBinding,
-        }
+      return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
     }
+
+    public virtual System.Threading.Tasks.Task CloseAsync()
+    {
+      return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginClose(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndClose));
+    }
+
+    private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
+    {
+      if ((endpointConfiguration == EndpointConfiguration.InskrivningSoapBinding))
+      {
+        System.ServiceModel.Channels.CustomBinding result = new System.ServiceModel.Channels.CustomBinding();
+        System.ServiceModel.Channels.TextMessageEncodingBindingElement textBindingElement = new System.ServiceModel.Channels.TextMessageEncodingBindingElement();
+        textBindingElement.MessageVersion = System.ServiceModel.Channels.MessageVersion.CreateVersion(System.ServiceModel.EnvelopeVersion.Soap12, System.ServiceModel.Channels.AddressingVersion.None);
+        result.Elements.Add(textBindingElement);
+        System.ServiceModel.Channels.HttpsTransportBindingElement httpsBindingElement = new System.ServiceModel.Channels.HttpsTransportBindingElement();
+        httpsBindingElement.AllowCookies = true;
+        httpsBindingElement.MaxBufferSize = int.MaxValue;
+        httpsBindingElement.MaxReceivedMessageSize = int.MaxValue;
+        result.Elements.Add(httpsBindingElement);
+        return result;
+      }
+      throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+    }
+
+    private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+    {
+      if ((endpointConfiguration == EndpointConfiguration.InskrivningSoapBinding))
+      {
+        return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/inskrivning/v2.1");
+      }
+      throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+    }
+
+    private static System.ServiceModel.Channels.Binding GetDefaultBinding()
+    {
+      return InskrivningPortTypeClient.GetBindingForEndpoint(EndpointConfiguration.InskrivningSoapBinding);
+    }
+
+    private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
+    {
+      return InskrivningPortTypeClient.GetEndpointAddress(EndpointConfiguration.InskrivningSoapBinding);
+    }
+
+    public enum EndpointConfiguration
+    {
+
+      InskrivningSoapBinding,
+    }
+  }
 }
