@@ -3276,7 +3276,7 @@ namespace LM.RattighetDirekt
         {
             if ((endpointConfiguration == EndpointConfiguration.RattighetSoapBinding))
             {
-                return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/rattighet/v1.4");
+                return new System.ServiceModel.EndpointAddress("https://api.lantmateriet.se/distribution/produkter/rattighet/v1.4");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

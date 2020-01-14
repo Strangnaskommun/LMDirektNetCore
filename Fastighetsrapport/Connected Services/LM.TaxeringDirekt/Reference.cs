@@ -6617,7 +6617,7 @@ namespace LM.TaxeringDirekt
         {
             if ((endpointConfiguration == EndpointConfiguration.TaxeringSoapBinding))
             {
-                return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/taxering/v1.7");
+                return new System.ServiceModel.EndpointAddress("https://api.lantmateriet.se/distribution/produkter/taxering/v1.7");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

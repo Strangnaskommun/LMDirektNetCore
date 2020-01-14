@@ -11,13 +11,7 @@ namespace Fastighetsrapport.Network
         /// </summary>
         /// <param name="uri"></param>
         /// <returns></returns>
-        private static CredentialCache GetCredentials(Uri uri)
-        {
-            CredentialCache credentialCache = new CredentialCache();
-            credentialCache.Add(uri, "Basic", new NetworkCredential(Creds.UserName, Creds.Password));
-            return credentialCache;
-        }
-
+        
         /// <summary>
         /// Make HTTP GET Request given to URL.
         /// </summary>
@@ -26,18 +20,13 @@ namespace Fastighetsrapport.Network
         public static string Get(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            var credentials = GetCredentials(new Uri(url));
-            if (credentials != null)
-            {
-                request.Credentials = credentials;
-                request.PreAuthenticate = true;
-            }
-
+            
             request.Accept = "application/xml";
             request.Method = "GET";
             request.ContentType = "application/xml; charset=utf-8";
+            request.Headers.Add("Authorization", "Bearer " + StringToken);
 
-            using (WebResponse response = request.GetResponse())
+      using (WebResponse response = request.GetResponse())
             {
                 using (StreamReader reader = new StreamReader(response.GetResponseStream()))
                 {

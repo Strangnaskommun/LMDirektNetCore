@@ -18,7 +18,7 @@ namespace Fastighetsrapport.Contracts
       //
       // 12345678-1234-1234-1234-123456789012?includeData=total&srid=3006
       //
-      string url = "https://services.lantmateriet.se/distribution/produkter/belagenhetsadress/v4.1/registerenhet/";
+      string url = "https://api.lantmateriet.se/distribution/produkter/belagenhetsadress/v4.1/registerenhet/";
       url += id + "?includeData=total";
 
       string xmlString = Network.Request.Get(url);
