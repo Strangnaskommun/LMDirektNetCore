@@ -15,7 +15,7 @@ namespace Fastighetsrapport.Contracts
     /// <returns>JSON-data</returns>
     public IEnumerable<RegisterenhetMemberType> GetFastigheterData(string objektid)
     {
-      string url = "https://services.lantmateriet.se/distribution/produkter/fastighet/v2.1/";
+      string url = "https://api.lantmateriet.se/distribution/produkter/fastighet/v2.1/";
       url += objektid + "?includeData=total";
 
       string xmlString = Network.Request.Get(url);

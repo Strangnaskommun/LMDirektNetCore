@@ -5750,7 +5750,7 @@ namespace LM.InskrivningDirekt
     {
       if ((endpointConfiguration == EndpointConfiguration.InskrivningSoapBinding))
       {
-        return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/inskrivning/v2.1");
+        return new System.ServiceModel.EndpointAddress("https://api.lantmateriet.se/distribution/produkter/inskrivning/v2.1");
       }
       throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
     }

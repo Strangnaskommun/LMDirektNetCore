@@ -3406,7 +3406,7 @@ namespace LM.GADirekt
         {
             if ((endpointConfiguration == EndpointConfiguration.GemensamhetsanlaggningSoapBinding))
             {
-                return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/gemensamhetsanlaggning/v1" +
+                return new System.ServiceModel.EndpointAddress("https://api.lantmateriet.se/distribution/produkter/gemensamhetsanlaggning/v1" +
                         ".7");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));

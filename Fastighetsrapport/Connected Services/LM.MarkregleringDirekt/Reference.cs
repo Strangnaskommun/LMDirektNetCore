@@ -3824,7 +3824,7 @@ namespace LM.MarkregleringDirekt
         {
             if ((endpointConfiguration == EndpointConfiguration.MarkregleringSoapBinding))
             {
-                return new System.ServiceModel.EndpointAddress("https://services.lantmateriet.se/distribution/produkter/markreglering/v1.5");
+                return new System.ServiceModel.EndpointAddress("https://api.lantmateriet.se/distribution/produkter/markreglering/v1.5");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

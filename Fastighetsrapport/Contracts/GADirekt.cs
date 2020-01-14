@@ -19,14 +19,13 @@ namespace Fastighetsrapport.Contracts
     public IEnumerable<GemensamhetsanlaggningMemberType> GetGemensamhetsData(string objektid)
     {
       GemensamhetsanlaggningPortTypeClient client = new GemensamhetsanlaggningPortTypeClient();
-      client.ClientCredentials.UserName.UserName = Creds.UserName;
-      client.ClientCredentials.UserName.Password = Creds.Password;
-      using (OperationContextScope scope = new OperationContextScope(client.InnerChannel))
+     using (OperationContextScope scope = new OperationContextScope(client.InnerChannel))
       {
         HttpRequestMessageProperty httpRequestProperty = new HttpRequestMessageProperty();
-        httpRequestProperty.Headers[System.Net.HttpRequestHeader.Authorization] = "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes(client.ClientCredentials.UserName.UserName + ":" + client.ClientCredentials.UserName.Password));
-        OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestProperty;
 
+        httpRequestProperty.Headers.Add("Authorization", "Bearer " + StringToken);
+
+        OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestProperty;
         DelagandeRegisterenhetFilter filter = new DelagandeRegisterenhetFilter();
         filter.ItemElementName = ItemChoiceType.objektidentitet;
         filter.Item = objektid;

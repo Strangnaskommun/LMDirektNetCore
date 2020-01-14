@@ -19,20 +19,22 @@ namespace Fastighetsrapport.Contracts
     public IEnumerable<TaxeringsenhetMemberType> GetTaxeringsenhetData(string objektid)
     {
       TaxeringPortTypeClient client = new TaxeringPortTypeClient();
-      client.ClientCredentials.UserName.UserName = Creds.UserName;
-      client.ClientCredentials.UserName.Password = Creds.Password;
 
       using (OperationContextScope scope = new OperationContextScope(client.InnerChannel))
       {
         HttpRequestMessageProperty httpRequestProperty = new HttpRequestMessageProperty();
-        httpRequestProperty.Headers[System.Net.HttpRequestHeader.Authorization] = "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes(client.ClientCredentials.UserName.UserName + ":" + client.ClientCredentials.UserName.Password));
+
+        httpRequestProperty.Headers.Add("Authorization", "Bearer " + StringToken);
+
         OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestProperty;
+
 
         FindTaxeringsenhetRequestType findRequest = new FindTaxeringsenhetRequestType();
         findRequest.ItemElementName = ItemChoiceType.registerenhet;
         findRequest.Item = objektid;
 
         TaxeringsenhetsreferensType[] taxeringsenheter = client.FindTaxeringsenhet(findRequest);
+
         List<TaxeringsenhetMemberType> taxeringsenheterna = new List<TaxeringsenhetMemberType>();
 
         taxeringsenheter.ToList().ForEach(taxeringsenhet =>
