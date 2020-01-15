@@ -22,7 +22,7 @@ Klient för hämtning av fastighetsinformation från Lantmäteriets Direkttjäns
 
 ### Autentiseringsuppgifter
 
-    Projekt/Network/Creds.cs
+    Ersätt StringToken med "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 ### Aktdirekt proxy url
 
