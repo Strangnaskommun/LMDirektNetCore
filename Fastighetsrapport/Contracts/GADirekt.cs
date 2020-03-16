@@ -23,7 +23,7 @@ namespace Fastighetsrapport.Contracts
       {
         HttpRequestMessageProperty httpRequestProperty = new HttpRequestMessageProperty();
 
-        httpRequestProperty.Headers.Add("Authorization", "Bearer " + StringToken);
+        httpRequestProperty.Headers.Add("Authorization", "Bearer " + "StringToken");
 
         OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestProperty;
         DelagandeRegisterenhetFilter filter = new DelagandeRegisterenhetFilter();
