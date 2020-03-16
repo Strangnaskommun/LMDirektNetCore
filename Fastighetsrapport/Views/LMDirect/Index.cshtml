@@ -1,11 +1,12 @@
 ﻿@using LM.InskrivningDirekt;
 @using LM.MarkregleringDirekt;
 @using LM.RattighetDirekt;
-@using LM.TaxeringDirekt;
 @using LM.GADirekt;
 @using Fastighetsrapport.Util;
 @using Fastighetsrapport.Models.Belagenhetsadress;
 @using Fastighetsrapport.Models.Fastigheter;
+@using Fastighetsrapport.Models.TaxeringV2;
+
 
 
 @model List<Fastighetsrapport.Models.PropertyInfo>
@@ -996,13 +997,6 @@
                 {
                   foreach (InskrivetAgandeType lagfart in inskrivningsinformation.Agande)
                   {
-                    @*if (lagfart.Agare.efternamn != null)
-                    {
-                      if (lagfart.Agare.efternamn.Contains("SKYDDAD PERSONUPPGIFT"))
-                      {
-                        <p>@lagfart.Agare.efternamn</p>
-                      }
-                    }*@
                     if (lagfart.Agare.Item != null)
                     {
                       <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
@@ -1460,6 +1454,40 @@
                   }
                 }
               </div>
+
+              <h3>Inteckningar</h3>
+              <div class="group">
+                @if (inskrivningsinformation.Belastar != null)
+                {
+                  foreach (BelastarType belastar in inskrivningsinformation.Belastar)
+                  {
+                    if (belastar.Item != null)
+                    {
+                      <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
+                        <thead>
+                          <tr>
+                            <th>Inskrivningsdag</th>
+                            <td class="col-md-8">@belastar.Item.inskrivningsdag</td>
+                          </tr>
+                          <tr>
+                            <th>Pantbrevstyp</th>
+                            <td class="col-md-8">@belastar.Item.pantbrevstyp</td>
+                          </tr>
+                          <tr>
+                            <th>Belopp</th>
+                            <td class="col-md-8">@belastar.Item.Belopp.summa @belastar.Item.Belopp.valuta</td>
+                          </tr>
+                          <tr>
+                            <th>Beslut</th>
+                            <td class="col-md-8">@belastar.Item.beslut</td>
+                          </tr>
+                        </thead>
+                      </table>
+                    }
+                  }
+                }
+              </div>
+
             </div>
           }
 

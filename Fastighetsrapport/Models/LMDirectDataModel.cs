@@ -3,9 +3,10 @@ using LM.GADirekt;
 using LM.InskrivningDirekt;
 using LM.MarkregleringDirekt;
 using LM.RattighetDirekt;
-using LM.TaxeringDirekt;
 using Fastighetsrapport.Models.Belagenhetsadress;
 using Fastighetsrapport.Models.Fastigheter;
+using Fastighetsrapport.Models.TaxeringV2;
+
 using System.Collections.Generic;
 
 namespace Fastighetsrapport.Models
@@ -96,7 +97,7 @@ namespace Fastighetsrapport.Models
         /// <returns></returns>
         public static IEnumerable<TaxeringsenhetMemberType> GetTaxationData(string objektid)
         {
-            TaxeringDirekt taxeringDirekt = new TaxeringDirekt();
+            TaxeringDirektV2 taxeringDirekt = new TaxeringDirektV2();
             return taxeringDirekt.GetTaxeringsenhetData(objektid);
         }
 
