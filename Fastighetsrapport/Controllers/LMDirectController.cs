@@ -45,14 +45,22 @@ namespace Fastighetsrapport.Controllers
       {
         data.GAinformation = LMDirectDataModel.GetCommonfacilitiesData(objektid);
       }));
+      tasks.Add(Task.Factory.StartNew(() =>
+      {
+        data.Adresser = LMDirectDataModel.GetBelagenhetsAddressData(objektid);
+      }));
+      tasks.Add(Task.Factory.StartNew(() =>
+      {
+        data.Registerenhet = LMDirectDataModel.GetFastigheterData(objektid);
+      }));
+      tasks.Add(Task.Factory.StartNew(() =>
+      {
+        data.Taxeringsenheter = LMDirectDataModel.GetTaxationData(objektid);
+      }));
 
       data.ExportItems = categories;
 
       Task.Factory.ContinueWhenAll(tasks.ToArray(), results => { }).Wait();
-
-      data.Adresser = LMDirectDataModel.GetBelagenhetsAddressData(objektid);
-      data.Registerenhet = LMDirectDataModel.GetFastigheterData(objektid);
-      data.Taxeringsenheter = LMDirectDataModel.GetTaxationData(objektid);
 
       return data;
     }

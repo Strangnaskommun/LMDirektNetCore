@@ -29,15 +29,15 @@
         <h4 style="text-align:center" class="modal-title">Fastighetsrapport &nbsp<i class="fa fa-info-circle"></i></h4>
       </div>
       <div class="modal-body">
-        <p>Denna applikation hämtar data direkt från Lantmäteriverket som har till uppgift att hålla informationen uppdaterad. Viss information kommer från andra myndigheter men publiceras dock genom dessa tjänster. Strängnäs kommun levererar bland annat byggnader och adresser till myndigheten.<br />För att kunna öppna dokument från Lantmäteriets arkiv, Arken, behöver du installera programmet "DjVu". Du hittar programmet i Software Center på din dator eller <a href="https://www.lantmateriet.se/sv/Om-Lantmateriet/Kontakta-oss/om-webbplatsen/tekniska-fragor/Installera-DjVu-bildvisningsprogrammet/"> här</a>. Programmet fungerar endast i webbläsaren Internet Explorer.<br /><br />Nedan finns detaljerade specifikationer om direkttjänsterna för vidare läsning.</p>
+        <p>Denna applikation hämtar data direkt från Lantmäteriverket som har till uppgift att hålla informationen uppdaterad. Viss information kommer från andra myndigheter men publiceras dock genom dessa tjänster. Strängnäs kommun levererar bland annat byggnader och adresser till myndigheten.<br />För att kunna öppna dokument från Lantmäteriets arkiv, Arken, behöver du installera programmet "DjVu". Du hittar programmet i Software Center på din dator eller <a href="https://www.lantmateriet.se/sv/Om-Lantmateriet/Kontakta-oss/om-webbplatsen/tekniska-fragor/Installera-DjVu-bildvisningsprogrammet/"> här</a>. Programmet fungerar i webbläsaren Internet Explorer samt Edge.<br /><br />Nedan finns detaljerade specifikationer om direkttjänsterna för vidare läsning.</p>
         <br />
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_belagenhetsadress_direkt_4.1.0_2.5.pdf">Belägenhetsadress Direkt</a></li>
           <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_fastighet_direkt_v2.1.0_2.1.pdf">Fastighet Direkt</a></li>
-          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/contentassets/2b10b863e2794cdfa44fdf6b84a1fc2f/pb_ga_direkt_v1.6.0.pdf">Gemensamhetsanläggning Direkt</a></li>
-          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/contentassets/e6e6a4332f8c4de292ff5313b3d1653b/pb_inskrivning_dir_v2.1.1_3.2.pdf">Inskrivning Direkt</a></li>
-          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/contentassets/0e03e599921843529d5b33e4250881af/pb_markreglering_direkt_v1.4.1_1.6.pdf">Markreglering Direkt</a></li>
-          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/tb_rattighetdirekt_v1.4.2.pdf">Rättighet Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_ga_direkt_v.1.7.0_1.6.pdf">Gemensamhetsanläggning Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/tb_inskrivningdirekt_v2.1.1.pdf">Inskrivning Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_markreglering_direkt_v1.5.0_1.7.pdf">Markreglering Direkt</a></li>
+          <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_rattighet_direkt_1.4.3_1.7.pdf">Rättighet Direkt</a></li>
           <li class="list-group-item"><a target="_blank" href="https://www.lantmateriet.se/globalassets/kartor-och-geografisk-information/geodatatjanster/pb_taxering_direkt_1.7.0_1.11.pdf">Taxering Direkt</a></li>
         </ul>
       </div>
@@ -53,7 +53,7 @@
   {
     string beteckning = "";
     string aktdirektproxybase = "/service/document/index.djvu?archive=04&id=";
-    string fornsok = "www.fmis.raa.se/cocoon/fornsok/search.html?raa_number=asp%C3%B6%207:1&use_extent=false&use_poly=false&rdo=eq&tab=3&page=1&objektid=10";
+    string fornsok = "app.raa.se/open/fornsok/lamning/";
     string fastlank = "/fastighetsrapport/lmdirect?objektids=";
 
     if (fastighetsdata.Registerenhet != null)
@@ -794,8 +794,7 @@
 
                   string url = aktdirektproxybase + markreglering.Item.Item.aktbeteckning;
 
-                  string urlfornsok = fornsok + markreglering.Item.Item.aktbeteckning;
-                  urlfornsok = urlfornsok.Replace(":", "");
+                  string urlfornsok = fornsok + markreglering.Item.objektidentitet;
 
                   <table class="table table-sm table-striped table-bordered" id="fastighetsrapport">
                     <thead>
